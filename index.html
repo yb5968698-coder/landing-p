@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "y3jwqu5lg0");
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Hub Premium | Enhanced Experiences</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- jQuery required for AdBlueMedia JSONP API calls -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style>
+:root {
+  --primary: #9333ea;
+  --primary-hover: #7e22ce;
+  --secondary: #0891b2;
+  --bg-light: #f8fafc;
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.08);
+  --text-main: #0f172a;
+  --text-dim: #64748b;
+  --accent-gradient: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+  --glow-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background-color: var(--bg-light);
+  background-image:
+    radial-gradient(circle at 15% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(8, 145, 178, 0.05) 0%, transparent 40%);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.top-bar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--card-border);
+  padding: 12px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+.top-bar-flex {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.online-status { display: flex; align-items: center; gap: 8px; color: #059669; }
+.dot {
+  width: 8px; height: 8px; background: #10b981;
+  border-radius: 50%; box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  animation: pulse 2s infinite ease-in-out;
+}
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+.dl-count { color: var(--text-dim); display: flex; align-items: center; gap: 6px; }
+
+.container { max-width: 1150px; margin: 0 auto; padding: 50px 20px; }
+header { text-align: center; margin-bottom: 40px; animation: fadeInDown 0.8s ease-out; }
+h1 {
+  font-size: 3.5rem; font-weight: 800;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+}
+
+.trending-section {
+  max-width: 550px;
+  margin: 0 auto 30px auto;
+  animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+.trending-header {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.trending-track {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 15px;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  cursor: grab;
+}
+.trending-track::-webkit-scrollbar { display: none; }
+.trending-track:active { cursor: grabbing; }
+
+.trending-item {
+  flex-shrink: 0;
+  width: 75px;
+  height: 75px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  background: var(--card-bg);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  cursor: pointer;
+}
+.trending-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+.trending-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 8px 20px rgba(147, 51, 234, 0.2);
+}
+
+.search-wrapper {
+  max-width: 520px;
+  width: 92%;
+  margin: 0 auto 45px auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--card-bg);
+  padding: 6px 6px 6px 20px;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+.search-wrapper:focus-within {
+  border-color: rgba(147, 51, 234, 0.2);
+  box-shadow: 0 15px 35px rgba(147, 51, 234, 0.12);
+  transform: translateY(-2px);
+}
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-main);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 0;
+}
+.search-input::placeholder { color: #94a3b8; font-weight: 400; }
+
+.search-btn {
+  background: var(--accent-gradient);
+  color: #ffffff;
+  border: none;
+  outline: none;
+  padding: 12px 26px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.2);
+}
+.search-btn:hover {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  box-shadow: 0 6px 18px rgba(147, 51, 234, 0.35);
+  transform: scale(1.02);
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.game-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 28px;
+  padding: 28px 24px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  animation: fadeInUp 0.6s ease-out both;
+}
+.game-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(147, 51, 234, 0.3);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08), var(--glow-shadow);
+}
+.hot-badge {
+  position: absolute; top: 18px; right: 18px;
+  background: linear-gradient(135deg, #f43f5e, #ef4444);
+  color: white; font-size: 11px; font-weight: 800;
+  padding: 5px 12px; border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3);
+  display: flex; align-items: center; gap: 5px;
+  z-index: 5;
+}
+.img-container {
+  width: 100px; height: 100px;
+  border-radius: 24px; margin-bottom: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  overflow: hidden; position: relative;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.game-card:hover .img-container img { transform: scale(1.1); }
+
+.game-title { font-size: 1.25rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px;}
+.game-desc { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 24px; flex-grow: 1; line-height: 1.5; }
+
+.dl-btn {
+  width: 100%; padding: 14px; border-radius: 16px;
+  background: #f1f5f9; color: var(--text-main);
+  border: 1px solid rgba(0,0,0,0.05); font-weight: 700;
+  font-size: 0.95rem; cursor: pointer; transition: all 0.3s;
+}
+.game-card:hover .dl-btn {
+  background: var(--accent-gradient);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 5px 15px rgba(147, 51, 234, 0.3);
+}
+
+.modal {
+  display: none; position: fixed; inset: 0;
+  background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(8px);
+  z-index: 1000; align-items: center; justify-content: center; padding: 20px;
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.modal.show { opacity: 1; display: flex; }
+
+.modal-content {
+  background: #ffffff; width: 100%; max-width: 420px;
+  border-radius: 32px; padding: 40px; text-align: center;
+  border: 1px solid rgba(147, 51, 234, 0.2);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+  position: relative;
+  transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.modal.show .modal-content { transform: scale(1); }
+
+.close-modal {
+  position: absolute; top: 20px; right: 24px;
+  color: var(--text-dim); cursor: pointer; font-size: 1.8rem;
+  transition: 0.3s; line-height: 1;
+}
+.close-modal:hover { color: var(--text-main); transform: rotate(90deg); }
+
+.store-btn {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: var(--accent-gradient); border: none;
+  padding: 16px 20px; border-radius: 20px; color: #ffffff;
+  text-decoration: none; margin-bottom: 16px; transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(147, 51, 234, 0.3); cursor: pointer;
+  width: 100%;
+}
+.store-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(147, 51, 234, 0.4);
+}
+
+.loading-wrap { display: none; flex-direction: column; align-items: center; }
+.spinner {
+  width: 50px; height: 50px;
+  border: 4px solid #f1f5f9;
+  border-top: 4px solid var(--primary);
+  border-right: 4px solid var(--secondary);
+  border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px;
+}
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+.progress-bar-container {
+  width: 100%; height: 6px; background: #e2e8f0;
+  border-radius: 10px; margin-top: 15px; overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%; background: var(--accent-gradient);
+  width: 0%; transition: width 0.2s ease;
+}
+.verify-box { display: none; animation: fadeInUp 0.5s ease; }
+
+.offer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
+  text-align: left;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 4px;
+  padding-top: 10px;
+}
+.offer-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8fafc;
+  border: 1px solid rgba(147, 51, 234, 0.15);
+  padding: 14px 16px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--text-main);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+.offer-item:hover {
+  border-color: var(--primary);
+  background: rgba(147, 51, 234, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(147, 51, 234, 0.12);
+}
+.offer-info { display: flex; align-items: center; gap: 12px; flex: 1; }
+.offer-icon {
+  width: 38px; height: 38px;
+  background: var(--accent-gradient); color: white;
+  border-radius: 12px; display: flex; align-items: center;
+  justify-content: center; font-size: 1.1rem; flex-shrink: 0;
+  overflow: hidden;
+}
+.offer-text { display: flex; flex-direction: column; }
+.offer-anchor { font-weight: 700; font-size: 0.92rem; color: var(--text-main); line-height: 1.3; }
+.offer-subtext { font-size: 0.75rem; color: var(--text-dim); margin-top: 2px; }
+.offer-btn-tag {
+  background: linear-gradient(180deg, #2bb7eb 0%, #0f6bbd 100%);
+  color: #ffffff;
+  padding: 7px 16px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(15, 107, 189, 0.35), inset 0 2px 0 rgba(255, 255, 255, 0.4);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+}
+.offer-btn-tag:hover {
+  background: linear-gradient(180deg, #3dd2ff 0%, #137ad6 100%);
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(15, 107, 189, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.6);
+}
+
+.rec-badge {
+  position: absolute;
+  top: -10px;
+  right: 12px;
+  z-index: 10;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  font-size: 0.62rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.4);
+  white-space: nowrap;
+  border: 1px solid #ffffff;
+}
+
+.lead-checker-status {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  font-size: 0.82rem; color: var(--text-dim); font-weight: 600;
+  margin-top: 15px; padding: 10px;
+  background: rgba(16, 185, 129, 0.08); border-radius: 12px;
+  border: 1px dashed rgba(16, 185, 129, 0.3);
+}
+.lead-dot {
+  width: 8px; height: 8px; background: #10b981;
+  border-radius: 50%; animation: pulse 1.5s infinite;
+}
+.unlock-success-msg {
+  background: #ecfdf5; border: 1px solid #10b981; color: #047857;
+  padding: 16px; border-radius: 16px; font-weight: 700; margin-top: 15px;
+  display: none;
+}
+
+.simple-footer {
+  margin-top: 60px; padding: 30px 20px;
+  border-top: 1px solid var(--card-border); text-align: center;
+}
+.footer-secure {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  color: #059669; font-size: 0.9rem; font-weight: 700; margin-bottom: 12px;
+}
+.copyright { font-size: 0.8rem; color: var(--text-dim); letter-spacing: 1px; font-weight: 500;}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 2.5rem; }
+  .game-grid { gap: 12px; }
+  .game-card { padding: 15px 10px; border-radius: 18px; }
+  .img-container { width: 70px; height: 70px; margin-bottom: 12px; }
+  .game-title { font-size: 0.95rem; margin-bottom: 5px; }
+  .game-desc { font-size: 0.7rem; margin-bottom: 12px; line-height: 1.4; }
+  .dl-btn { padding: 8px; font-size: 0.8rem; border-radius: 12px; }
+  .hot-badge { top: 10px; right: 10px; padding: 4px 8px; font-size: 9px; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-bar-flex">
+    <div class="online-status"><span class="dot"></span> <span id="user-count">2841</span> Online</div>
+    <div class="dl-count"><i class="fas fa-cloud-download-alt"></i> 1.2M Downloads</div>
+  </div>
+</div>
+
+<div class="container">
+  <header>
+    <h1>Game Hub</h1>
+    <p style="color: var(--text-dim); font-size: 1.1rem; margin-top: 8px; font-weight: 500;">Exclusive Enhanced Experiences</p>
+  </header>
+
+  <div class="trending-section">
+    <div class="trending-header">
+      <i class="fas fa-fire" style="color: #f43f5e; text-shadow: 0 0 10px rgba(244,63,94,0.3);"></i>
+      Trending Now
+    </div>
+    <div class="trending-track" id="trendingTrack">
+      <div class="trending-item" data-target="pokemongospoofer-modal"><img src="https://i.postimg.cc/yYkS2ZMt/gps-enabled-pokemon-go-app-announced-1441869413018.webp" alt="Pokémon GO Spoofer"></div>
+      <div class="trending-item" data-target="mechachameleon-modal"><img src="https://i.postimg.cc/28BQMY0D/Picsart-26-06-21-19-55-53-696.jpg" alt="Mecha Chameleon Mobile"></div>
+      <div class="trending-item" data-target="toca-modal"><img src="https://i.postimg.cc/zvJPrTvd/Picsart-26-07-06-01-57-52-496.jpg" alt="Toca Boca"></div>
+      <div class="trending-item" data-target="tiktok-modal"><img src="https://i.postimg.cc/2SSZWQBB/Picsart-26-05-24-23-32-24-721.jpg" alt="TIKTOK +"></div>
+      <div class="trending-item" data-target="melonsandbox-modal"><img src="https://i.postimg.cc/Y0PJR2cg/unnamed-(4).png" alt="Melon Sandbox"></div>
+      <div class="trending-item" data-target="skate-modal"><img src="https://i.postimg.cc/7h9FL70q/Picsart-25-11-02-02-08-20-086.jpg" alt="Skate Mobile"></div>
+      <div class="trending-item" data-target="avatar-modal"><img src="https://i.postimg.cc/PxRdcWTk/Picsart-26-05-20-13-22-13-272.jpg" alt="Avatar World"></div>
+      <div class="trending-item" data-target="nfl-modal"><img src="https://i.postimg.cc/yxxyrR11/poppy-playtime-chapter-5-hgrz.jpg" alt="POPPY 5 MOBILE"></div>
+      <div class="trending-item" data-target="tomodachi-modal"><img src="https://i.postimg.cc/MHStt2M6/Picsart-26-06-03-02-23-04-861.png" alt="TOMODACHI LIFE"></div>
+      <div class="trending-item" data-target="thespike-modal"><img src="https://i.postimg.cc/CLtXvdpc/Picsart-26-06-05-16-21-31-177.jpg" alt="THE SPIKE"></div>
+    </div>
+  </div>
+
+  <div class="search-wrapper">
+    <input type="text" class="search-input" id="gameSearch" placeholder="Search for your game...">
+    <button class="search-btn" type="button" aria-label="Search">
+      <i class="fas fa-search"></i>
+      <span>Search</span>
+    </button>
+  </div>
+
+  <div class="game-grid" id="gameGrid">
+
+    <div class="game-card">
+      <div class="hot-badge"><i class="fas fa-fire"></i> HOT</div>
+      <div class="img-container"><img src="https://i.postimg.cc/yYkS2ZMt/gps-enabled-pokemon-go-app-announced-1441869413018.webp" alt="Pokémon GO Spoofer"></div>
+      <div class="game-title">Pokémon GO Spoofer</div>
+      <p class="game-desc">Unlock GPS spoofing, joystick navigation, auto-walk, and teleporting features worldwide.</p>
+      <button class="dl-btn" data-target="pokemongospoofer-modal">Download Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="hot-badge"><i class="fas fa-fire"></i> HOT</div>
+      <div class="img-container"><img src="https://i.postimg.cc/28BQMY0D/Picsart-26-06-21-19-55-53-696.jpg" alt="Mecha Chameleon Mobile"></div>
+      <div class="game-title">Mecha Chameleon Mobile</div>
+      <p class="game-desc">Experience action-packed gameplay with unique chameleon abilities and full high-end optimizations.</p>
+      <button class="dl-btn" data-target="mechachameleon-modal">Download Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="hot-badge"><i class="fas fa-fire"></i> HOT</div>
+      <div class="img-container"><img src="https://i.postimg.cc/bJ5Gv4vj/file-000000003e848243834f990ce90cff43.png" alt="FC 27 Beta"></div>
+      <div class="game-title">FC 27 Beta</div>
+      <p class="game-desc">Get early beta access to FC 27 with updated rosters, enhanced physics, and new gameplay features.</p>
+      <button class="dl-btn" data-target="fc27beta-modal">Download Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="hot-badge"><i class="fas fa-fire"></i> HOT</div>
+      <div class="img-container"><img src="https://i.postimg.cc/fLxmP0Sp/file-000000008760822faff19469efdca829.png" alt="EA SPORTS™ College Football Mobile 27"></div>
+      <div class="game-title">EA SPORTS™ College Football Mobile 27</div>
+      <p class="game-desc">Experience authentic college football action with top teams, dynamic playbooks, and high-energy gameplay.</p>
+      <button class="dl-btn" data-target="collegefootball27-modal">Download Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="hot-badge"><i class="fas fa-fire"></i> HOT</div>
+      <div class="img-container"><img src="https://i.postimg.cc/653ZcsbL/file-000000004d9481f48439276382fc7888.png" alt="NFL 27"></div>
+      <div class="game-title">NFL 27</div>
+      <p class="game-desc">Experience the ultimate next-gen football simulation directly on your mobile device.</p>
+      <button class="dl-btn" data-target="nfl27-modal">Download Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="hot-badge"><i class="fas fa-fire"></i> HOT</div>
+      <div class="img-container"><img src="https://i.postimg.cc/ncJkg79T/Picsart-26-07-29-22-10-48-537.jpg" alt="GTA VI MOBILE"></div>
+      <div class="game-title">GTA VI MOBILE</div>
+      <p class="game-desc">Experience the next generation of open-world gaming directly on your mobile device.</p>
+      <button class="dl-btn" data-target="gta6-modal">Download Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="hot-badge"><i class="fas fa-fire"></i> HOT</div>
+      <div class="img-container"><img src="https://i.postimg.cc/0jdQTxz6/31HSLPQra-JL.jpg" alt="Roblox Beta"></div>
+      <div class="game-title">Roblox Beta</div>
+      <p class="game-desc">Experience the latest unreleased features, advanced creator tools, and experimental gameplay.</p>
+      <button class="dl-btn" data-target="robloxbeta-modal">Download Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="hot-badge"><i class="fas fa-fire"></i> HOT</div>
+      <div class="img-container"><img src="https://i.postimg.cc/mkBvqVsP/unnamed-(5).png" alt="Super bear adventure"></div>
+      <div class="game-title">Super bear adventure</div>
+      <p class="game-desc">Enjoy full access to premium levels, unique open-world customization and unlocked features.</p>
+      <button class="dl-btn" data-target="superbear-modal">Download Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="hot-badge"><i class="fas fa-fire"></i> HOT</div>
+      <div class="img-container"><img src="https://i.postimg.cc/zvJPrTvd/Picsart-26-07-06-01-57-52-496.jpg" alt="Toca Boca"></div>
+      <div class="game-title">Toca Boca World</div>
+      <p class="game-desc">Explore the full neighborhood with complete character and furniture sets.</p>
+      <button class="dl-btn" data-target="toca-modal">Download Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="hot-badge"><i class="fas fa-fire"></i> HOT</div>
+      <div class="img-container"><img src="https://i.postimg.cc/1RKXHLYg/Picsart-26-06-08-13-57-14-165.jpg" alt="Slay The Spire 2"></div>
+      <div class="game-title">Slay The Spire 2</div>
+      <p class="game-desc">Exclusive Mobile Edition Available. Experience the ultimate deckbuilder on your phone!</p>
+      <button class="dl-btn" data-target="slaythespire2-modal">Download Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="hot-badge"><i class="fas fa-fire"></i> HOT</div>
+      <div class="img-container"><img src="https://i.postimg.cc/MHStt2M6/Picsart-26-06-03-02-23-04-861.png" alt="TOMODACHI LIFE"></div>
+      <div class="game-title">TOMODACHI LIFE</div>
+      <p class="game-desc">Complete Mobile Edition with expanded in-game resources.</p>
+      <button class="dl-btn" data-target="tomodachi-modal">Download Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="hot-badge"><i class="fas fa-fire"></i> HOT</div>
+      <div class="img-container"><img src="https://i.postimg.cc/CLtXvdpc/Picsart-26-06-05-16-21-31-177.jpg" alt="THE SPIKE VOLLEYBALL"></div>
+      <div class="game-title">THE SPIKE</div>
+      <p class="game-desc">Access top-tier rosters, exclusive gear & optimized performance.</p>
+      <button class="dl-btn" data-target="thespike-modal">Download Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="hot-badge"><i class="fas fa-fire"></i> HOT</div>
+      <div class="img-container"><img src="https://i.postimg.cc/Y0PJR2cg/unnamed-(4).png" alt="Melon Sandbox"></div>
+      <div class="game-title">Melon Sandbox</div>
+      <p class="game-desc">Advanced Creative Mode! Discover hidden elements and expansive building tools.</p>
+      <button class="dl-btn" data-target="melonsandbox-modal">Download Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="hot-badge"><i class="fas fa-fire"></i> HOT</div>
+      <div class="img-container"><img src="https://i.postimg.cc/2SSZWQBB/Picsart-26-05-24-23-32-24-721.jpg" alt="TIKTOK +"></div>
+      <div class="game-title">TIKTOK +</div>
+      <p class="game-desc">Experience extended features and advanced creator tools.</p>
+      <button class="dl-btn" data-target="tiktok-modal">Download Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="hot-badge"><i class="fas fa-fire"></i> HOT</div>
+      <div class="img-container"><img src="https://i.postimg.cc/PxRdcWTk/Picsart-26-05-20-13-22-13-272.jpg" alt="Avatar World"></div>
+      <div class="game-title">Avatar World</div>
+      <p class="game-desc">Access the complete collection of packs, items, and exclusive outfits.</p>
+      <button class="dl-btn" data-target="avatar-modal">Download Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="hot-badge"><i class="fas fa-fire"></i> HOT</div>
+      <div class="img-container"><img src="https://i.postimg.cc/yxxyrR11/poppy-playtime-chapter-5-hgrz.jpg" alt="POPPY 5 MOBILE"></div>
+      <div class="game-title">POPPY 5 MOBILE</div>
+      <p class="game-desc">Complete Story Edition. Experience the adventure fully.</p>
+      <button class="dl-btn" data-target="nfl-modal">Download Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="hot-badge"><i class="fas fa-fire"></i> HOT</div>
+      <div class="img-container"><img src="https://i.postimg.cc/SQ11x528/Picsart-25-12-03-13-14-27-149.jpg" alt="RDR Mobile"></div>
+      <div class="game-title">RDR Mobile</div>
+      <p class="game-desc">Complete Story Edition with abundant in-game resources.</p>
+      <button class="dl-btn" data-target="rdr-modal">Download Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="img-container"><img src="https://i.postimg.cc/7h9FL70q/Picsart-25-11-02-02-08-20-086.jpg" alt="Skate Mobile"></div>
+      <div class="game-title">Skate Mobile</div>
+      <p class="game-desc">Full access to all skate parks and exclusive gear.</p>
+      <button class="dl-btn" data-target="skate-modal">Download Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="img-container"><img src="https://i.postimg.cc/fb190yXN/Picsart-25-11-03-23-29-57-428.jpg" alt="Mavrix"></div>
+      <div class="game-title">Mavrix Mobile</div>
+      <p class="game-desc">Access the complete vehicle roster with extended boost capabilities.</p>
+      <button class="dl-btn" data-target="mavrix-modal">Download Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="img-container"><img src="https://i.postimg.cc/NMYCrFQW/Picsart-25-11-02-02-10-45-491.jpg" alt="BMX Streets"></div>
+      <div class="game-title">BMX Streets</div>
+      <p class="game-desc">Full Bike Customization and extended Global Map Access.</p>
+      <button class="dl-btn" data-target="bmx-modal">Download Now</button>
+    </div>
+
+    <div class="game-card">
+      <div class="hot-badge"><i class="fas fa-fire"></i> HOT</div>
+      <div class="img-container"><img src="https://i.postimg.cc/Qty7YY5t/roblox-lite-apk-(1).webp" alt="Roblox Lite +"></div>
+      <div class="game-title">Roblox Lite +</div>
+      <p class="game-desc">Optimized Lite Edition! Enjoy enhanced features and advanced customization options seamlessly.</p>
+      <button class="dl-btn" data-target="roblox-modal">Download Now</button>
+    </div>
+
+  </div>
+</div>
+
+<footer class="simple-footer">
+  <div class="footer-secure">
+    <i class="fas fa-shield-check"></i>
+    <span>Verified Secure & Protected Connection</span>
+  </div>
+  <div class="copyright">© 2026 GAME HUB PREMIUM. ALL RIGHTS RESERVED.</div>
+</footer>
+
+<div id="game-modal-overlay" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">×</span>
+
+    <!-- Step 1: Info & Continue -->
+    <div id="modal-info">
+      <h2 id="modal-title" style="margin-bottom: 10px; font-weight: 800; font-size: 1.8rem;">Game Name</h2>
+      <p id="modal-text" style="color: var(--text-dim); margin-bottom: 35px; font-size: 0.95rem;">Enhanced Package Available</p>
+
+      <button type="button" class="store-btn dl-trigger">
+        <span style="font-weight: 800; font-size: 1.1rem;">Continue</span>
+        <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+      </button>
+    </div>
+
+    <!-- Step 2: Loading State with Game Picture -->
+    <div class="loading-wrap">
+      <div style="width: 80px; height: 80px; border-radius: 20px; overflow: hidden; margin: 0 auto 15px auto; box-shadow: 0 8px 20px rgba(0,0,0,0.12); border: 2px solid rgba(147, 51, 234, 0.2);">
+        <img id="loading-game-img" src="" alt="Game Icon" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div class="spinner"></div>
+      <p style="font-size: 1rem; font-weight: 600; color: var(--text-main);">Connecting to Secure Server...</p>
+      <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 5px;">Progress: <span id="progress-text" style="color: var(--primary); font-weight: bold;">0%</span></p>
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- Step 3: Human Verification with Game Picture & Locker -->
+    <div class="verify-box">
+      <div style="width: 80px; height: 80px; border-radius: 20px; overflow: hidden; margin: 0 auto 15px auto; box-shadow: 0 8px 20px rgba(0,0,0,0.12); border: 2px solid rgba(147, 51, 234, 0.2);">
+        <img id="verify-game-img" src="" alt="Game Icon" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <h3 style="font-size: 1.5rem; margin-bottom: 8px; color: var(--text-main);">Final Step</h3>
+      <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 15px;">Complete 1 quick step below to unlock:</p>
+
+      <div style="background: linear-gradient(135deg, rgba(147, 51, 234, 0.08) 0%, rgba(8, 145, 178, 0.08) 100%); border: 1px solid rgba(147, 51, 234, 0.3); border-radius: 16px; padding: 12px 16px; margin-bottom: 18px; text-align: left; display: flex; align-items: center; gap: 12px; box-shadow: 0 4px 15px rgba(147, 51, 234, 0.08);">
+        <i class="fas fa-exclamation-circle" style="font-size: 1.5rem; color: var(--primary); flex-shrink: 0;"></i>
+        <div>
+          <strong style="color: var(--primary); display: block; font-size: 0.88rem; font-weight: 800; margin-bottom: 2px;">⚠️ IMPORTANT INSTRUCTION</strong>
+          <span style="font-size: 0.82rem; color: var(--text-main); font-weight: 600; line-height: 1.35; display: block;">Please read and follow the exact instructions listed on your selected offer to guarantee instant automatic verification.</span>
+        </div>
+      </div>
+
+      <div id="offerContainer">
+        <div class="offer-list">
+          <a href="#" class="offer-item demo-offer" target="_blank">
+            <span class="rec-badge"><i class="fas fa-thumbs-up" style="font-size: 0.6rem;"></i> RECOMMENDED</span>
+            <div class="offer-info">
+              <div class="offer-icon"><img src="https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg" alt="Offer Icon" style="width: 100%; height: 100%; object-fit: cover;"></div>
+              <div class="offer-text">
+                <span class="offer-anchor">Complete Quick Survey</span>
+                <span class="offer-subtext">Takes ~2 mins to unlock download</span>
+              </div>
+            </div>
+            <span class="offer-btn-tag">Start</span>
+          </a>
+          <a href="#" class="offer-item demo-offer" target="_blank">
+            <div class="offer-info">
+              <div class="offer-icon"><img src="https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg" alt="Offer Icon" style="width: 100%; height: 100%; object-fit: cover;"></div>
+              <div class="offer-text">
+                <span class="offer-anchor">Install & Run Free App</span>
+                <span class="offer-subtext">Run for 30 seconds to complete</span>
+              </div>
+            </div>
+            <span class="offer-btn-tag">Start</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="lead-checker-status">
+        <span class="lead-dot"></span>
+        <span>Waiting for offer completion... (Auto checking)</span>
+      </div>
+
+      <div class="unlock-success-msg" id="unlockSuccess">
+        <i class="fas fa-check-circle fa-2x" style="margin-bottom: 6px;"></i>
+        <div>Verification Successful! Unlocking your link...</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// 1. Search Functionality
+const gameSearch = document.getElementById('gameSearch');
+const cards = document.querySelectorAll('.game-card');
+gameSearch.addEventListener('input', (e) => {
+  const term = e.target.value.toLowerCase();
+  cards.forEach(card => {
+    const title = card.querySelector('.game-title').innerText.toLowerCase();
+    if (title.includes(term)) {
+      card.style.display = "flex";
+      card.style.animation = "fadeInUp 0.4s ease forwards";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
+
+// 2. Drag-to-Scroll for Trending Section
+const slider = document.getElementById('trendingTrack');
+let isDown = false;
+let isDragging = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener('mousedown', (e) => {
+  isDown = true;
+  isDragging = false;
+  slider.style.scrollBehavior = 'auto';
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener('mouseleave', () => {
+  isDown = false;
+  slider.style.scrollBehavior = 'smooth';
+});
+
+slider.addEventListener('mouseup', () => {
+  isDown = false;
+  slider.style.scrollBehavior = 'smooth';
+});
+
+slider.addEventListener('mousemove', (e) => {
+  if (!isDown) return;
+  isDragging = true;
+  e.preventDefault();
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX) * 2;
+  slider.scrollLeft = scrollLeft - walk;
+});
+
+// 3. Online Counter Simulation
+let currentOnline = 2841;
+setInterval(() => {
+  let change = Math.floor(Math.random() * 5) + 1;
+  Math.random() > 0.4 ? currentOnline += change : currentOnline -= change;
+  if (currentOnline < 2100) currentOnline = 2100;
+  document.getElementById('user-count').innerText = currentOnline.toLocaleString();
+}, 4000);
+
+// 4. Modal Data and Operations
+const modal = document.getElementById('game-modal-overlay');
+const closeBtn = document.querySelector('.close-modal');
+const dlTriggers = document.querySelectorAll('.dl-trigger');
+const modalInfo = document.getElementById('modal-info');
+const loadingWrap = document.querySelector('.loading-wrap');
+const verifyBox = document.querySelector('.verify-box');
+const progressText = document.getElementById('progress-text');
+const progressFill = document.getElementById('progress-fill');
+
+let activeGameTarget = null;
+
+const gameData = {
+  "pokemongospoofer-modal": { title: "Pokémon GO Spoofer", desc: "Unlock GPS spoofing, joystick navigation, auto-walk, and teleporting features worldwide.", redirectUrl: "https://www.pgsharp.com/", img: "https://i.postimg.cc/yYkS2ZMt/gps-enabled-pokemon-go-app-announced-1441869413018.webp" },
+  "fc27beta-modal": { title: "FC 27 Beta", desc: "Get early beta access to FC 27 with updated rosters, enhanced physics, and new gameplay features.", redirectUrl: "https://ea.com/games/ea-sports-fc", img: "https://i.postimg.cc/bJ5Gv4vj/file-000000003e848243834f990ce90cff43.png" },
+  "collegefootball27-modal": { title: "EA SPORTS™ College Football Mobile 27", desc: "Experience authentic college football action with top teams, dynamic playbooks, and high-energy gameplay.", redirectUrl: "https://ea.com/games/college-football", img: "https://i.postimg.cc/fLxmP0Sp/file-000000008760822faff19469efdca829.png" },
+  "gta6-modal": { title: "GTA VI MOBILE", desc: "Experience the next generation of open-world gaming directly on your mobile device.", redirectUrl: "https://rockstargames.com/VI", img: "https://i.postimg.cc/ncJkg79T/Picsart-26-07-29-22-10-48-537.jpg" },
+  "nfl27-modal": { title: "NFL 27", desc: "Experience the ultimate next-gen football simulation directly on your mobile device.", redirectUrl: "https://ea.com/games/madden-nfl", img: "https://i.postimg.cc/653ZcsbL/file-000000004d9481f48439276382fc7888.png" },
+  "robloxbeta-modal": { title: "Roblox Beta", desc: "Experience the latest unreleased features, advanced creator tools, and experimental gameplay.", redirectUrl: "https://www.roblox.com/", img: "https://i.postimg.cc/0jdQTxz6/31HSLPQra-JL.jpg" },
+  "superbear-modal": { title: "Super bear adventure", desc: "Enjoy full access to premium levels, unique open-world customization and unlocked features.", redirectUrl: "https://superbearadventure.com/", img: "https://i.postimg.cc/mkBvqVsP/unnamed-(5).png" },
+  "mechachameleon-modal": { title: "Mecha Chameleon Mobile", desc: "Experience action-packed gameplay with unique chameleon abilities and full high-end optimizations.", redirectUrl: "https://meccha-chameleon.en.divxland.org/", img: "https://i.postimg.cc/28BQMY0D/Picsart-26-06-21-19-55-53-696.jpg" },
+  "roblox-modal": { title: "Roblox Lite +", desc: "Optimized Lite Edition! Enjoy enhanced features and advanced customization options seamlessly.", redirectUrl: "https://www.roblox.com/", img: "https://i.postimg.cc/Qty7YY5t/roblox-lite-apk-(1).webp" },
+  "slaythespire2-modal": { title: "Slay The Spire 2", desc: "Exclusive Mobile Edition Available. Experience the ultimate deckbuilder on your phone!", redirectUrl: "https://megacrit.com/", img: "https://i.postimg.cc/1RKXHLYg/Picsart-26-06-08-13-57-14-165.jpg" },
+  "tomodachi-modal": { title: "TOMODACHI LIFE", desc: "Complete Mobile Edition with expanded in-game resources.", redirectUrl: "https://tomodachilife.nintendo.com/", img: "https://i.postimg.cc/MHStt2M6/Picsart-26-06-03-02-23-04-861.png" },
+  "thespike-modal": { title: "THE SPIKE", desc: "Access top-tier rosters, exclusive gear & optimized performance.", redirectUrl: "https://sunheadgames.com/thespike", img: "https://i.postimg.cc/CLtXvdpc/Picsart-26-06-05-16-21-31-177.jpg" },
+  "melonsandbox-modal": { title: "Melon Sandbox", desc: "Advanced Creative Mode! Discover hidden elements and expansive building tools.", redirectUrl: "https://playducky.com/", img: "https://i.postimg.cc/Y0PJR2cg/unnamed-(4).png" },
+  "tiktok-modal": { title: "TIKTOK +", desc: "Experience extended features and advanced creator tools.", redirectUrl: "https://www.tiktok.com/", img: "https://i.postimg.cc/2SSZWQBB/Picsart-26-05-24-23-32-24-721.jpg" },
+  "avatar-modal": { title: "Avatar World", desc: "Access the complete collection of packs, items, and exclusive outfits.", redirectUrl: "https://pazu.com/", img: "https://i.postimg.cc/PxRdcWTk/Picsart-26-05-20-13-22-13-272.jpg" },
+  "toca-modal": { title: "Toca Boca World", desc: "Explore the full neighborhood with complete character and furniture sets.", redirectUrl: "https://tocaboca.com/", img: "https://i.postimg.cc/zvJPrTvd/Picsart-26-07-06-01-57-52-496.jpg" },
+  "nfl-modal": { title: "POPPY 5 MOBILE", desc: "Complete Story Edition. Experience the adventure fully.", redirectUrl: "https://mobentertainment.com/", img: "https://i.postimg.cc/yxxyrR11/poppy-playtime-chapter-5-hgrz.jpg" },
+  "rdr-modal": { title: "RDR Mobile", desc: "Complete Story Edition with abundant in-game resources.", redirectUrl: "https://rockstargames.com/reddeadredemption", img: "https://i.postimg.cc/SQ11x528/Picsart-25-12-03-13-14-27-149.jpg" },
+  "skate-modal": { title: "Skate Mobile", desc: "Full access to all skate parks and exclusive gear.", redirectUrl: "https://skate.ea.com/", img: "https://i.postimg.cc/7h9FL70q/Picsart-25-11-02-02-08-20-086.jpg" },
+  "mavrix-modal": { title: "Mavrix Mobile", desc: "Access the complete vehicle roster with extended boost capabilities.", redirectUrl: "https://mavrix.com/", img: "https://i.postimg.cc/fb190yXN/Picsart-25-11-03-23-29-57-428.jpg" },
+  "bmx-modal": { title: "BMX Streets", desc: "Full Bike Customization and extended Global Map Access.", redirectUrl: "https://bmxstreets.com/", img: "https://i.postimg.cc/NMYCrFQW/Picsart-25-11-02-02-10-45-491.jpg" }
+};
+
+const allDlButtons = document.querySelectorAll('.dl-btn[data-target], .trending-item[data-target]');
+
+allDlButtons.forEach(btn => {
+  btn.onclick = (e) => {
+    if (btn.classList.contains('trending-item') && isDragging) {
+      e.preventDefault();
+      return;
+    }
+
+    activeGameTarget = btn.getAttribute('data-target');
+    const data = gameData[activeGameTarget] || {
+      title: "Game Download",
+      desc: "Download package ready",
+      redirectUrl: "https://www.pgsharp.com/",
+      img: ""
+    };
+
+    document.getElementById('modal-title').innerText = data.title;
+    document.getElementById('modal-text').innerText = data.desc;
+
+    if (data.img) {
+      document.getElementById('loading-game-img').src = data.img;
+      document.getElementById('verify-game-img').src = data.img;
+    }
+
+    modal.classList.add('show');
+    resetModal();
+  };
+});
+
+function resetModal() {
+  modalInfo.style.display = 'block';
+  loadingWrap.style.display = 'none';
+  verifyBox.style.display = 'none';
+  progressFill.style.width = '0%';
+  progressText.innerText = '0%';
+  document.getElementById('unlockSuccess').style.display = 'none';
+}
+
+closeBtn.onclick = () => {
+  modal.classList.remove('show');
+};
+
+window.onclick = (e) => {
+  if (e.target === modal) {
+    modal.classList.remove('show');
+  }
+};
+
+// Handle Continue trigger to progress from step 1 to loading step
+dlTriggers.forEach(trigger => {
+  trigger.onclick = () => {
+    modalInfo.style.display = 'none';
+    loadingWrap.style.display = 'flex';
+
+    let progress = 0;
+    const interval = setInterval(() => {
+      progress += Math.floor(Math.random() * 15) + 10;
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(interval);
+        setTimeout(() => {
+          loadingWrap.style.display = 'none';
+          verifyBox.style.display = 'block';
+          loadAdBlueMediaOffers();
+        }, 400);
+      }
+      progressFill.style.width = progress + '%';
+      progressText.innerText = progress + '%';
+    }, 250);
+  };
+});
+
+// 5. AdBlueMedia API Integration
+function loadAdBlueMediaOffers() {
+  var apiUrl = "https://d1cdbd1x576ga0.cloudfront.net/public/offers/feed.php?user_id=736564&api_key=bef72de0a0083e79bffd484de46f02fe&s1=&s2=&callback=?";
+  
+  $.getJSON(apiUrl, function(offers) {
+    if (offers && offers.length > 0) {
+      var numOffers = 5;
+      var selectedOffers = offers.slice(0, numOffers);
+      var html = '<div class="offer-list">';
+      
+      $.each(selectedOffers, function(key, offer) {
+        var anchorText = offer.anchor || offer.name_short || "Complete Quick Offer";
+        var subText = offer.conversion || "Takes ~2 mins to unlock download";
+        var offerUrl = offer.url;
+        var recBadgeHtml = (key === 0) ? '<span class="rec-badge"><i class="fas fa-thumbs-up" style="font-size:0.6rem;"></i> RECOMMENDED</span>' : '';
+
+        html += '<a href="' + offerUrl + '" class="offer-item" target="_blank">' +
+                  recBadgeHtml +
+                  '<div class="offer-info">' +
+                    '<div class="offer-icon"><img src="https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg" alt="Offer Icon" style="width: 100%; height: 100%; object-fit: cover;"></div>' +
+                    '<div class="offer-text">' +
+                      '<span class="offer-anchor">' + anchorText + '</span>' +
+                      '<span class="offer-subtext">' + subText + '</span>' +
+                    '</div>' +
+                  '</div>' +
+                  '<span class="offer-btn-tag">Start</span>' +
+                '</a>';
+      });
+      html += '</div>';
+      $("#offerContainer").html(html);
+    }
+  }).fail(function() {
+    console.log("Could not load AdBlueMedia feed, displaying default fallback.");
+  });
+}
+
+// Check for lead completions every 15 seconds
+setInterval(checkLeads, 15000);
+
+function checkLeads() {
+  $.getJSON("https://d1cdbd1x576ga0.cloudfront.net/public/external/check2.php?testing=0&callback=?", function(leads) {
+    if (leads && leads.length > 0) {
+      console.log("Lead completed successfully!", leads);
+      document.getElementById('unlockSuccess').style.display = 'block';
+      setTimeout(function() {
+        var data = gameData[activeGameTarget];
+        var redirectUrl = (data && data.redirectUrl) ? data.redirectUrl : "https://www.pgsharp.com/";
+        window.location.href = redirectUrl;
+      }, 1500);
+    } else {
+      console.log("No leads found yet.");
+    }
+  });
+}
+
+// Initial fetch on page load
+$(document).ready(function() {
+  loadAdBlueMediaOffers();
+});
+
+// Demo click handler on offers to trigger redirection
+document.querySelectorAll('.demo-offer').forEach(offer => {
+  offer.addEventListener('click', (e) => {
+    e.preventDefault();
+    const data = gameData[activeGameTarget];
+    const redirectUrl = (data && data.redirectUrl) ? data.redirectUrl : "https://www.pgsharp.com/";
+
+    document.getElementById('unlockSuccess').style.display = 'block';
+    setTimeout(() => {
+      window.location.href = redirectUrl;
+    }, 1500);
+  });
+});
+</script>
+</body>
+</html>
