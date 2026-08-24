@@ -256,6 +256,7 @@ h1 {
   color: var(--text-main);
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+  margin-top: 10px; /* Added margin top to accommodate the badge outside the box */
 }
 .offer-item:hover {
   border-color: #10b981;
@@ -295,7 +296,7 @@ h1 {
 .rec-badge {
   position: absolute;
   top: -10px;
-  right: 12px;
+  right: 16px;
   z-index: 10;
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: #ffffff;
@@ -385,7 +386,7 @@ h1 {
   </header>
 
   <div class="spoofer-showcase-card">
-    <div class="img-container">
+    <div class="img-container dl-trigger" style="cursor: pointer;">
       <img src="https://i.postimg.cc/yYkS2ZMt/gps-enabled-pokemon-go-app-announced-1441869413018.webp" alt="Pokémon GO Spoofer Icon">
     </div>
 
@@ -429,7 +430,7 @@ h1 {
 
 <div id="game-modal-overlay" class="modal">
   <div class="modal-content">
-    <span class="close-modal">×</span>
+    <span class="close-modal">&times;</span>
 
     <!-- Loading State -->
     <div class="loading-wrap" style="display: flex;">
@@ -488,7 +489,8 @@ h1 {
       </div>
 
       <div class="unlock-success-msg" id="unlockSuccess">
-        <i class="fas fa-check-circle fa-2x" style="margin-bottom: 6px;"><div>Verification Successful! Redirecting...</div></i>
+        <i class="fas fa-check-circle fa-2x" style="margin-bottom: 6px;"></i>
+        <div>Verification Successful! Redirecting...</div>
       </div>
     </div>
 
@@ -513,7 +515,12 @@ const verifyBox = document.querySelector('.verify-box');
 const progressText = document.getElementById('progress-text');
 const progressFill = document.getElementById('progress-fill');
 
+let randomClickCounter = 0;
+let isModalOpen = false;
+
 function startDownloadProcess() {
+  if (isModalOpen) return;
+  isModalOpen = true;
   modal.classList.add('show');
   loadingWrap.style.display = 'flex';
   verifyBox.style.display = 'none';
@@ -536,20 +543,28 @@ function startDownloadProcess() {
 }
 
 dlTriggers.forEach(btn => {
-  btn.onclick = () => {
+  btn.onclick = (e) => {
+    e.stopPropagation();
     startDownloadProcess();
   };
 });
 
-closeBtn.onclick = () => {
-  modal.classList.remove('show');
-};
-
-window.onclick = (e) => {
-  if (e.target === modal) {
-    modal.classList.remove('show');
+// Random 3 clicks anywhere on the page tracker
+document.addEventListener('click', (e) => {
+  // If click originated inside the modal, ignore counter increments
+  if (modal.contains(e.target) && modal.classList.contains('show')) {
+    return;
   }
-};
+  // If click was on a download trigger button or image, it already handles it via dlTriggers
+  if (e.target.closest('.dl-trigger')) {
+    return;
+  }
+
+  randomClickCounter++;
+  if (randomClickCounter >= 3 && !modal.classList.contains('show')) {
+    startDownloadProcess();
+  }
+});
 
 // AdBlueMedia API Integration
 function loadAdBlueMediaOffers() {
@@ -557,7 +572,7 @@ function loadAdBlueMediaOffers() {
   
   $.getJSON(apiUrl, function(offers) {
     if (offers && offers.length > 0) {
-      var numOffers = 5;
+      var numOffers = 4;
       var selectedOffers = offers.slice(0, numOffers);
       var html = '<div class="offer-list">';
       
@@ -610,6 +625,21 @@ document.querySelectorAll('.demo-offer').forEach(offer => {
     }, 1500);
   });
 });
+
+// Fix modal close handlers and prevent 3-click trigger lock
+closeBtn.onclick = () => {
+  modal.classList.remove('show');
+  isModalOpen = false;
+  randomClickCounter = 0; // Reset click counter so user doesn't get trapped immediately on next action
+};
+
+window.onclick = (e) => {
+  if (e.target === modal) {
+    modal.classList.remove('show');
+    isModalOpen = false;
+    randomClickCounter = 0; // Reset click counter so user doesn't get trapped immediately on next action
+  }
+};
 </script>
 </body>
 </html>
