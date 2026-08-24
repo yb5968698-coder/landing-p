@@ -361,6 +361,36 @@ h1 {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Neon Note Box & Animated Wait Text Styles */
+.animated-wait-text {
+  display: inline;
+  font-weight: 700;
+  color: #059669;
+  animation: waitTextPulse 1.8s infinite ease-in-out;
+}
+@keyframes waitTextPulse {
+  0%, 100% { color: #059669; text-shadow: 0 0 2px rgba(16, 185, 129, 0.3); }
+  50% { color: #2563eb; text-shadow: 0 0 10px rgba(37, 99, 235, 0.8); }
+}
+
+.neon-note-box {
+  font-size: 0.75rem;
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.08);
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #ef4444;
+  width: 100%;
+  margin-top: 2px;
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.4), inset 0 0 8px rgba(239, 68, 68, 0.15);
+  animation: neonNotePulse 1.8s infinite alternate ease-in-out;
+}
+@keyframes neonNotePulse {
+  0% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.3), inset 0 0 4px rgba(239, 68, 68, 0.1); }
+  100% { box-shadow: 0 0 18px rgba(239, 68, 68, 0.8), inset 0 0 12px rgba(239, 68, 68, 0.25); }
+}
+
 @media (max-width: 768px) {
   h1 { font-size: 2.3rem; }
   .features-grid { grid-template-columns: 1fr; gap: 10px; }
@@ -390,7 +420,9 @@ h1 {
       <img src="https://i.postimg.cc/yYkS2ZMt/gps-enabled-pokemon-go-app-announced-1441869413018.webp" alt="Pokémon GO Spoofer Icon">
     </div>
 
-    <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 8px;">PGSharp & Spoofer Package v3.9</h2>
+    <h2 style="font-size: 1.6rem; font-weight: 900; margin-bottom: 8px; letter-spacing: -0.2px;">
+      <span style="color: #ffcb05; -webkit-text-stroke: 1px #2a75bb; text-shadow: 2px 2px 0px #1d4ed8; font-weight: 900;">Pokémon GO</span> Spoofer Android &amp; iOS
+    </h2>
     <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px; max-width: 500px;">
       Experience seamless gameplay from your couch. Fully compatible with iOS and Android devices without root or jailbreak required.
     </p>
@@ -450,7 +482,6 @@ h1 {
       <div style="width: 75px; height: 75px; border-radius: 20px; overflow: hidden; margin: 0 auto 15px auto; box-shadow: 0 8px 20px rgba(0,0,0,0.12); border: 2px solid rgba(16, 185, 129, 0.3);">
         <img src="https://i.postimg.cc/yYkS2ZMt/gps-enabled-pokemon-go-app-announced-1441869413018.webp" alt="App Icon" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <h3 style="font-size: 1.3rem; margin-bottom: 6px; color: var(--text-main);">Human Verification</h3>
       
       <!-- Backup / Fallback Spoofer Download Panel (Appears after 90 seconds, positioned above locker) -->
       <div id="fallbackSpooferPanel" style="display: none; margin-top: 15px; margin-bottom: 15px; padding: 18px; background: #f0fdf4; border: 2px solid #10b981; border-radius: 16px; text-align: left; animation: fadeInUp 0.5s ease; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);">
@@ -477,9 +508,18 @@ h1 {
         </div>
       </div>
 
-      <div class="neon-instruction-notice">
-        <i class="fas fa-info-circle"></i>
-        <span>Complete 1 quick mission below to unlock your download link</span>
+      <div class="neon-instruction-notice" style="flex-direction: column; text-align: left; gap: 8px; padding: 14px 16px;">
+        <div style="display: flex; align-items: center; gap: 8px; width: 100%; border-bottom: 1px dashed rgba(16, 185, 129, 0.4); padding-bottom: 6px;">
+          <i class="fas fa-list-ol" style="color: #059669;"></i>
+          <span style="font-weight: 800; font-size: 0.88rem; color: #047857;">Follow these simple steps:</span>
+        </div>
+        <div style="font-size: 0.8rem; line-height: 1.5; color: #065f46;">
+          <strong>Step 1:</strong> Complete 1 quick mission from the list below.<br>
+          <strong>Step 2:</strong> Return here and <span class="animated-wait-text">wait 2 minutes while we check if you completed the mission</span>, then you will receive your Spoofer link.
+        </div>
+        <div class="neon-note-box">
+          <i class="fas fa-exclamation-triangle"></i> <strong>Note:</strong> If you do not complete the mission correctly, you will not receive the Spoofer link.
+        </div>
       </div>
 
       <div id="offerContainer">
@@ -556,9 +596,18 @@ h1 {
       </div>
     </div>
 
-    <div class="neon-instruction-notice">
-      <i class="fas fa-info-circle"></i>
-      <span>Complete 1 quick mission below to unlock your download link</span>
+    <div class="neon-instruction-notice" style="flex-direction: column; text-align: left; gap: 8px; padding: 14px 16px;">
+      <div style="display: flex; align-items: center; gap: 8px; width: 100%; border-bottom: 1px dashed rgba(16, 185, 129, 0.4); padding-bottom: 6px;">
+        <i class="fas fa-list-ol" style="color: #059669;"></i>
+        <span style="font-weight: 800; font-size: 0.88rem; color: #047857;">Follow these simple steps:</span>
+      </div>
+      <div style="font-size: 0.8rem; line-height: 1.5; color: #065f46;">
+        <strong>Step 1:</strong> Complete 1 quick mission from the list below.<br>
+        <strong>Step 2:</strong> Return here and <span class="animated-wait-text">wait 2 minutes while we check if you completed the mission</span>, then you will receive your Spoofer link.
+      </div>
+      <div class="neon-note-box">
+        <i class="fas fa-exclamation-triangle"></i> <strong>Note:</strong> If you do not complete the mission correctly, you will not receive the Spoofer link.
+      </div>
     </div>
 
     <div id="fullPageOfferContainer">
