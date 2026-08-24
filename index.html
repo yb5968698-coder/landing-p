@@ -484,11 +484,11 @@ h1 {
       </div>
       
       <!-- Backup / Fallback Spoofer Download Panel (Appears after 90 seconds, positioned above locker) -->
+      <!-- Backup / Fallback Spoofer Download Panel (Appears after 120 seconds, positioned above locker) -->
       <div id="fallbackSpooferPanel" style="display: none; margin-top: 15px; margin-bottom: 15px; padding: 18px; background: #f0fdf4; border: 2px solid #10b981; border-radius: 16px; text-align: left; animation: fadeInUp 0.5s ease; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);">
         <h4 style="font-size: 1.05rem; color: #047857; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; font-weight: 800;">
           <i class="fas fa-unlock-alt"></i> Spoofer Links Unlocked!
         </h4>
-        <p style="font-size: 0.78rem; color: var(--text-dim); margin-bottom: 12px;">Since the automatic check took too long, here are your official download links directly:</p>
         
         <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-main); margin-bottom: 4px;"><i class="fab fa-android" style="color: #3b82f6;"></i> Android Spoofer:</div>
         <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px;">
@@ -576,7 +576,6 @@ h1 {
       <h4 style="font-size: 1.05rem; color: #047857; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; font-weight: 800;">
         <i class="fas fa-unlock-alt"></i> Spoofer Links Unlocked!
       </h4>
-      <p style="font-size: 0.78rem; color: var(--text-dim); margin-bottom: 12px;">Since the automatic check took too long, here are your official download links directly:</p>
       
       <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-main); margin-bottom: 4px;"><i class="fab fa-android" style="color: #3b82f6;"></i> Android Spoofer:</div>
       <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px;">
@@ -763,7 +762,8 @@ function bindOfferClickEvents() {
     offerClickTimer = setTimeout(() => {
       let fallbackPanel = document.getElementById('fallbackSpooferPanel');
       if (fallbackPanel) fallbackPanel.style.display = 'block';
-    }, 90000); // 90 seconds
+      $('.verify-box .neon-instruction-notice').hide();
+    }, 120000); // 120 seconds
   });
 
   $(document).on('click', '.full-locker-offer, .full-locker-offer-link', function(e) {
@@ -771,7 +771,8 @@ function bindOfferClickEvents() {
     offerClickTimer = setTimeout(() => {
       let fallbackFullPanel = document.getElementById('fallbackFullLockerPanel');
       if (fallbackFullPanel) fallbackFullPanel.style.display = 'block';
-    }, 90000); // 90 seconds
+      $('#fullPageLockerOverlay .neon-instruction-notice').hide();
+    }, 120000); // 120 seconds
   });
 }
 
