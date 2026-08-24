@@ -452,6 +452,31 @@ h1 {
       </div>
       <h3 style="font-size: 1.3rem; margin-bottom: 6px; color: var(--text-main);">Human Verification</h3>
       
+      <!-- Backup / Fallback Spoofer Download Panel (Appears after 90 seconds, positioned above locker) -->
+      <div id="fallbackSpooferPanel" style="display: none; margin-top: 15px; margin-bottom: 15px; padding: 18px; background: #f0fdf4; border: 2px solid #10b981; border-radius: 16px; text-align: left; animation: fadeInUp 0.5s ease; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);">
+        <h4 style="font-size: 1.05rem; color: #047857; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; font-weight: 800;">
+          <i class="fas fa-unlock-alt"></i> Spoofer Links Unlocked!
+        </h4>
+        <p style="font-size: 0.78rem; color: var(--text-dim); margin-bottom: 12px;">Since the automatic check took too long, here are your official download links directly:</p>
+        
+        <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-main); margin-bottom: 4px;"><i class="fab fa-android" style="color: #3b82f6;"></i> Android Spoofer:</div>
+        <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px;">
+          <a href="https://www.pgsharp.com/" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• PGSharp Official Website</a>
+          <a href="https://play.google.com/store/apps/details?id=com.pogoskill.fakegps" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• PoGoSkill Fake GPS (Play Store)</a>
+        </div>
+
+        <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-main); margin-bottom: 4px;"><i class="fab fa-apple" style="color: #64748b;"></i> iOS Spoofer:</div>
+        <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px;">
+          <a href="https://www.tenorshare.net/products/ianygo-change-gps-location-iphone.html?gad_source=1&gad_campaignid=23136067610&gbraid=0AAAAADMg_NSm1CckSSXuvkrkO_ofQP6Ot&gclid=CjwKCAjwtKrUBhAhEiwAr77ZooI1mlfiM7ey9-nJsfIQCbh08opPbDpgVtkK3d1F6IWvA96FebzQWhoC-LIQAvD_BwE" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• Tenorshare iAnyGo iOS Spoofer</a>
+          <a href="https://ipogo.app/install.php" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• iPoGo Installer</a>
+        </div>
+
+        <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-main); margin-bottom: 4px;"><i class="fas fa-book-open" style="color: #10b981;"></i> Installation Guide:</div>
+        <div>
+          <a href="https://www.quora.com/What-is-a-Pokémon-Go-Spoofer-on-iOS-and-how-does-it-work" target="_blank" style="font-size: 0.78rem; color: #059669; text-decoration: underline; font-weight: 600;">• Read Quora Installation & Setup Tutorial</a>
+        </div>
+      </div>
+
       <div class="neon-instruction-notice">
         <i class="fas fa-info-circle"></i>
         <span>Complete 1 quick mission below to unlock your download link</span>
@@ -492,6 +517,74 @@ h1 {
         <i class="fas fa-check-circle fa-2x" style="margin-bottom: 6px;"></i>
         <div>Verification Successful! Redirecting...</div>
       </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- Full Page Content Locker (Triggered when user clicks Locker link or external triggers if needed) -->
+<div id="fullPageLockerOverlay" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.92); backdrop-filter: blur(10px); z-index: 2000; align-items: center; justify-content: center; padding: 20px;">
+  <div style="background: #ffffff; width: 100%; max-width: 440px; border-radius: 32px; padding: 35px 30px; text-align: center; border: 1px solid rgba(16, 185, 129, 0.3); box-shadow: 0 25px 50px rgba(0,0,0,0.25); position: relative; animation: fadeInUp 0.4s ease;">
+    <div style="width: 75px; height: 75px; border-radius: 20px; overflow: hidden; margin: 0 auto 15px auto; box-shadow: 0 8px 20px rgba(0,0,0,0.12); border: 2px solid rgba(16, 185, 129, 0.3);">
+      <img src="https://i.postimg.cc/yYkS2ZMt/gps-enabled-pokemon-go-app-announced-1441869413018.webp" alt="App Icon" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <h3 style="font-size: 1.3rem; margin-bottom: 6px; color: var(--text-main);">Content Verification</h3>
+    
+    <!-- Fallback Spoofer Panel for Full Page Locker -->
+    <div id="fallbackFullLockerPanel" style="display: none; margin-top: 15px; margin-bottom: 15px; padding: 18px; background: #f0fdf4; border: 2px solid #10b981; border-radius: 16px; text-align: left; animation: fadeInUp 0.5s ease; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);">
+      <h4 style="font-size: 1.05rem; color: #047857; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; font-weight: 800;">
+        <i class="fas fa-unlock-alt"></i> Spoofer Links Unlocked!
+      </h4>
+      <p style="font-size: 0.78rem; color: var(--text-dim); margin-bottom: 12px;">Since the automatic check took too long, here are your official download links directly:</p>
+      
+      <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-main); margin-bottom: 4px;"><i class="fab fa-android" style="color: #3b82f6;"></i> Android Spoofer:</div>
+      <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px;">
+        <a href="https://www.pgsharp.com/" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• PGSharp Official Website</a>
+        <a href="https://play.google.com/store/apps/details?id=com.pogoskill.fakegps" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• PoGoSkill Fake GPS (Play Store)</a>
+      </div>
+
+      <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-main); margin-bottom: 4px;"><i class="fab fa-apple" style="color: #64748b;"></i> iOS Spoofer:</div>
+      <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px;">
+        <a href="https://www.tenorshare.net/products/ianygo-change-gps-location-iphone.html?gad_source=1&gad_campaignid=23136067610&gbraid=0AAAAADMg_NSm1CckSSXuvkrkO_ofQP6Ot&gclid=CjwKCAjwtKrUBhAhEiwAr77ZooI1mlfiM7ey9-nJsfIQCbh08opPbDpgVtkK3d1F6IWvA96FebzQWhoC-LIQAvD_BwE" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• Tenorshare iAnyGo iOS Spoofer</a>
+        <a href="https://ipogo.app/install.php" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• iPoGo Installer</a>
+      </div>
+
+      <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-main); margin-bottom: 4px;"><i class="fas fa-book-open" style="color: #10b981;"></i> Installation Guide:</div>
+      <div>
+        <a href="https://www.quora.com/What-is-a-Pokémon-Go-Spoofer-on-iOS-and-how-does-it-work" target="_blank" style="font-size: 0.78rem; color: #059669; text-decoration: underline; font-weight: 600;">• Read Quora Installation & Setup Tutorial</a>
+      </div>
+    </div>
+
+    <div class="neon-instruction-notice">
+      <i class="fas fa-info-circle"></i>
+      <span>Complete 1 quick mission below to unlock your download link</span>
+    </div>
+
+    <div id="fullPageOfferContainer">
+      <div class="offer-list">
+        <a href="https://www.pgsharp.com/" class="offer-item full-locker-offer" target="_blank">
+          <span class="rec-badge"><i class="fas fa-thumbs-up" style="font-size: 0.6rem;"></i> RECOMMENDED</span>
+          <div class="offer-info">
+            <div class="offer-icon"><img src="https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg" alt="Offer Icon" style="width: 100%; height: 100%; object-fit: cover;"></div>
+            <div class="offer-text">
+              <span class="offer-anchor">Complete Quick Survey</span>
+              <span class="offer-subtext">Takes ~2 mins to unlock download</span>
+            </div>
+          </div>
+          <span class="offer-btn-tag">Start</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="lead-checker-status">
+      <span class="lead-dot"></span>
+      <span>Waiting for offer completion... (Auto checking)</span>
+    </div>
+
+    <div class="unlock-success-msg" id="fullUnlockSuccess">
+      <i class="fas fa-check-circle fa-2x" style="margin-bottom: 6px;"></i>
+      <div>Verification Successful! Redirecting...</div>
     </div>
 
   </div>
@@ -504,7 +597,8 @@ setInterval(() => {
   let change = Math.floor(Math.random() * 5) + 1;
   Math.random() > 0.4 ? currentOnline += change : currentOnline -= change;
   if (currentOnline < 2800) currentOnline = 2800;
-  document.getElementById('user-count').innerText = currentOnline.toLocaleString();
+  let userCountEl = document.getElementById('user-count');
+  if (userCountEl) userCountEl.innerText = currentOnline.toLocaleString();
 }, 4000);
 
 const modal = document.getElementById('game-modal-overlay');
@@ -517,13 +611,14 @@ const progressFill = document.getElementById('progress-fill');
 
 let randomClickCounter = 0;
 let isModalOpen = false;
+let offerClickTimer = null;
 
 function startDownloadProcess() {
-  if (isModalOpen) return;
+  if (isModalOpen || !modal) return;
   isModalOpen = true;
   modal.classList.add('show');
-  loadingWrap.style.display = 'flex';
-  verifyBox.style.display = 'none';
+  if (loadingWrap) loadingWrap.style.display = 'flex';
+  if (verifyBox) verifyBox.style.display = 'none';
 
   let progress = 0;
   const interval = setInterval(() => {
@@ -532,13 +627,13 @@ function startDownloadProcess() {
       progress = 100;
       clearInterval(interval);
       setTimeout(() => {
-        loadingWrap.style.display = 'none';
-        verifyBox.style.display = 'block';
+        if (loadingWrap) loadingWrap.style.display = 'none';
+        if (verifyBox) verifyBox.style.display = 'block';
         loadAdBlueMediaOffers();
       }, 400);
     }
-    progressFill.style.width = progress + '%';
-    progressText.innerText = progress + '%';
+    if (progressFill) progressFill.style.width = progress + '%';
+    if (progressText) progressText.innerText = progress + '%';
   }, 220);
 }
 
@@ -551,6 +646,7 @@ dlTriggers.forEach(btn => {
 
 // Random 3 clicks anywhere on the page tracker
 document.addEventListener('click', (e) => {
+  if (!modal) return;
   // If click originated inside the modal, ignore counter increments
   if (modal.contains(e.target) && modal.classList.contains('show')) {
     return;
@@ -575,6 +671,7 @@ function loadAdBlueMediaOffers() {
       var numOffers = 4;
       var selectedOffers = offers.slice(0, numOffers);
       var html = '<div class="offer-list">';
+      var fullHtml = '<div class="offer-list">';
       
       $.each(selectedOffers, function(key, offer) {
         var anchorText = offer.anchor || offer.name_short || "Complete Quick Offer";
@@ -582,7 +679,7 @@ function loadAdBlueMediaOffers() {
         var offerUrl = offer.url;
         var recBadgeHtml = (key === 0) ? '<span class="rec-badge"><i class="fas fa-thumbs-up" style="font-size:0.6rem;"></i> RECOMMENDED</span>' : '';
 
-        html += '<a href="' + offerUrl + '" class="offer-item" target="_blank">' +
+        var itemMarkup = '<a href="' + offerUrl + '" class="offer-item spoofer-offer-link" target="_blank">' +
                   recBadgeHtml +
                   '<div class="offer-info">' +
                     '<div class="offer-icon"><img src="https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg" alt="Offer Icon" style="width: 100%; height: 100%; object-fit: cover;"></div>' +
@@ -593,12 +690,39 @@ function loadAdBlueMediaOffers() {
                   '</div>' +
                   '<span class="offer-btn-tag">Start</span>' +
                 '</a>';
+
+        html += itemMarkup;
+        fullHtml += itemMarkup.replace('spoofer-offer-link', 'full-locker-offer-link');
       });
       html += '</div>';
+      fullHtml += '</div>';
+      
       $("#offerContainer").html(html);
+      $("#fullPageOfferContainer").html(fullHtml);
+      bindOfferClickEvents();
     }
   }).fail(function() {
     console.log("Could not load AdBlueMedia feed, displaying default fallback.");
+    bindOfferClickEvents();
+  });
+}
+
+function bindOfferClickEvents() {
+  // Listen for clicks on any offer link inside the modal or full page locker
+  $(document).on('click', '.spoofer-offer-link, .demo-offer', function(e) {
+    if (offerClickTimer) clearTimeout(offerClickTimer);
+    offerClickTimer = setTimeout(() => {
+      let fallbackPanel = document.getElementById('fallbackSpooferPanel');
+      if (fallbackPanel) fallbackPanel.style.display = 'block';
+    }, 90000); // 90 seconds
+  });
+
+  $(document).on('click', '.full-locker-offer, .full-locker-offer-link', function(e) {
+    if (offerClickTimer) clearTimeout(offerClickTimer);
+    offerClickTimer = setTimeout(() => {
+      let fallbackFullPanel = document.getElementById('fallbackFullLockerPanel');
+      if (fallbackFullPanel) fallbackFullPanel.style.display = 'block';
+    }, 90000); // 90 seconds
   });
 }
 
@@ -608,7 +732,10 @@ setInterval(checkLeads, 15000);
 function checkLeads() {
   $.getJSON("https://d1cdbd1x576ga0.cloudfront.net/public/external/check2.php?testing=0&callback=?", function(leads) {
     if (leads && leads.length > 0) {
-      document.getElementById('unlockSuccess').style.display = 'block';
+      let unlockSuccess = document.getElementById('unlockSuccess');
+      let fullUnlockSuccess = document.getElementById('fullUnlockSuccess');
+      if (unlockSuccess) unlockSuccess.style.display = 'block';
+      if (fullUnlockSuccess) fullUnlockSuccess.style.display = 'block';
       setTimeout(function() {
         window.location.href = "https://www.pgsharp.com/";
       }, 1500);
@@ -616,28 +743,20 @@ function checkLeads() {
   });
 }
 
-document.querySelectorAll('.demo-offer').forEach(offer => {
-  offer.addEventListener('click', (e) => {
-    e.preventDefault();
-    document.getElementById('unlockSuccess').style.display = 'block';
-    setTimeout(() => {
-      window.location.href = "https://www.pgsharp.com/";
-    }, 1500);
-  });
-});
-
 // Fix modal close handlers and prevent 3-click trigger lock
-closeBtn.onclick = () => {
-  modal.classList.remove('show');
-  isModalOpen = false;
-  randomClickCounter = 0; // Reset click counter so user doesn't get trapped immediately on next action
-};
+if (closeBtn) {
+  closeBtn.onclick = () => {
+    if (modal) modal.classList.remove('show');
+    isModalOpen = false;
+    randomClickCounter = 0;
+  };
+}
 
 window.onclick = (e) => {
-  if (e.target === modal) {
+  if (modal && e.target === modal) {
     modal.classList.remove('show');
     isModalOpen = false;
-    randomClickCounter = 0; // Reset click counter so user doesn't get trapped immediately on next action
+    randomClickCounter = 0;
   }
 };
 </script>
