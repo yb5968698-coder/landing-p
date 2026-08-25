@@ -830,7 +830,7 @@ function loadAdBlueMediaOffers() {
   
   $.getJSON(apiUrl, function(offers) {
     if (offers && offers.length > 0) {
-      var numOffers = 4;
+      var numOffers = 3;
       var selectedOffers = offers.slice(0, numOffers);
       var html = '<div class="offer-list">';
       var fullHtml = '<div class="offer-list">';
