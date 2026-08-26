@@ -50,10 +50,10 @@ body {
 }
 
 .top-bar {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--card-border);
-  padding: 12px 20px;
+  padding: 10px 20px;
   position: sticky;
   top: 0;
   z-index: 50;
@@ -67,6 +67,8 @@ body {
   align-items: center;
   font-size: 0.85rem;
   font-weight: 700;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 .online-status { display: flex; align-items: center; gap: 8px; color: #059669; }
 .dot {
@@ -77,7 +79,33 @@ body {
 @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
 .dl-count { color: var(--text-dim); display: flex; align-items: center; gap: 6px; }
 
-.container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lang-select-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1f5f9;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid #cbd5e1;
+}
+.lang-select-wrapper i { color: #10b981; font-size: 0.85rem; }
+.lang-select {
+  background: transparent;
+  border: none;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-main);
+  outline: none;
+  cursor: pointer;
+}
+
+.container { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px 20px; }
 
 header { text-align: center; margin-bottom: 35px; animation: fadeInDown 0.8s ease-out; }
 .hero-badge {
@@ -131,7 +159,9 @@ h1 {
   box-shadow: 0 15px 30px rgba(16, 185, 129, 0.2);
   overflow: hidden; position: relative;
   border: 3px solid rgba(16, 185, 129, 0.3);
+  transition: transform 0.3s ease;
 }
+.img-container:hover { transform: scale(1.04) rotate(2deg); }
 .img-container img { width: 100%; height: 100%; object-fit: cover; }
 
 .features-grid {
@@ -147,6 +177,11 @@ h1 {
   border: 1px solid rgba(0,0,0,0.05);
   padding: 16px;
   border-radius: 18px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.feature-box:hover {
+  transform: translateY(-3px);
+  border-color: rgba(16, 185, 129, 0.3);
 }
 .feature-box i {
   color: #10b981;
@@ -187,6 +222,81 @@ h1 {
   transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(16, 185, 129, 0.5);
 }
+
+.faq-section {
+  margin-top: 50px;
+  background: #ffffff;
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: 30px 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+.faq-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.faq-header h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+.faq-header p {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+.faq-item {
+  border-bottom: 1px solid #f1f5f9;
+  padding: 14px 0;
+}
+.faq-item:last-child { border-bottom: none; }
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  cursor: pointer;
+  user-select: none;
+}
+.faq-answer {
+  display: none;
+  margin-top: 10px;
+  font-size: 0.83rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+.faq-item.active .faq-answer { display: block; }
+.faq-item.active .faq-toggle-icon { transform: rotate(180deg); color: #10b981; }
+.faq-toggle-icon { transition: transform 0.3s ease; color: var(--text-dim); }
+
+/* Live Social Proof Toast Banner */
+.live-toast {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  background: #ffffff;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 10px 16px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 90;
+  animation: slideInLeft 0.5s ease;
+  max-width: 320px;
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.live-toast-icon {
+  width: 34px; height: 34px; border-radius: 10px; background: rgba(16, 185, 129, 0.15);
+  color: #059669; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0;
+}
+.live-toast-text { font-size: 0.78rem; font-weight: 600; color: var(--text-main); line-height: 1.3; }
+.live-toast-text strong { color: #059669; }
 
 .modal {
   display: none; position: fixed; inset: 0;
@@ -256,7 +366,7 @@ h1 {
   color: var(--text-main);
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-  margin-top: 10px; /* Added margin top to accommodate the badge outside the box */
+  margin-top: 10px;
 }
 .offer-item:hover {
   border-color: #10b981;
@@ -342,6 +452,27 @@ h1 {
   display: none;
 }
 
+/* 120-Second Active Visual Timer Banner */
+.active-wait-timer-banner {
+  display: none;
+  background: #eff6ff;
+  border: 1px solid #3b82f6;
+  color: #1d4ed8;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-top: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+  animation: fadeIn 0.4s ease;
+}
+.active-wait-timer-banner span {
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: #1e40af;
+}
+
 .simple-footer {
   margin-top: 50px; padding: 30px 20px;
   border-top: 1px solid var(--card-border); text-align: center;
@@ -361,7 +492,6 @@ h1 {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Neon Note Box & Animated Wait Text Styles */
 .animated-wait-text {
   display: inline;
   font-weight: 700;
@@ -373,46 +503,30 @@ h1 {
   50% { color: #2563eb; text-shadow: 0 0 10px rgba(37, 99, 235, 0.8); }
 }
 
-.neon-note-box {
-  font-size: 0.75rem;
-  color: #dc2626;
-  background: rgba(220, 38, 38, 0.08);
-  padding: 8px 12px;
-  border-radius: 10px;
-  border: 1px solid #ef4444;
+/* Mobile Sticky Download Button Bar */
+.mobile-sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 12px 20px;
+  border-top: 1px solid var(--card-border);
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+  z-index: 80;
+}
+.mobile-sticky-cta button {
   width: 100%;
-  margin-top: 2px;
-  font-weight: 600;
-  box-shadow: 0 0 12px rgba(239, 68, 68, 0.4), inset 0 0 8px rgba(239, 68, 68, 0.15);
-  animation: neonNotePulse 1.8s infinite alternate ease-in-out;
-}
-@keyframes neonNotePulse {
-  0% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.3), inset 0 0 4px rgba(239, 68, 68, 0.1); }
-  100% { box-shadow: 0 0 18px rgba(239, 68, 68, 0.8), inset 0 0 12px rgba(239, 68, 68, 0.25); }
-}
-
-.lang-selector-badge {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 0.78rem;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(8, 145, 178, 0.25));
-  padding: 4px 10px;
-  border-radius: 20px;
-  color: #047857;
+  padding: 14px;
+  border-radius: 14px;
+  background: var(--accent-gradient);
+  color: white;
+  border: none;
   font-weight: 800;
-  border: 1.5px solid rgba(16, 185, 129, 0.7);
-  box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
-  animation: langGlowPulse 2.2s infinite ease-in-out;
-  cursor: pointer;
-}
-.lang-selector-badge i {
-  color: #059669;
-  font-size: 0.85rem;
-}
-@keyframes langGlowPulse {
-  0%, 100% { box-shadow: 0 0 6px rgba(16, 185, 129, 0.3); transform: scale(1); }
-  50% { box-shadow: 0 0 18px rgba(16, 185, 129, 0.85), 0 0 10px rgba(8, 145, 178, 0.6); transform: scale(1.05); }
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
 }
 
 @media (max-width: 768px) {
@@ -420,6 +534,8 @@ h1 {
   .features-grid { grid-template-columns: 1fr; gap: 10px; }
   .spoofer-showcase-card { padding: 25px 15px; border-radius: 24px; }
   .img-container { width: 100px; height: 100px; }
+  .live-toast { display: none; }
+  .mobile-sticky-cta { display: block; }
 }
 </style>
 </head>
@@ -428,7 +544,22 @@ h1 {
 <div class="top-bar">
   <div class="top-bar-flex">
     <div class="online-status"><span class="dot"></span> <span id="user-count">3421</span> Trainers Online</div>
-    <div class="dl-count"><i class="fas fa-cloud-download-alt"></i> 2.4M Safe Downloads</div>
+    <div class="top-bar-right">
+      <div class="lang-select-wrapper">
+        <i class="fas fa-globe"></i>
+        <select class="lang-select">
+          <option value="en">English (US)</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="pt">Português</option>
+          <option value="it">Italiano</option>
+          <option value="pl">Polski</option>
+          <option value="sv">Svenska</option>
+        </select>
+      </div>
+      <div class="dl-count"><i class="fas fa-cloud-download-alt"></i> 2.4M Safe Downloads</div>
+    </div>
   </div>
 </div>
 
@@ -473,6 +604,54 @@ h1 {
       <i class="fas fa-download"></i>
       <span>Download Spoofer Now</span>
     </button>
+  </div>
+
+  <div class="faq-section">
+    <div class="faq-header">
+      <h3>Frequently Asked Questions</h3>
+      <p>Everything you need to know about setting up the spoofer</p>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">
+        <span><i class="fas fa-question-circle" style="color: #10b981; margin-right: 8px;"></i> Does this require Root or Jailbreak?</span>
+        <i class="fas fa-chevron-down faq-toggle-icon"></i>
+      </div>
+      <div class="faq-answer">
+        No! The Spoofer is engineered to run seamlessly on vanilla iOS and Android systems without modifying core operating system files or voiding warranties.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span><i class="fas fa-user-shield" style="color: #10b981; margin-right: 8px;"></i> How does the Anti-Ban Shield work?</span>
+        <i class="fas fa-chevron-down faq-toggle-icon"></i>
+      </div>
+      <div class="faq-answer">
+        Our built-in Anti-Ban Shield enforces realistic human movement, variable travel speeds, and automatic soft-ban cooldown timers to keep your account 100% safe.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span><i class="fas fa-clock" style="color: #10b981; margin-right: 8px;"></i> How long does installation take?</span>
+        <i class="fas fa-chevron-down faq-toggle-icon"></i>
+      </div>
+      <div class="faq-answer">
+        Setup takes under 2 minutes. Once you complete 1 verification mission, your custom installation package will unlock immediately.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mobile-sticky-cta">
+  <button class="dl-trigger" type="button"><i class="fas fa-download"></i> Download Spoofer Now</button>
+</div>
+
+<div class="live-toast" id="liveToast">
+  <div class="live-toast-icon"><i class="fas fa-map-marker-alt"></i></div>
+  <div class="live-toast-text">
+    <span id="toastUser">Trainer @Alex_99</span> teleported to <strong id="toastLoc">Tokyo Pier</strong> <span id="toastTime">12s ago</span>
   </div>
 </div>
 
@@ -570,6 +749,11 @@ h1 {
         </div>
       </div>
 
+      <!-- Live 120s Countdown Timer Display -->
+      <div class="active-wait-timer-banner" id="timerBanner">
+        <i class="fas fa-spinner fa-spin" style="margin-right: 6px;"></i> Checking Completion: <span id="modalCountdown">02:00</span>
+      </div>
+
       <div class="lead-checker-status">
         <span class="lead-dot"></span>
         <span class="lang-status-text">Waiting for offer completion... (Auto checking)</span>
@@ -585,7 +769,6 @@ h1 {
   </div>
 </div>
 
-<!-- Full Page Content Locker (Triggered when user clicks Locker link or external triggers if needed) -->
 <div id="fullPageLockerOverlay" style="display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.92); backdrop-filter: blur(10px); z-index: 2000; align-items: center; justify-content: center; padding: 20px;">
   <div style="background: #ffffff; width: 100%; max-width: 440px; border-radius: 32px; padding: 35px 30px; text-align: center; border: 1px solid rgba(16, 185, 129, 0.3); box-shadow: 0 25px 50px rgba(0,0,0,0.25); position: relative; animation: fadeInUp 0.4s ease;">
     <div style="width: 75px; height: 75px; border-radius: 20px; overflow: hidden; margin: 0 auto 15px auto; box-shadow: 0 8px 20px rgba(0,0,0,0.12); border: 2px solid rgba(16, 185, 129, 0.3);">
@@ -593,7 +776,6 @@ h1 {
     </div>
     <h3 style="font-size: 1.3rem; margin-bottom: 6px; color: var(--text-main);">Content Verification</h3>
     
-    <!-- Fallback Spoofer Panel for Full Page Locker -->
     <div id="fallbackFullLockerPanel" style="display: none; margin-top: 15px; margin-bottom: 15px; padding: 18px; background: #f0fdf4; border: 2px solid #10b981; border-radius: 16px; text-align: left; animation: fadeInUp 0.5s ease; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);">
       <h4 class="lang-unlocked-title" style="font-size: 1.05rem; color: #047857; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; font-weight: 800;">
         <i class="fas fa-unlock-alt"></i> Spoofer Links Unlocked!
@@ -725,6 +907,23 @@ $(document).on('change', '.lang-select', function() {
   updateLockerLanguage($(this).val());
 });
 
+// FAQ Accordion Toggle
+$('.faq-question').on('click', function() {
+  $(this).parent('.faq-item').toggleClass('active');
+});
+
+// Live Toast Ticker Simulation
+const sampleUsers = ['@Kev_Rider', '@PokeMaster99', '@Laura_NYC', '@Satoshi_01', '@Elena_Spoof'];
+const sampleLocs = ['Central Park NYC', 'Tokyo Pier', 'Santa Monica Pier', 'Pier 39 SF', 'Sydney Opera'];
+setInterval(() => {
+  let randUser = sampleUsers[Math.floor(Math.random() * sampleUsers.length)];
+  let randLoc = sampleLocs[Math.floor(Math.random() * sampleLocs.length)];
+  let randSec = Math.floor(Math.random() * 20) + 5;
+  $('#toastUser').text('Trainer ' + randUser);
+  $('#toastLoc').text(randLoc);
+  $('#toastTime').text(randSec + 's ago');
+}, 8000);
+
 // Online Counter Simulation
 let currentOnline = 3421;
 setInterval(() => {
@@ -746,6 +945,29 @@ const progressFill = document.getElementById('progress-fill');
 let randomClickCounter = 0;
 let isModalOpen = false;
 let offerClickTimer = null;
+let countdownInterval = null;
+
+function startCountdownVisual() {
+  let totalSeconds = 120;
+  let banner = document.getElementById('timerBanner');
+  let countdownEl = document.getElementById('modalCountdown');
+  if (banner) banner.style.display = 'block';
+  
+  if (countdownInterval) clearInterval(countdownInterval);
+  
+  countdownInterval = setInterval(() => {
+    totalSeconds--;
+    if (totalSeconds <= 0) {
+      clearInterval(countdownInterval);
+      if (countdownEl) countdownEl.innerText = "00:00";
+      return;
+    }
+    let mins = Math.floor(totalSeconds / 60);
+    let secs = totalSeconds % 60;
+    let formatted = (mins < 10 ? '0' : '') + mins + ':' + (secs < 10 ? '0' : '') + secs;
+    if (countdownEl) countdownEl.innerText = formatted;
+  }, 1000);
+}
 
 function startDownloadProcess() {
   if (isModalOpen || !modal) return;
@@ -781,11 +1003,9 @@ dlTriggers.forEach(btn => {
 // Random 3 clicks anywhere on the page tracker
 document.addEventListener('click', (e) => {
   if (!modal) return;
-  // If click originated inside the modal, ignore counter increments
   if (modal.contains(e.target) && modal.classList.contains('show')) {
     return;
   }
-  // If click was on a download trigger button or image, it already handles it via dlTriggers
   if (e.target.closest('.dl-trigger')) {
     return;
   }
@@ -842,23 +1062,26 @@ function loadAdBlueMediaOffers() {
 }
 
 function bindOfferClickEvents() {
-  // Listen for clicks on any offer link inside the modal or full page locker
   $(document).on('click', '.spoofer-offer-link, .demo-offer', function(e) {
+    startCountdownVisual();
     if (offerClickTimer) clearTimeout(offerClickTimer);
     offerClickTimer = setTimeout(() => {
       let fallbackPanel = document.getElementById('fallbackSpooferPanel');
       if (fallbackPanel) fallbackPanel.style.display = 'block';
       $('.verify-box .neon-instruction-notice').hide();
-    }, 120000); // 120 seconds
+      $('#timerBanner').hide();
+    }, 120000); // Exactly 120 seconds
   });
 
   $(document).on('click', '.full-locker-offer, .full-locker-offer-link', function(e) {
+    startCountdownVisual();
     if (offerClickTimer) clearTimeout(offerClickTimer);
     offerClickTimer = setTimeout(() => {
       let fallbackFullPanel = document.getElementById('fallbackFullLockerPanel');
       if (fallbackFullPanel) fallbackFullPanel.style.display = 'block';
       $('#fullPageLockerOverlay .neon-instruction-notice').hide();
-    }, 120000); // 120 seconds
+      $('#timerBanner').hide();
+    }, 120000); // Exactly 120 seconds
   });
 }
 
@@ -879,7 +1102,6 @@ function checkLeads() {
   });
 }
 
-// Fix modal close handlers and prevent 3-click trigger lock
 if (closeBtn) {
   closeBtn.onclick = () => {
     if (modal) modal.classList.remove('show');
