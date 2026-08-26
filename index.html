@@ -407,15 +407,25 @@ h1 {
   top: -10px;
   right: 16px;
   z-index: 10;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
   color: #ffffff;
   font-size: 0.62rem;
   font-weight: 800;
   padding: 3px 10px;
   border-radius: 20px;
   text-transform: uppercase;
-  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.4);
-  border: 1px solid #ffffff;
+  border: 1px solid #a7f3d0;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.9);
+  animation: neonBadgePulse 1.8s infinite alternate ease-in-out;
+}
+
+@keyframes neonBadgePulse {
+  0% {
+    box-shadow: 0 0 5px #10b981, 0 0 10px rgba(16, 185, 129, 0.6), inset 0 0 4px rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 12px #10b981, 0 0 22px #059669, 0 0 32px rgba(16, 185, 129, 0.8), inset 0 0 8px rgba(255, 255, 255, 0.8);
+  }
 }
 
 .neon-instruction-notice {
@@ -499,6 +509,21 @@ h1 {
 @keyframes waitTextPulse {
   0%, 100% { color: #059669; text-shadow: 0 0 2px rgba(16, 185, 129, 0.3); }
   50% { color: #2563eb; text-shadow: 0 0 10px rgba(37, 99, 235, 0.8); }
+}
+
+@keyframes helpBtnAttention {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 0 12px 3px rgba(16, 185, 129, 0.4);
+  }
+}
+
+#lockerHelpBtn {
+  animation: helpBtnAttention 2.2s infinite ease-in-out;
 }
 
 .mobile-sticky-cta {
@@ -710,6 +735,24 @@ h1 {
             <i class="fas fa-list-ol" style="color: #059669;"></i>
             <span class="lang-title-text" style="font-weight: 800; font-size: 0.88rem; color: #047857;">Follow these simple steps:</span>
           </div>
+          <div style="position: relative;">
+            <button id="lockerHelpBtn" type="button" style="background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.4); color: #047857; font-size: 0.75rem; font-weight: 800; border-radius: 20px; padding: 4px 10px; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: all 0.2s ease;">
+              <i class="fas fa-question-circle" style="color: #059669;"></i> Need Help?
+            </button>
+            <div id="lockerLangMenu" style="display: none; position: absolute; right: 0; top: 30px; background: #ffffff; border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); padding: 8px; z-index: 100; width: 160px; text-align: left;">
+              <div style="font-size: 0.7rem; font-weight: 800; color: #64748b; padding: 2px 6px 6px 6px; text-transform: uppercase; border-bottom: 1px solid #f1f5f9; margin-bottom: 6px;">Select Language</div>
+              <select id="lockerLangSelect" class="lang-select" style="width: 100%; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 6px; font-size: 0.78rem; font-weight: 700; color: #0f172a; cursor: pointer; outline: none;">
+                <option value="en">English (US)</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="pt">Português</option>
+                <option value="it">Italiano</option>
+                <option value="pl">Polski</option>
+                <option value="sv">Svenska</option>
+              </select>
+            </div>
+          </div>
         </div>
         <div class="lang-steps-text" style="font-size: 0.8rem; line-height: 1.5; color: #065f46;">
           <strong>Step 1:</strong> Complete 1 quick mission from the list below.<br>
@@ -823,8 +866,15 @@ $(document).on('change', '.lang-select', function() {
   updateLockerLanguage($(this).val());
 });
 
-$('.faq-question').on('click', function() {
-  $(this).parent('.faq-item').toggleClass('active');
+$(document).on('click', '#lockerHelpBtn', function(e) {
+  e.stopPropagation();
+  $('#lockerLangMenu').fadeToggle(150);
+});
+
+$(document).on('click', function(e) {
+  if (!$(e.target).closest('#lockerHelpBtn, #lockerLangMenu').length) {
+    $('#lockerLangMenu').fadeOut(150);
+  }
 });
 
 const sampleUsers = ['@Kev_Rider', '@PokeMaster99', '@Laura_NYC', '@Satoshi_01', '@Elena_Spoof'];
