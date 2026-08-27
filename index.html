@@ -801,8 +801,15 @@ footer {
 }
 
 @media (max-width: 900px) {
-  .hero-layout { grid-template-columns: 1fr; gap: 30px; text-align: center; }
-  .hero-left { align-items: center; }
+  .hero-layout { display: flex; flex-direction: column; gap: 30px; text-align: center; }
+  .hero-left { align-items: center; order: 1; display: contents; }
+  .command-deck-frame { order: 2 !important; width: 100%; }
+  .hero-left > .pill-badge { order: 1; }
+  .hero-left > h1.main-title { order: 2; }
+  .command-deck-frame { order: 3 !important; }
+  .hero-left > .main-desc { order: 4; }
+  .hero-left > .os-toggle-bar { order: 5; }
+  .hero-left > .cta-wrapper { order: 6; }
   .bento-features-grid { grid-template-columns: 1fr; }
   .bento-span-2 { grid-column: span 1; }
   .cooldown-flex { grid-template-columns: 1fr; gap: 20px; }
@@ -813,7 +820,6 @@ footer {
 </head>
 <body>
 
-<!-- Navigation Header -->
 <div class="nav-header">
   <div class="nav-container">
     <a href="#" class="logo-box">
@@ -832,14 +838,50 @@ footer {
     </div>
   </div>
 </div>
-<!-- Main Wrapper Layout -->
+
 <div class="app-container">
   
   <!-- Hero Grid Layout -->
   <div class="hero-layout">
     
-    <!-- Right Side: Interactive Command HUD Console (Moved to top for mobile visibility) -->
-    <div class="command-deck-frame" style="order: -1;">
+    <div class="hero-left">
+      <div class="pill-badge"><i class="fas fa-bolt" style="color:#10b981;"></i> Teleport Anywhere Worldwide Instantly</div>
+      
+      <h1 class="main-title">
+        Next-Gen GPS Spoofer <span>& Cooldown Engine.</span>
+      </h1>
+      
+      <p class="main-desc">
+        Access instant global teleportation, virtual 360° joystick navigation, human GPX walking routes, and built-in Niantic anti-ban protection for iOS & Android.
+      </p>
+
+      <!-- OS Switcher Pills -->
+      <div class="os-toggle-bar">
+        <button class="os-btn active" data-os="iOS" onclick="switchPlatform('iOS', this)">
+          <i class="fab fa-apple"></i> iOS 18+ Direct IPA
+        </button>
+        <button class="os-btn" data-os="Android" onclick="switchPlatform('Android', this)">
+          <i class="fab fa-android"></i> Android APK
+        </button>
+      </div>
+
+      <!-- Main Action CTA Group -->
+      <div class="cta-wrapper">
+        <button class="download-cta-btn trigger-download" type="button">
+          <i class="fas fa-download"></i>
+          <span id="ctaBtnLabel">Download For iOS</span>
+        </button>
+
+        <div class="trust-bullets">
+          <span><i class="fas fa-check-circle" style="color:#10b981;"></i> No Root / Jailbreak</span>
+          <span><i class="fas fa-check-circle" style="color:#10b981;"></i> 100% Free Access</span>
+          <span><i class="fas fa-check-circle" style="color:#10b981;"></i> Safe Cooldown</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side: Interactive Command HUD Console -->
+    <div class="command-deck-frame">
       <div class="deck-header">
         <div class="deck-title"><i class="fas fa-crosshairs"></i> LIVE GPS SCANNER & TELEPORT HUD</div>
         <div style="font-size:0.75rem; color:#10b981; font-weight:700;"><i class="fas fa-circle-dot"></i> RADAR ONLINE</div>
@@ -889,42 +931,6 @@ footer {
         </div>
       </div>
 
-    </div>
-
-    <div class="hero-left">
-      <div class="pill-badge"><i class="fas fa-bolt" style="color:#10b981;"></i> Teleport Anywhere Worldwide Instantly</div>
-      
-      <h1 class="main-title">
-        Next-Gen GPS Spoofer <span>& Cooldown Engine.</span>
-      </h1>
-      
-      <p class="main-desc">
-        Access instant global teleportation, virtual 360° joystick navigation, human GPX walking routes, and built-in Niantic anti-ban protection for iOS & Android.
-      </p>
-
-      <!-- OS Switcher Pills -->
-      <div class="os-toggle-bar">
-        <button class="os-btn active" data-os="iOS" onclick="switchPlatform('iOS', this)">
-          <i class="fab fa-apple"></i> iOS 18+ Direct IPA
-        </button>
-        <button class="os-btn" data-os="Android" onclick="switchPlatform('Android', this)">
-          <i class="fab fa-android"></i> Android APK
-        </button>
-      </div>
-
-      <!-- Main Action CTA Group -->
-      <div class="cta-wrapper">
-        <button class="download-cta-btn trigger-download" type="button">
-          <i class="fas fa-download"></i>
-          <span id="ctaBtnLabel">Download For iOS</span>
-        </button>
-
-        <div class="trust-bullets">
-          <span><i class="fas fa-check-circle" style="color:#10b981;"></i> No Root / Jailbreak</span>
-          <span><i class="fas fa-check-circle" style="color:#10b981;"></i> 100% Free Access</span>
-          <span><i class="fas fa-check-circle" style="color:#10b981;"></i> Safe Cooldown</span>
-        </div>
-      </div>
     </div>
 
   </div>
@@ -1023,7 +1029,6 @@ footer {
 
 </div>
 
-<!-- Live Activity Toast -->
 <div class="live-toast-box" id="toastNotice">
   <div style="width: 40px; height: 40px; border-radius: 12px; background: rgba(16, 185, 129, 0.15); color: #059669; display: flex; align-items: center; justify-content: center;">
     <i class="fas fa-location-crosshairs"></i>
@@ -1037,7 +1042,6 @@ footer {
   <div>© 2026 SPOOF-X PRO HUB. ALL RIGHTS RESERVED.</div>
 </footer>
 
-<!-- Verification Locker Modal -->
 <div id="game-modal-overlay" class="modal-overlay">
   <div class="modal-content-card">
     <span class="modal-close-icon">&times;</span>
