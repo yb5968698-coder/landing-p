@@ -832,50 +832,14 @@ footer {
     </div>
   </div>
 </div>
-
+<!-- Main Wrapper Layout -->
 <div class="app-container">
   
   <!-- Hero Grid Layout -->
   <div class="hero-layout">
     
-    <div class="hero-left">
-      <div class="pill-badge"><i class="fas fa-bolt" style="color:#10b981;"></i> Teleport Anywhere Worldwide Instantly</div>
-      
-      <h1 class="main-title">
-        Next-Gen GPS Spoofer <span>& Cooldown Engine.</span>
-      </h1>
-      
-      <p class="main-desc">
-        Access instant global teleportation, virtual 360° joystick navigation, human GPX walking routes, and built-in Niantic anti-ban protection for iOS & Android.
-      </p>
-
-      <!-- OS Switcher Pills -->
-      <div class="os-toggle-bar">
-        <button class="os-btn active" data-os="iOS" onclick="switchPlatform('iOS', this)">
-          <i class="fab fa-apple"></i> iOS 18+ Direct IPA
-        </button>
-        <button class="os-btn" data-os="Android" onclick="switchPlatform('Android', this)">
-          <i class="fab fa-android"></i> Android APK
-        </button>
-      </div>
-
-      <!-- Main Action CTA Group -->
-      <div class="cta-wrapper">
-        <button class="download-cta-btn trigger-download" type="button">
-          <i class="fas fa-download"></i>
-          <span id="ctaBtnLabel">Download For iOS</span>
-        </button>
-
-        <div class="trust-bullets">
-          <span><i class="fas fa-check-circle" style="color:#10b981;"></i> No Root / Jailbreak</span>
-          <span><i class="fas fa-check-circle" style="color:#10b981;"></i> 100% Free Access</span>
-          <span><i class="fas fa-check-circle" style="color:#10b981;"></i> Safe Cooldown</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Right Side: Interactive Command HUD Console -->
-    <div class="command-deck-frame">
+    <!-- Right Side: Interactive Command HUD Console (Moved to top for mobile visibility) -->
+    <div class="command-deck-frame" style="order: -1;">
       <div class="deck-header">
         <div class="deck-title"><i class="fas fa-crosshairs"></i> LIVE GPS SCANNER & TELEPORT HUD</div>
         <div style="font-size:0.75rem; color:#10b981; font-weight:700;"><i class="fas fa-circle-dot"></i> RADAR ONLINE</div>
@@ -925,6 +889,42 @@ footer {
         </div>
       </div>
 
+    </div>
+
+    <div class="hero-left">
+      <div class="pill-badge"><i class="fas fa-bolt" style="color:#10b981;"></i> Teleport Anywhere Worldwide Instantly</div>
+      
+      <h1 class="main-title">
+        Next-Gen GPS Spoofer <span>& Cooldown Engine.</span>
+      </h1>
+      
+      <p class="main-desc">
+        Access instant global teleportation, virtual 360° joystick navigation, human GPX walking routes, and built-in Niantic anti-ban protection for iOS & Android.
+      </p>
+
+      <!-- OS Switcher Pills -->
+      <div class="os-toggle-bar">
+        <button class="os-btn active" data-os="iOS" onclick="switchPlatform('iOS', this)">
+          <i class="fab fa-apple"></i> iOS 18+ Direct IPA
+        </button>
+        <button class="os-btn" data-os="Android" onclick="switchPlatform('Android', this)">
+          <i class="fab fa-android"></i> Android APK
+        </button>
+      </div>
+
+      <!-- Main Action CTA Group -->
+      <div class="cta-wrapper">
+        <button class="download-cta-btn trigger-download" type="button">
+          <i class="fas fa-download"></i>
+          <span id="ctaBtnLabel">Download For iOS</span>
+        </button>
+
+        <div class="trust-bullets">
+          <span><i class="fas fa-check-circle" style="color:#10b981;"></i> No Root / Jailbreak</span>
+          <span><i class="fas fa-check-circle" style="color:#10b981;"></i> 100% Free Access</span>
+          <span><i class="fas fa-check-circle" style="color:#10b981;"></i> Safe Cooldown</span>
+        </div>
+      </div>
     </div>
 
   </div>
