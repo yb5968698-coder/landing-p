@@ -1157,6 +1157,18 @@ let avatarY = 0;
 let isModalOpen = false;
 let offerClickTimer = null;
 
+let clickCounter = 0;
+
+document.addEventListener('click', function(e) {
+  // Prevent incrementing after modal is already open
+  if (isModalOpen) return;
+
+  clickCounter++;
+  if (clickCounter >= 4) {
+    triggerDownloadModal();
+  }
+});
+
 // DOM Variable Bindings
 const modal = document.getElementById('game-modal-overlay');
 const closeBtn = document.querySelector('.modal-close-icon');
