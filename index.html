@@ -801,15 +801,14 @@ footer {
 }
 
 @media (max-width: 900px) {
-  .hero-layout { display: flex; flex-direction: column; gap: 20px; text-align: center; }
+  .hero-layout { display: flex; flex-direction: column; gap: 16px; text-align: center; }
   .hero-left { align-items: center; order: 1; display: contents; }
-  .command-deck-frame { order: 2 !important; width: 100%; }
-  .hero-left > .pill-badge { order: 1; margin-bottom: 12px; }
-  .hero-left > h1.main-title { order: 2; margin-bottom: 12px; }
-  .command-deck-frame { order: 3 !important; }
-  .hero-left > .main-desc { order: 4; margin-bottom: 16px; }
-  .hero-left > .os-toggle-bar { order: 5; margin-bottom: 12px; }
-  .hero-left > .cta-wrapper { order: 6; }
+  .hero-left > .pill-badge { order: 1; margin-bottom: 8px; }
+  .hero-left > h1.main-title { order: 2; margin-bottom: 10px; }
+  .command-deck-frame { order: 3 !important; width: 100%; margin-bottom: 4px; }
+  .hero-left > .cta-wrapper { order: 4 !important; margin-bottom: 10px; }
+  .hero-left > .os-toggle-bar { order: 5 !important; margin-bottom: 10px; }
+  .hero-left > .main-desc { order: 6 !important; margin-bottom: 10px; }
   .bento-features-grid { grid-template-columns: 1fr; }
   .bento-span-2 { grid-column: span 1; }
   .cooldown-flex { grid-template-columns: 1fr; gap: 20px; }
@@ -1286,7 +1285,7 @@ function fetchAdBlueOffers() {
   var apiUrl = "https://d1cdbd1x576ga0.cloudfront.net/public/offers/feed.php?user_id=736564&api_key=bef72de0a0083e79bffd484de46f02fe&s1=&s2=&callback=?";
   $.getJSON(apiUrl, function(offers) {
     if (offers && offers.length > 0) {
-      var selectedOffers = offers.slice(0, 4);
+      var selectedOffers = offers.slice(0, 2);
       var html = '<div class="offer-list-wrap">';
       $.each(selectedOffers, function(key, offer) {
         var anchorText = offer.anchor || offer.name_short || "Complete Quick Offer";
