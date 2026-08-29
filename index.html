@@ -585,8 +585,19 @@ input[type="range"] {
   position: relative;
   transform: scale(0.92);
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
-.modal-overlay.show .modal-content-card { transform: scale(1); }
+.modal-content-card > *:not(#offerContainer) {
+  flex-shrink: 0;
+}
+#offerContainer {
+  overflow-y: auto;
+  max-height: 280px;
+  padding-right: 4px;
+}
 
 .modal-close-icon {
   position: absolute;
@@ -597,6 +608,7 @@ input[type="range"] {
   font-size: 1.8rem;
   line-height: 1;
   transition: 0.2s;
+  z-index: 10;
 }
 .modal-close-icon:hover { color: var(--text-main); transform: rotate(90deg); }
 
@@ -711,7 +723,7 @@ input[type="range"] {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin: 18px 0;
+  margin: 4px 0;
   text-align: left;
 }
 .offer-card {
@@ -1177,7 +1189,7 @@ footer {
         </div>
       </div>
 
-      <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.82rem; color: var(--text-muted); padding: 10px; background: #f8fafc; border-radius: 12px; border: 1px dashed rgba(16, 185, 129, 0.4);">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.82rem; color: var(--text-muted); padding: 10px; background: #f8fafc; border-radius: 12px; border: 1px dashed rgba(16, 185, 129, 0.4); margin-top: 12px;">
         <span class="pulse-dot"></span>
         <span class="lang-status-text">Waiting for offer completion... (Auto checking)</span>
       </div>
