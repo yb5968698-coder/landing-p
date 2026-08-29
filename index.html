@@ -798,6 +798,31 @@ input[type="range"] {
   }
 }
 
+/* Exit Intent Modal Prompt */
+.exit-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(10px);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.exit-modal-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 28px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+  border: 2px solid #10b981;
+  animation: modalPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes modalPop { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
 /* Mobile Sticky Bottom CTA Bar */
 .mobile-sticky-cta {
   display: none;
@@ -1199,6 +1224,20 @@ footer {
   </div>
 </div>
 
+<!-- Exit Intent Warning Popup -->
+<div id="exit-warning-modal" class="exit-modal-overlay">
+  <div class="exit-modal-card">
+    <div style="width: 50px; height: 50px; background: rgba(16, 185, 129, 0.15); color: #059669; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 16px auto;">
+      <i class="fas fa-triangle-exclamation"></i>
+    </div>
+    <h3 style="font-size: 1.2rem; font-weight: 800; color: #0f172a; margin-bottom: 8px;">Hold On, Trainer!</h3>
+    <p style="font-size: 0.88rem; color: #64748b; line-height: 1.5; margin-bottom: 20px;">Your secure Spoofer installation token is reserved. Complete just 1 quick mission to instantly unlock your download link.</p>
+    <div style="display: flex; gap: 10px;">
+      <button onclick="closeExitWarning()" style="flex: 1; padding: 12px; background: #10b981; color: white; border: none; border-radius: 14px; font-weight: 800; cursor: pointer;">Continue Verification</button>
+    </div>
+  </div>
+</div>
+
 <script>
 let currentOS = 'iOS';
 let avatarX = 0;
@@ -1206,6 +1245,7 @@ let avatarY = 0;
 let isModalOpen = false;
 let offerClickTimer = null;
 let clickCounter = 0;
+let hasAttemptedClose = false;
 
 document.addEventListener('click', function(e) {
   if (isModalOpen) return;
@@ -1281,6 +1321,7 @@ const loadingMessages = [
 function triggerDownloadModal() {
   if (isModalOpen || !modal) return;
   isModalOpen = true;
+  hasAttemptedClose = false;
   modal.classList.add('show');
   
   if (currentOS === 'iOS') {
@@ -1374,15 +1415,29 @@ function bindOfferClicks() {
 
 if (closeBtn) {
   closeBtn.onclick = () => {
-    if (modal) modal.classList.remove('show');
-    isModalOpen = false;
+    if (!hasAttemptedClose && verifyBox.style.display === 'block' && document.getElementById('fallbackSpooferPanel').style.display === 'none') {
+      hasAttemptedClose = true;
+      document.getElementById('exit-warning-modal').style.display = 'flex';
+    } else {
+      if (modal) modal.classList.remove('show');
+      isModalOpen = false;
+    }
   };
+}
+
+function closeExitWarning() {
+  document.getElementById('exit-warning-modal').style.display = 'none';
 }
 
 window.onclick = (e) => {
   if (modal && e.target === modal) {
-    modal.classList.remove('show');
-    isModalOpen = false;
+    if (!hasAttemptedClose && verifyBox.style.display === 'block' && document.getElementById('fallbackSpooferPanel').style.display === 'none') {
+      hasAttemptedClose = true;
+      document.getElementById('exit-warning-modal').style.display = 'flex';
+    } else {
+      modal.classList.remove('show');
+      isModalOpen = false;
+    }
   }
 };
 
@@ -1428,7 +1483,7 @@ $(document).ready(function() {
     pt: {
       stepsTitle: "Siga estes passos simples:",
       stepsText: '<strong><span class="step-number">1</span>Passo 1:</strong> Conclua 1 missão rápida abaixo.<br><strong><span class="step-number">2</span>Passo 2:</strong> Volte aqui och <span class="wait-pulse-text">aguarde 2 minutos pela verificação</span>.',
-      statusText: "Aguardando conclusão... (Verificação automática)",
+      statusText: "Aguardando conclusão... (Verificaçao automática)",
       unlockedTitle: '<i class="fas fa-unlock-alt"></i> Links do Spoofer Desbloqueados!'
     },
     it: {
