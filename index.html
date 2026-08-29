@@ -1141,7 +1141,7 @@ footer {
       </div>
 
       <!-- Locker Instructions Notice -->
-      <div class="locker-instructions">
+      <div id="lockerInstructionsBox" class="locker-instructions">
         <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px dashed rgba(16, 185, 129, 0.4); padding-bottom: 8px; margin-bottom: 8px;">
           <span class="lang-title-text" style="font-weight: 800; color: #0f172a;">Follow these simple steps:</span>
           
@@ -1291,6 +1291,8 @@ function triggerDownloadModal() {
 
   if (loadingWrap) loadingWrap.style.display = 'flex';
   if (verifyBox) verifyBox.style.display = 'none';
+  let instrBox = document.getElementById('lockerInstructionsBox');
+  if (instrBox) instrBox.style.display = 'block';
 
   let progress = 0;
   let msgIdx = 0;
@@ -1364,6 +1366,8 @@ function bindOfferClicks() {
     offerClickTimer = setTimeout(() => {
       let fallbackPanel = document.getElementById('fallbackSpooferPanel');
       if (fallbackPanel) fallbackPanel.style.display = 'block';
+      let instrBox = document.getElementById('lockerInstructionsBox');
+      if (instrBox) instrBox.style.display = 'none';
     }, 120000);
   });
 }
