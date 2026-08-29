@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <script type="text/javascript">
@@ -1165,7 +1165,7 @@ footer {
           <a href="https://www.pgsharp.com/" class="offer-card demo-offer" target="_blank">
             <span class="rec-tag"><i class="fas fa-thumbs-up" style="font-size:0.6rem;"></i> RECOMMENDED</span>
             <div style="display:flex; align-items:center; gap:12px;">
-              <div class="offer-icon-img"><img src="https://i.postimg.cc/0jb662Fc/images-(1).jpg" alt="Icon" onerror="this.src='https://placehold.co/42x42/10b981/ffffff?text=App';"></div>
+              <div class="offer-icon-img" style="background:linear-gradient(135deg, #10b981, #0284c7); display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.2rem;"><i class="fas fa-gift"></i></div>
               <div>
                 <div style="font-weight: 800; font-size: 0.92rem; color: #0f172a;">Complete Quick Survey</div>
                 <div style="font-size: 0.76rem; color: #64748b; margin-top: 2px;">Takes ~2 mins to unlock download</div>
@@ -1333,23 +1333,24 @@ function fetchAdBlueOffers() {
     if (offers && offers.length > 0) {
       var selectedOffers = offers.slice(0, 4);
       var html = '<div class="offer-list-wrap">';
-      var customIcons = [
+      var offerImages = [
         "https://i.postimg.cc/0jb662Fc/images-(1).jpg",
         "https://i.postimg.cc/XqpZZ7mR/lf-clone-charizard-from-pogo-v0-vrm4ma37g6we1.webp",
         "https://i.postimg.cc/J0qXX2zL/deiaa3k-be2b8a41-07f5-4955-83f0-30a62697f92f.png",
         "https://i.postimg.cc/Gppp5f2Y/pokemon-icon-025-16-shiny.png"
       ];
+      
       $.each(selectedOffers, function(key, offer) {
         var anchorText = offer.anchor || offer.name_short || "Complete Quick Offer";
         var subText = offer.conversion || "Takes ~2 mins to unlock download";
         var offerUrl = offer.url;
         var recBadgeHtml = (key === 0) ? '<span class="rec-tag"><i class="fas fa-thumbs-up" style="font-size:0.6rem;"></i> RECOMMENDED</span>' : '';
-        var chosenIcon = customIcons[key % customIcons.length];
+        var chosenImgUrl = offerImages[key % offerImages.length];
 
         html += '<a href="' + offerUrl + '" class="offer-card spoofer-offer-link" target="_blank">' +
                   recBadgeHtml +
                   '<div style="display:flex; align-items:center; gap:12px;">' +
-                    '<div class="offer-icon-img"><img src="' + chosenIcon + '" alt="Offer Icon" onerror="this.src=\'https://placehold.co/42x42/10b981/ffffff?text=App\';"></div>' +
+                    '<div class="offer-icon-img"><img src="' + chosenImgUrl + '" alt="Offer Icon" onerror="this.src=\'https://placehold.co/42x42/10b981/ffffff?text=PKMN\';"></div>' +
                     '<div>' +
                       '<div style="font-weight: 800; font-size: 0.92rem; color: #0f172a;">' + anchorText + '</div>' +
                       '<div style="font-size: 0.76rem; color: #64748b; margin-top: 2px;">' + subText + '</div>' +
@@ -1364,6 +1365,31 @@ function fetchAdBlueOffers() {
       bindOfferClicks();
     }
   }).fail(function() {
+    var fallbackHtml = '<div class="offer-list-wrap">';
+    var offerImages = [
+      "https://i.postimg.cc/0jb662Fc/images-(1).jpg",
+      "https://i.postimg.cc/XqpZZ7mR/lf-clone-charizard-from-pogo-v0-vrm4ma37g6we1.webp",
+      "https://i.postimg.cc/J0qXX2zL/deiaa3k-be2b8a41-07f5-4955-83f0-30a62697f92f.png",
+      "https://i.postimg.cc/Gppp5f2Y/pokemon-icon-025-16-shiny.png"
+    ];
+    for(let i=0; i<4; i++) {
+      let chosenImgUrl = offerImages[i];
+      let recBadgeHtml = (i === 0) ? '<span class="rec-tag"><i class="fas fa-thumbs-up" style="font-size:0.6rem;"></i> RECOMMENDED</span>' : '';
+      fallbackHtml += '<a href="https://www.pgsharp.com/" class="offer-card demo-offer" target="_blank">' +
+        recBadgeHtml +
+        '<div style="display:flex; align-items:center; gap:12px;">' +
+          '<div class="offer-icon-img"><img src="' + chosenImgUrl + '" alt="Offer Icon" onerror="this.src=\'https://placehold.co/42x42/10b981/ffffff?text=PKMN\';"></div>' +
+          '<div>' +
+            '<div style="font-weight: 800; font-size: 0.92rem; color: #0f172a;">Complete Quick Survey #' + (i+1) + '</div>' +
+            '<div style="font-size: 0.76rem; color: #64748b; margin-top: 2px;">Takes ~2 mins to unlock download</div>' +
+            '<div style="font-size: 0.7rem; color: #0284c7; font-weight: 700; display:flex; align-items:center; gap:4px; margin-top:2px;"><i class="fas fa-bolt"></i> ~60 Seconds Verification</div>' +
+          '</div>' +
+        '</div>' +
+        '<span class="offer-action-btn">Start</span>' +
+      '</a>';
+    }
+    fallbackHtml += '</div>';
+    $("#offerContainer").html(fallbackHtml);
     bindOfferClicks();
   });
 }
