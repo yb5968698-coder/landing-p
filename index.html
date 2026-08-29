@@ -10,7 +10,7 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SPOOF-X PRO v5.2 | Pokémon GO Official GPS Spoofer Hub</title>
+<title>SPOOF-X PRO v5.2 | Next-Gen Pokémon GO GPS Spoofer & Cooldown Engine</title>
 
 <!-- Fonts & Icons -->
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
@@ -19,21 +19,20 @@
 
 <style>
 :root {
-  --pogo-navy: #0b1c3c;
-  --pogo-blue: #0076ff;
-  --pogo-gold: #ffc700;
-  --pogo-orange: #ff7a00;
-  --primary: #ffc700;
-  --primary-glow: rgba(255, 199, 0, 0.3);
-  --primary-light: #ffdd40;
-  --bg-main: #070f22;
-  --bg-card: rgba(15, 28, 60, 0.88);
-  --text-main: #ffffff;
-  --text-muted: #94a3b8;
-  --border-light: rgba(255, 255, 255, 0.12);
-  --border-active: rgba(255, 199, 0, 0.6);
-  --shadow-lg: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 10px 30px rgba(255, 199, 0, 0.25);
+  --primary: #059669;
+  --primary-glow: rgba(5, 150, 105, 0.25);
+  --primary-light: #10b981;
+  --secondary: #0284c7;
+  --accent: #8b5cf6;
+  --gold: #f59e0b;
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border-light: rgba(226, 232, 240, 0.9);
+  --border-active: rgba(16, 185, 129, 0.4);
+  --shadow-lg: 0 20px 40px -15px rgba(15, 23, 42, 0.07);
+  --shadow-glow: 0 10px 30px rgba(16, 185, 129, 0.25);
 }
 
 * {
@@ -46,11 +45,11 @@
 body {
   background-color: var(--bg-main);
   background-image:
-    linear-gradient(rgba(7, 15, 34, 0.88), rgba(7, 15, 34, 0.94)),
-    url('https://i.postimg.cc/L4J1XJmJ/pokemon-go-jaquette-cover.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+    radial-gradient(circle at 10% 10%, rgba(16, 185, 129, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 90% 90%, rgba(2, 132, 199, 0.08) 0%, transparent 45%),
+    linear-gradient(to right, rgba(226, 232, 240, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 232, 240, 0.4) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
   color: var(--text-main);
   overflow-x: hidden;
   min-height: 100vh;
@@ -62,10 +61,10 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(11, 28, 60, 0.92);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-light);
-  padding: 14px 24px;
+  padding: 12px 24px;
 }
 .nav-container {
   max-width: 1200px;
@@ -81,32 +80,26 @@ body {
   text-decoration: none;
 }
 .logo-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #ffc700 0%, #ff7a00 100%);
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #10b981 0%, #0284c7 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0b1c3c;
-  font-size: 1.3rem;
-  box-shadow: 0 6px 20px rgba(255, 199, 0, 0.4);
-  overflow: hidden;
-}
-.logo-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  color: #fff;
+  font-size: 1.2rem;
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
 }
 .logo-title {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-main);
   letter-spacing: -0.5px;
 }
 .logo-title span {
-  color: var(--pogo-gold);
+  color: var(--primary);
 }
 
 .status-badge-group {
@@ -120,20 +113,20 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 199, 0, 0.12);
-  color: var(--pogo-gold);
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--primary);
   padding: 6px 16px;
   border-radius: 30px;
-  border: 1px solid rgba(255, 199, 0, 0.3);
+  border: 1px solid rgba(16, 185, 129, 0.25);
 }
 .pulse-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #ffc700;
+  background: var(--primary-light);
   animation: pulse 1.8s infinite ease-in-out;
 }
-@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.6); opacity: 0.4; } }
+@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.3; } }
 
 .app-container {
   max-width: 1200px;
@@ -158,14 +151,14 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(0, 118, 255, 0.2);
-  border: 1px solid rgba(0, 118, 255, 0.4);
+  background: #ffffff;
+  border: 1px solid rgba(16, 185, 129, 0.3);
   padding: 6px 16px;
   border-radius: 30px;
   font-size: 0.82rem;
   font-weight: 800;
-  color: #38bdf8;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  color: var(--primary);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
   margin-bottom: 24px;
 }
 
@@ -175,10 +168,10 @@ h1.main-title {
   line-height: 1.1;
   letter-spacing: -1.5px;
   margin-bottom: 20px;
-  color: #fff;
+  color: var(--text-main);
 }
 h1.main-title span {
-  background: linear-gradient(135deg, #ffc700 0%, #ff7a00 100%);
+  background: linear-gradient(135deg, #059669 0%, #0284c7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -188,20 +181,19 @@ h1.main-title span {
   color: var(--text-muted);
   font-weight: 500;
   line-height: 1.65;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   max-width: 520px;
 }
 
 .os-toggle-bar {
   display: flex;
-  background: rgba(11, 28, 60, 0.8);
+  background: #e2e8f0;
   padding: 5px;
   border-radius: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   gap: 6px;
   width: 100%;
   max-width: 440px;
-  border: 1px solid var(--border-light);
 }
 .os-btn {
   flex: 1;
@@ -220,9 +212,9 @@ h1.main-title span {
   transition: all 0.25s ease;
 }
 .os-btn.active {
-  background: linear-gradient(135deg, #ffc700 0%, #ff9900 100%);
-  color: #0b1c3c;
-  box-shadow: 0 4px 16px rgba(255, 199, 0, 0.35);
+  background: #ffffff;
+  color: var(--text-main);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
 }
 
 .cta-wrapper {
@@ -235,9 +227,9 @@ h1.main-title span {
 .download-cta-btn {
   width: 100%;
   padding: 20px 32px;
-  background: linear-gradient(135deg, #ffc700 0%, #ff7a00 50%, #0076ff 100%);
+  background: linear-gradient(135deg, #10b981 0%, #059669 50%, #0284c7 100%);
   background-size: 200% 100%;
-  color: #0b1c3c;
+  color: white;
   border: none;
   border-radius: 20px;
   font-size: 1.12rem;
@@ -247,16 +239,15 @@ h1.main-title span {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  box-shadow: 0 10px 30px rgba(255, 199, 0, 0.35);
+  box-shadow: var(--shadow-glow);
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 .download-cta-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 36px rgba(255, 199, 0, 0.5);
+  box-shadow: 0 16px 36px rgba(16, 185, 129, 0.45);
   background-position: 100% 0;
-  color: #000;
 }
 
 .trust-bullets {
@@ -268,13 +259,13 @@ h1.main-title span {
   font-weight: 700;
   padding: 0 6px;
 }
-.trust-bullets span { display: flex; align-items: center; gap: 6px; color: #cbd5e1; }
+.trust-bullets span { display: flex; align-items: center; gap: 6px; }
 
 .command-deck-frame {
-  background: rgba(11, 28, 60, 0.95);
+  background: #0f172a;
   border-radius: 36px;
   padding: 20px;
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(255, 199, 0, 0.3);
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.3), 0 0 0 8px #cbd5e1;
   position: relative;
   color: #fff;
   overflow: hidden;
@@ -292,7 +283,7 @@ h1.main-title span {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
-  color: #ffc700;
+  color: #38bdf8;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -300,11 +291,11 @@ h1.main-title span {
 
 .radar-display-area {
   height: 280px;
-  background: radial-gradient(circle at 50% 50%, #004080 0%, #0b1c3c 75%);
+  background: radial-gradient(circle at 50% 50%, #0284c7 0%, #0f172a 75%);
   border-radius: 24px;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 199, 0, 0.3);
+  border: 1px solid rgba(56, 189, 248, 0.25);
   margin-bottom: 16px;
 }
 
@@ -316,8 +307,8 @@ h1.main-title span {
   height: 300px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  border: 1px dashed rgba(255, 199, 0, 0.4);
-  background: conic-gradient(from 0deg, rgba(255, 199, 0, 0.35) 0deg, transparent 60deg, transparent 360deg);
+  border: 1px dashed rgba(56, 189, 248, 0.4);
+  background: conic-gradient(from 0deg, rgba(16, 185, 129, 0.3) 0deg, transparent 60deg, transparent 360deg);
   animation: radarSweep 6s linear infinite;
 }
 @keyframes radarSweep { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
@@ -331,13 +322,13 @@ h1.main-title span {
   height: 44px;
   border-radius: 50%;
   background: #ffffff;
-  border: 3px solid #ffc700;
+  border: 3px solid #10b981;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ff7a00;
+  color: #059669;
   font-size: 1.1rem;
-  box-shadow: 0 0 20px #ffc700;
+  box-shadow: 0 0 20px #10b981;
   z-index: 10;
   transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -346,20 +337,15 @@ h1.main-title span {
   position: absolute;
   top: 25px;
   left: 20px;
-  background: rgba(11, 28, 60, 0.92);
+  background: rgba(15, 23, 42, 0.88);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 199, 0, 0.5);
+  border: 1px solid rgba(16, 185, 129, 0.4);
   padding: 8px 14px;
   border-radius: 16px;
   display: flex;
   align-items: center;
   gap: 10px;
   z-index: 20;
-}
-.shiny-spawn-tag img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
 }
 
 .hotspot-selector-bar {
@@ -382,10 +368,9 @@ h1.main-title span {
   transition: all 0.2s;
 }
 .hot-pill:hover, .hot-pill.active {
-  background: #ffc700;
-  color: #0b1c3c;
-  border-color: #ffc700;
-  font-weight: 800;
+  background: #10b981;
+  color: #fff;
+  border-color: #10b981;
 }
 
 .dpad-control-grid {
@@ -407,8 +392,8 @@ h1.main-title span {
   user-select: none;
   transition: all 0.15s;
 }
-.dpad-btn:active { background: #ffc700; color: #0b1c3c; transform: scale(0.9); }
-.dpad-center { background: rgba(255, 199, 0, 0.3); border-color: #ffc700; color: #ffc700; }
+.dpad-btn:active { background: #10b981; color: white; transform: scale(0.9); }
+.dpad-center { background: rgba(16, 185, 129, 0.3); border-color: #10b981; }
 
 .section-title-wrap {
   text-align: center;
@@ -417,7 +402,7 @@ h1.main-title span {
 .section-title-wrap h2 {
   font-size: 2.2rem;
   font-weight: 900;
-  color: #fff;
+  color: var(--text-main);
   letter-spacing: -0.8px;
 }
 .section-title-wrap p {
@@ -446,32 +431,28 @@ h1.main-title span {
 .bento-item:hover {
   transform: translateY(-5px);
   border-color: var(--border-active);
-  box-shadow: 0 24px 48px -12px rgba(255, 199, 0, 0.2);
+  box-shadow: 0 24px 48px -12px rgba(16, 185, 129, 0.14);
 }
 .bento-span-2 { grid-column: span 2; }
 
 .bento-icon-box {
-  width: 54px;
-  height: 54px;
+  width: 48px;
+  height: 48px;
   border-radius: 16px;
-  background: rgba(255, 199, 0, 0.15);
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.3rem;
   margin-bottom: 20px;
-  border: 1px solid rgba(255, 199, 0, 0.35);
-  overflow: hidden;
-}
-.bento-icon-box img {
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
+  border: 1px solid rgba(16, 185, 129, 0.25);
 }
 
 .bento-item h3 {
   font-size: 1.2rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--text-main);
   margin-bottom: 10px;
 }
 .bento-item p {
@@ -504,16 +485,15 @@ h1.main-title span {
   justify-content: space-between;
   font-weight: 800;
   font-size: 0.95rem;
-  color: #fff;
 }
 input[type="range"] {
   width: 100%;
-  accent-color: var(--pogo-gold);
+  accent-color: var(--primary);
   cursor: pointer;
 }
 .cooldown-result-box {
-  background: rgba(255, 199, 0, 0.08);
-  border: 2px dashed rgba(255, 199, 0, 0.4);
+  background: rgba(16, 185, 129, 0.08);
+  border: 2px dashed rgba(16, 185, 129, 0.35);
   border-radius: 24px;
   padding: 28px;
   text-align: center;
@@ -522,7 +502,7 @@ input[type="range"] {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 2.8rem;
   font-weight: 700;
-  color: var(--pogo-gold);
+  color: var(--primary);
 }
 
 .faq-container {
@@ -544,10 +524,10 @@ input[type="range"] {
   align-items: center;
   font-weight: 800;
   font-size: 1.05rem;
-  color: #fff;
+  color: var(--text-main);
   cursor: pointer;
 }
-.faq-header:hover { color: var(--pogo-gold); }
+.faq-header:hover { color: var(--primary); }
 .faq-body {
   display: none;
   margin-top: 12px;
@@ -556,26 +536,25 @@ input[type="range"] {
   line-height: 1.65;
 }
 .faq-row.active .faq-body { display: block; }
-.faq-row.active .faq-chevron { transform: rotate(180deg); color: var(--pogo-gold); }
+.faq-row.active .faq-chevron { transform: rotate(180deg); color: var(--primary); }
 .faq-chevron { transition: transform 0.3s ease; color: var(--text-muted); }
 
 .live-toast-box {
   position: fixed;
   bottom: 25px;
   left: 25px;
-  background: rgba(11, 28, 60, 0.95);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 199, 0, 0.4);
+  border: 1px solid rgba(16, 185, 129, 0.35);
   padding: 14px 20px;
   border-radius: 22px;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.1);
   display: flex;
   align-items: center;
   gap: 14px;
   z-index: 90;
   max-width: 360px;
   animation: toastIn 0.5s ease;
-  color: #fff;
 }
 @keyframes toastIn { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
 
@@ -583,8 +562,8 @@ input[type="range"] {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(5, 12, 30, 0.85);
-  backdrop-filter: blur(12px);
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
   z-index: 1000;
   align-items: center;
   justify-content: center;
@@ -595,14 +574,14 @@ input[type="range"] {
 .modal-overlay.show { opacity: 1; display: flex; }
 
 .modal-content-card {
-  background: #0f1c3c;
+  background: #ffffff;
   width: 100%;
   max-width: 480px;
   border-radius: 36px;
   padding: 36px 32px;
   text-align: center;
-  border: 2px solid rgba(255, 199, 0, 0.5);
-  box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.22);
   position: relative;
   transform: scale(0.92);
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -610,7 +589,6 @@ input[type="range"] {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  color: #fff;
 }
 .modal-content-card > *:not(#offerContainer) {
   flex-shrink: 0;
@@ -632,14 +610,14 @@ input[type="range"] {
   transition: 0.2s;
   z-index: 10;
 }
-.modal-close-icon:hover { color: #fff; transform: rotate(90deg); }
+.modal-close-icon:hover { color: var(--text-main); transform: rotate(90deg); }
 
 .spinner-ring {
   width: 54px;
   height: 54px;
-  border: 4px solid rgba(255,255,255,0.1);
-  border-top: 4px solid #ffc700;
-  border-right: 4px solid #0076ff;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #10b981;
+  border-right: 4px solid #0284c7;
   border-radius: 50%;
   animation: spinRing 0.85s linear infinite;
   margin: 0 auto 20px auto;
@@ -649,14 +627,14 @@ input[type="range"] {
 .progress-track {
   width: 100%;
   height: 8px;
-  background: rgba(255,255,255,0.1);
+  background: #f1f5f9;
   border-radius: 10px;
   margin-top: 16px;
   overflow: hidden;
 }
 .progress-fill-bar {
   height: 100%;
-  background: linear-gradient(90deg, #ffc700, #ff7a00);
+  background: linear-gradient(90deg, #10b981, #0284c7);
   width: 0%;
   transition: width 0.2s ease;
 }
@@ -667,7 +645,7 @@ input[type="range"] {
   justify-content: space-between;
   padding-bottom: 16px;
   margin-bottom: 20px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid var(--border-light);
 }
 .locker-title-flex {
   display: flex;
@@ -679,8 +657,8 @@ input[type="range"] {
   width: 38px;
   height: 38px;
   border-radius: 12px;
-  background: rgba(255, 199, 0, 0.15);
-  color: #ffc700;
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -688,15 +666,15 @@ input[type="range"] {
 }
 
 @keyframes helpPulseAttention {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 199, 0, 0.25); }
-  50% { transform: scale(1.06); box-shadow: 0 0 16px 4px rgba(255, 199, 0, 0.4); }
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.25); }
+  50% { transform: scale(1.06); box-shadow: 0 0 16px 4px rgba(16, 185, 129, 0.4); }
 }
 
 #lockerHelpBtn {
   animation: helpPulseAttention 2.2s infinite ease-in-out;
-  background: rgba(255, 199, 0, 0.2);
-  border: 1px solid rgba(255, 199, 0, 0.5);
-  color: #ffc700;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #047857;
   font-size: 0.78rem;
   font-weight: 800;
   border-radius: 20px;
@@ -708,9 +686,9 @@ input[type="range"] {
 }
 
 .locker-instructions {
-  background: rgba(255, 199, 0, 0.08);
-  border: 1px solid rgba(255, 199, 0, 0.3);
-  color: #ffdd40;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #047857;
   padding: 16px;
   border-radius: 20px;
   font-size: 0.85rem;
@@ -724,21 +702,21 @@ input[type="range"] {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #ffc700;
-  color: #0b1c3c;
+  background: #10b981;
+  color: white;
   font-size: 0.72rem;
-  font-weight: 900;
+  font-weight: 800;
   margin-right: 6px;
 }
 .wait-pulse-text {
   display: inline;
   font-weight: 800;
-  color: #ffc700;
+  color: #059669;
   animation: waitPulse 1.8s infinite ease-in-out;
 }
 @keyframes waitPulse {
-  0%, 100% { color: #ffc700; }
-  50% { color: #38bdf8; }
+  0%, 100% { color: #059669; }
+  50% { color: #0284c7; }
 }
 
 .offer-list-wrap {
@@ -753,25 +731,25 @@ input[type="range"] {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 199, 0, 0.3);
+  background: #f8fafc;
+  border: 1px solid rgba(16, 185, 129, 0.25);
   padding: 14px 16px;
   border-radius: 20px;
   text-decoration: none;
-  color: #fff;
+  color: var(--text-main);
   transition: all 0.3s ease;
 }
 .offer-card:hover {
-  border-color: #ffc700;
-  background: rgba(255, 199, 0, 0.1);
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.05);
   transform: translateY(-2px);
 }
 .offer-card.clicked {
-  border-color: #0076ff;
-  background: rgba(0, 118, 255, 0.1);
+  border-color: #0284c7;
+  background: rgba(2, 132, 199, 0.05);
 }
 .offer-card.clicked .offer-action-btn {
-  background: linear-gradient(135deg, #0076ff 0%, #0284c7 100%);
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
 }
 
 .offer-icon-img {
@@ -784,12 +762,12 @@ input[type="range"] {
 .offer-icon-img img { width: 100%; height: 100%; object-fit: cover; }
 
 .offer-action-btn {
-  background: linear-gradient(135deg, #ffc700 0%, #ff7a00 100%);
-  color: #0b1c3c;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
   padding: 8px 18px;
   border-radius: 50px;
   font-size: 0.8rem;
-  font-weight: 900;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
@@ -797,25 +775,25 @@ input[type="range"] {
   position: absolute;
   top: -10px;
   right: 18px;
-  background: linear-gradient(135deg, #ff7a00 0%, #ffc700 100%);
-  color: #0b1c3c;
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  color: #ffffff;
   font-size: 0.65rem;
-  font-weight: 900;
+  font-weight: 800;
   padding: 4px 12px;
   border-radius: 20px;
   text-transform: uppercase;
-  box-shadow: 0 0 12px rgba(255, 199, 0, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   animation: recNeonPulse 2s infinite ease-in-out;
 }
 
 @keyframes recNeonPulse {
   0%, 100% {
-    box-shadow: 0 0 8px rgba(255, 199, 0, 0.6), inset 0 0 4px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.5), inset 0 0 4px rgba(255, 255, 255, 0.5);
     transform: scale(1);
   }
   50% {
-    box-shadow: 0 0 16px rgba(255, 199, 0, 0.95), inset 0 0 6px rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 16px rgba(16, 185, 129, 0.9), inset 0 0 6px rgba(255, 255, 255, 0.8);
     transform: scale(1.05);
   }
 }
@@ -825,7 +803,7 @@ input[type="range"] {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(5, 12, 30, 0.85);
+  background: rgba(15, 23, 42, 0.75);
   backdrop-filter: blur(10px);
   z-index: 2000;
   align-items: center;
@@ -833,16 +811,15 @@ input[type="range"] {
   padding: 20px;
 }
 .exit-modal-card {
-  background: #0f1c3c;
+  background: #ffffff;
   width: 100%;
   max-width: 400px;
   border-radius: 28px;
   padding: 30px;
   text-align: center;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
-  border: 2px solid #ffc700;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+  border: 2px solid #10b981;
   animation: modalPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  color: #fff;
 }
 @keyframes modalPop { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
@@ -882,18 +859,18 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(11, 28, 60, 0.95);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(16px);
-    border-top: 1px solid rgba(255, 199, 0, 0.3);
+    border-top: 1px solid var(--border-light);
     padding: 12px 20px;
     z-index: 95;
-    box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.08);
   }
   .mobile-sticky-cta button {
     width: 100%;
     padding: 14px 20px;
-    background: linear-gradient(135deg, #ffc700 0%, #ff7a00 50%, #0076ff 100%);
-    color: #0b1c3c;
+    background: linear-gradient(135deg, #10b981 0%, #059669 50%, #0284c7 100%);
+    color: white;
     border: none;
     border-radius: 16px;
     font-size: 1rem;
@@ -903,7 +880,7 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    box-shadow: 0 8px 25px rgba(255, 199, 0, 0.4);
+    box-shadow: var(--shadow-glow);
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
@@ -915,7 +892,7 @@ footer {
 <div class="nav-header">
   <div class="nav-container">
     <a href="#" class="logo-box">
-      <div class="logo-icon"><img src="https://i.postimg.cc/pXNpLk0w/pokemon-icon-025-00-09-shiny.png" alt="Logo"></div>
+      <div class="logo-icon"><i class="fas fa-satellite-dish"></i></div>
       <div class="logo-title">SPOOF-X <span>PRO</span></div>
     </a>
 
@@ -925,7 +902,7 @@ footer {
         <span id="active-trainers-counter">4,892</span> Active Trainers
       </div>
       <div style="color: var(--text-muted); display: flex; align-items: center; gap: 6px;">
-        <i class="fas fa-shield-halved" style="color:#ffc700;"></i> Niantic Secure v5.2
+        <i class="fas fa-shield-halved" style="color:#10b981;"></i> Safe Spoofer v5.2
       </div>
     </div>
   </div>
@@ -936,7 +913,7 @@ footer {
   <div class="hero-layout">
     
     <div class="hero-left">
-      <div class="pill-badge"><i class="fas fa-bolt" style="color:#ffc700;"></i> Teleport Anywhere Worldwide Instantly</div>
+      <div class="pill-badge"><i class="fas fa-bolt" style="color:#10b981;"></i> Teleport Anywhere Worldwide Instantly</div>
       
       <h1 class="main-title">
         Next-Gen GPS Spoofer <span>& Cooldown Engine.</span>
@@ -964,9 +941,9 @@ footer {
         </button>
 
         <div class="trust-bullets">
-          <span><i class="fas fa-check-circle" style="color:#ffc700;"></i> No Root / Jailbreak</span>
-          <span><i class="fas fa-check-circle" style="color:#ffc700;"></i> 100% Free Access</span>
-          <span><i class="fas fa-check-circle" style="color:#ffc700;"></i> Safe Cooldown</span>
+          <span><i class="fas fa-check-circle" style="color:#10b981;"></i> No Root / Jailbreak</span>
+          <span><i class="fas fa-check-circle" style="color:#10b981;"></i> 100% Free Access</span>
+          <span><i class="fas fa-check-circle" style="color:#10b981;"></i> Safe Cooldown</span>
         </div>
       </div>
     </div>
@@ -975,7 +952,7 @@ footer {
     <div class="command-deck-frame">
       <div class="deck-header">
         <div class="deck-title"><i class="fas fa-crosshairs"></i> LIVE GPS SCANNER & TELEPORT HUD</div>
-        <div style="font-size:0.75rem; color:#ffc700; font-weight:700;"><i class="fas fa-circle-dot"></i> RADAR ONLINE</div>
+        <div style="font-size:0.75rem; color:#10b981; font-weight:700;"><i class="fas fa-circle-dot"></i> RADAR ONLINE</div>
       </div>
 
       <!-- Simulated Radar Screen -->
@@ -987,9 +964,9 @@ footer {
 
         <!-- Shiny Detection Card -->
         <div class="shiny-spawn-tag">
-          <img src="https://i.postimg.cc/Gppp5f2Y/pokemon-icon-025-16-shiny.png" alt="Shiny Pikachu">
+          <i class="fas fa-dragon" style="color:#f59e0b; font-size:1.2rem;"></i>
           <div>
-            <div style="font-size:0.78rem; font-weight:800; color:#fff;">✨ Shiny Pikachu IV 100%</div>
+            <div style="font-size:0.78rem; font-weight:800; color:#fff;">✨ Shiny Rayquaza IV 100%</div>
             <div style="font-size:0.68rem; color:#38bdf8; font-weight:700;" id="hudLocationText">Pier 39, San Francisco</div>
           </div>
         </div>
@@ -1036,33 +1013,25 @@ footer {
 
   <div class="bento-features-grid">
     <div class="bento-item bento-span-2">
-      <div class="bento-icon-box">
-        <img src="https://i.postimg.cc/90PVMPM6/18144-Shiny-Galarian-Articuno.webp" alt="Articuno">
-      </div>
+      <div class="bento-icon-box"><i class="fas fa-earth-americas"></i></div>
       <h3>Instant Global Teleportation</h3>
       <p>Jump coordinates anywhere in the world in under a second. Access exclusive regional Pokémons and worldwide mega raids without leaving home.</p>
     </div>
 
     <div class="bento-item">
-      <div class="bento-icon-box">
-        <img src="https://i.postimg.cc/pXNpLk0w/pokemon-icon-025-00-09-shiny.png" alt="Pikachu">
-      </div>
+      <div class="bento-icon-box"><i class="fas fa-gamepad"></i></div>
       <h3>360° On-Screen Joystick</h3>
       <p>Customize walking speeds from 4 km/h up to 60 km/h with human-like randomized movement steps.</p>
     </div>
 
     <div class="bento-item">
-      <div class="bento-icon-box">
-        <img src="https://i.postimg.cc/25jqf6HZ/aisnhuppr6cc1.jpg" alt="Artwork">
-      </div>
+      <div class="bento-icon-box"><i class="fas fa-shield-cat"></i></div>
       <h3>Anti-Ban Engine v5.2</h3>
       <p>Automatic cooldown timer alerts ensure zero soft-bans when traveling between distant coordinates.</p>
     </div>
 
     <div class="bento-item bento-span-2">
-      <div class="bento-icon-box">
-        <img src="https://i.postimg.cc/Gppp5f2Y/pokemon-icon-025-16-shiny.png" alt="Shiny">
-      </div>
+      <div class="bento-icon-box"><i class="fas fa-route"></i></div>
       <h3>Auto GPX Route Egg Hatching</h3>
       <p>Automate continuous loop routes between high-density PokéStops to hatch 2km, 5km, 10km, and 12km eggs overnight.</p>
     </div>
@@ -1072,12 +1041,12 @@ footer {
   <div class="cooldown-tool-card">
     <div class="cooldown-flex">
       <div class="slider-wrap">
-        <h3 style="font-size:1.3rem; font-weight:900;"><i class="fas fa-stopwatch" style="color:#ffc700; margin-right:8px;"></i> Anti-Ban Cooldown Calculator</h3>
+        <h3 style="font-size:1.3rem; font-weight:900;"><i class="fas fa-stopwatch" style="color:#059669; margin-right:8px;"></i> Anti-Ban Cooldown Calculator</h3>
         <p style="font-size:0.9rem; color:var(--text-muted); font-weight:500;">Drag the distance slider below to check the exact required Niantic softban cooldown wait time:</p>
         
         <div class="slider-label-row">
           <span>Teleport Distance:</span>
-          <span id="distValDisplay" style="color:#ffc700;">250 km</span>
+          <span id="distValDisplay" style="color:#059669;">250 km</span>
         </div>
         <input type="range" id="cooldownRange" min="1" max="1500" value="250" oninput="calculateCooldown(this.value)">
       </div>
@@ -1085,7 +1054,7 @@ footer {
       <div class="cooldown-result-box">
         <div style="font-size:0.82rem; font-weight:800; color:var(--text-muted); text-transform:uppercase;">Required Wait Time:</div>
         <div class="cooldown-val" id="cooldownTimeDisplay">45 Mins</div>
-        <div style="font-size:0.78rem; font-weight:700; color:#ffc700; margin-top:4px;"><i class="fas fa-shield-check"></i> 100% Anti-Ban Safe</div>
+        <div style="font-size:0.78rem; font-weight:700; color:#059669; margin-top:4px;"><i class="fas fa-shield-check"></i> 100% Anti-Ban Safe</div>
       </div>
     </div>
   </div>
@@ -1097,7 +1066,7 @@ footer {
 
     <div class="faq-row">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span><i class="fas fa-question-circle" style="color: #ffc700; margin-right: 8px;"></i> Is Root or Jailbreak required?</span>
+        <span><i class="fas fa-question-circle" style="color: #059669; margin-right: 8px;"></i> Is Root or Jailbreak required?</span>
         <i class="fas fa-chevron-down faq-chevron"></i>
       </div>
       <div class="faq-body">
@@ -1107,7 +1076,7 @@ footer {
 
     <div class="faq-row">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span><i class="fas fa-user-shield" style="color: #ffc700; margin-right: 8px;"></i> How does the Anti-Ban engine protect my account?</span>
+        <span><i class="fas fa-user-shield" style="color: #059669; margin-right: 8px;"></i> How does the Anti-Ban engine protect my account?</span>
         <i class="fas fa-chevron-down faq-chevron"></i>
       </div>
       <div class="faq-body">
@@ -1117,7 +1086,7 @@ footer {
 
     <div class="faq-row">
       <div class="faq-header" onclick="toggleFaq(this)">
-        <span><i class="fas fa-clock" style="color: #ffc700; margin-right: 8px;"></i> How fast is the installation process?</span>
+        <span><i class="fas fa-clock" style="color: #059669; margin-right: 8px;"></i> How fast is the installation process?</span>
         <i class="fas fa-chevron-down faq-chevron"></i>
       </div>
       <div class="faq-body">
@@ -1129,11 +1098,11 @@ footer {
 </div>
 
 <div class="live-toast-box" id="toastNotice">
-  <div style="width: 40px; height: 40px; border-radius: 12px; background: rgba(255, 199, 0, 0.2); color: #ffc700; display: flex; align-items: center; justify-content: center; overflow:hidden;">
-    <img src="https://i.postimg.cc/pXNpLk0w/pokemon-icon-025-00-09-shiny.png" alt="Icon" style="width:28px; height:28px; object-fit:contain;">
+  <div style="width: 40px; height: 40px; border-radius: 12px; background: rgba(16, 185, 129, 0.15); color: #059669; display: flex; align-items: center; justify-content: center;">
+    <i class="fas fa-location-crosshairs"></i>
   </div>
   <div style="font-size: 0.82rem; font-weight: 600;">
-    <span id="toastUser">Trainer @Alex_99</span> teleported to <strong id="toastLoc" style="color:#ffc700;">Tokyo Pier</strong> <span id="toastTime">12s ago</span>
+    <span id="toastUser">Trainer @Alex_99</span> teleported to <strong id="toastLoc" style="color:#059669;">Tokyo Pier</strong> <span id="toastTime">12s ago</span>
   </div>
 </div>
 
@@ -1154,13 +1123,13 @@ footer {
 
     <div class="locker-top-bar">
       <div class="locker-title-flex">
-        <div class="locker-icon-badge"><img src="https://i.postimg.cc/pXNpLk0w/pokemon-icon-025-00-09-shiny.png" alt="Badge" style="width:26px; height:26px; object-fit:contain;"></div>
+        <div class="locker-icon-badge"><i class="fas fa-shield-halved"></i></div>
         <div>
-          <div style="font-size: 1.05rem; font-weight: 800; color: #fff;">Verification Required</div>
-          <div style="font-size: 0.76rem; color: #94a3b8; font-weight: 600;">Anti-Bot Security Protocol</div>
+          <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">Verification Required</div>
+          <div style="font-size: 0.76rem; color: #64748b; font-weight: 600;">Anti-Bot Security Protocol</div>
         </div>
       </div>
-      <div style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-size: 0.74rem; font-weight: 800; color: #cbd5e1; display: flex; align-items: center; gap: 5px;" id="modalDeviceTag">
+      <div style="background: #f1f5f9; border: 1px solid #cbd5e1; padding: 4px 10px; border-radius: 20px; font-size: 0.74rem; font-weight: 800; color: #475569; display: flex; align-items: center; gap: 5px;" id="modalDeviceTag">
         <i class="fab fa-apple"></i> <span id="modalOsText">iOS 18 Verified</span>
       </div>
     </div>
@@ -1168,9 +1137,9 @@ footer {
     <!-- Loading Phase -->
     <div class="loading-wrap" style="display: flex; flex-direction: column; align-items: center;">
       <div class="spinner-ring"></div>
-      <p style="font-size: 1.02rem; font-weight: 800; color: #fff;" id="loading-status-title">Connecting to Secure Server...</p>
-      <p style="font-size: 0.82rem; color: #ffc700; font-weight: 700; margin-top: 4px;" id="loading-substatus"><i class="fas fa-microchip"></i> Initializing Anti-Ban Kernel...</p>
-      <p style="font-size: 0.84rem; color: var(--text-muted); margin-top: 8px;">Progress: <span id="progress-text" style="color: #ffc700; font-weight: 800;">0%</span></p>
+      <p style="font-size: 1.02rem; font-weight: 800; color: #0f172a;" id="loading-status-title">Connecting to Secure Server...</p>
+      <p style="font-size: 0.82rem; color: #059669; font-weight: 700; margin-top: 4px;" id="loading-substatus"><i class="fas fa-microchip"></i> Initializing Anti-Ban Kernel...</p>
+      <p style="font-size: 0.84rem; color: var(--text-muted); margin-top: 8px;">Progress: <span id="progress-text" style="color: #059669; font-weight: 800;">0%</span></p>
       <div class="progress-track">
         <div class="progress-fill-bar" id="progress-fill"></div>
       </div>
@@ -1180,48 +1149,48 @@ footer {
     <div class="verify-box" style="display: none;">
       
       <!-- Fallback Unlocked Links Panel -->
-      <div id="fallbackSpooferPanel" style="display: none; margin-bottom: 15px; padding: 18px; background: rgba(255, 199, 0, 0.08); border: 2px solid #ffc700; border-radius: 20px; text-align: left;">
-        <h4 class="lang-unlocked-title" style="font-size: 1.05rem; color: #ffc700; margin-bottom: 10px; font-weight: 800; display: flex; align-items: center; gap: 8px;">
+      <div id="fallbackSpooferPanel" style="display: none; margin-bottom: 15px; padding: 18px; background: rgba(16, 185, 129, 0.08); border: 2px solid #059669; border-radius: 20px; text-align: left;">
+        <h4 class="lang-unlocked-title" style="font-size: 1.05rem; color: #059669; margin-bottom: 10px; font-weight: 800; display: flex; align-items: center; gap: 8px;">
           <i class="fas fa-unlock-alt"></i> Spoofer Links Unlocked!
         </h4>
-        <div style="font-size: 0.85rem; font-weight: 800; margin-bottom: 4px;"><i class="fab fa-android" style="color: #38bdf8;"></i> Android Spoofer:</div>
+        <div style="font-size: 0.85rem; font-weight: 800; margin-bottom: 4px;"><i class="fab fa-android" style="color: #0284c7;"></i> Android Spoofer:</div>
         <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px;">
-          <a href="https://www.pgsharp.com/" target="_blank" style="font-size: 0.8rem; color: #38bdf8; text-decoration: underline;">• PGSharp Official Website</a>
-          <a href="https://play.google.com/store/apps/details?id=com.pogoskill.fakegps" target="_blank" style="font-size: 0.8rem; color: #38bdf8; text-decoration: underline;">• PoGoSkill Fake GPS (Play Store)</a>
+          <a href="https://www.pgsharp.com/" target="_blank" style="font-size: 0.8rem; color: #0284c7; text-decoration: underline;">• PGSharp Official Website</a>
+          <a href="https://play.google.com/store/apps/details?id=com.pogoskill.fakegps" target="_blank" style="font-size: 0.8rem; color: #0284c7; text-decoration: underline;">• PoGoSkill Fake GPS (Play Store)</a>
         </div>
-        <div style="font-size: 0.85rem; font-weight: 800; margin-bottom: 4px;"><i class="fab fa-apple" style="color: #cbd5e1;"></i> iOS Spoofer:</div>
+        <div style="font-size: 0.85rem; font-weight: 800; margin-bottom: 4px;"><i class="fab fa-apple" style="color: #475569;"></i> iOS Spoofer:</div>
         <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px;">
-          <a href="https://www.tenorshare.net/products/ianygo-change-gps-location-iphone.html" target="_blank" style="font-size: 0.8rem; color: #38bdf8; text-decoration: underline;">• Tenorshare iAnyGo iOS Spoofer</a>
-          <a href="https://ipogo.app/install.php" target="_blank" style="font-size: 0.8rem; color: #38bdf8; text-decoration: underline;">• iPoGo Installer</a>
+          <a href="https://www.tenorshare.net/products/ianygo-change-gps-location-iphone.html" target="_blank" style="font-size: 0.8rem; color: #0284c7; text-decoration: underline;">• Tenorshare iAnyGo iOS Spoofer</a>
+          <a href="https://ipogo.app/install.php" target="_blank" style="font-size: 0.8rem; color: #0284c7; text-decoration: underline;">• iPoGo Installer</a>
         </div>
       </div>
 
       <!-- Locker Instructions Notice -->
       <div id="lockerInstructionsBox" class="locker-instructions">
-        <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px dashed rgba(255, 199, 0, 0.4); padding-bottom: 8px; margin-bottom: 8px;">
-          <span class="lang-title-text" style="font-weight: 800; color: #fff;">Follow these simple steps:</span>
+        <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px dashed rgba(16, 185, 129, 0.4); padding-bottom: 8px; margin-bottom: 8px;">
+          <span class="lang-title-text" style="font-weight: 800; color: #0f172a;">Follow these simple steps:</span>
           
           <div style="position: relative;">
             <button id="lockerHelpBtn" type="button">
-              <i class="fas fa-circle-question" style="color: #ffc700;"></i> Need Help?
+              <i class="fas fa-circle-question" style="color: #059669;"></i> Need Help?
             </button>
-            <div id="lockerLangMenu" style="display: none; position: absolute; right: 0; top: 34px; background: #0f1c3c; border: 1px solid rgba(255, 199, 0, 0.4); border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.5); padding: 10px; z-index: 100; width: 170px; text-align: left;">
-              <div style="font-size: 0.72rem; font-weight: 800; color: #94a3b8; padding-bottom: 6px; text-transform: uppercase;">Select Language</div>
-              <select id="lockerLangSelect" class="lang-select" style="width: 100%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; padding: 6px; font-size: 0.8rem; font-weight: 700; color: #fff; outline: none;">
-                <option value="en" style="background:#0f1c3c;">English (US)</option>
-                <option value="es" style="background:#0f1c3c;">Español</option>
-                <option value="fr" style="background:#0f1c3c;">Français</option>
-                <option value="de" style="background:#0f1c3c;">Deutsch</option>
-                <option value="pt" style="background:#0f1c3c;">Português</option>
-                <option value="it" style="background:#0f1c3c;">Italiano</option>
-                <option value="pl" style="background:#0f1c3c;">Polski</option>
-                <option value="sv" style="background:#0f1c3c;">Svenska</option>
+            <div id="lockerLangMenu" style="display: none; position: absolute; right: 0; top: 34px; background: #ffffff; border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); padding: 10px; z-index: 100; width: 170px; text-align: left;">
+              <div style="font-size: 0.72rem; font-weight: 800; color: #64748b; padding-bottom: 6px; text-transform: uppercase;">Select Language</div>
+              <select id="lockerLangSelect" class="lang-select" style="width: 100%; background: #f8fafc; border: 1px solid rgba(0,0,0,0.12); border-radius: 10px; padding: 6px; font-size: 0.8rem; font-weight: 700; color: #0f172a; outline: none;">
+                <option value="en">English (US)</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="pt">Português</option>
+                <option value="it">Italiano</option>
+                <option value="pl">Polski</option>
+                <option value="sv">Svenska</option>
               </select>
             </div>
           </div>
         </div>
 
-        <div class="lang-steps-text" style="font-size: 0.83rem; line-height: 1.5; color: #cbd5e1;">
+        <div class="lang-steps-text" style="font-size: 0.83rem; line-height: 1.5; color: #334155;">
           <strong><span class="step-number">1</span>Step 1:</strong> Complete 1 quick mission from the list below.<br>
           <strong><span class="step-number">2</span>Step 2:</strong> Return here and <span class="wait-pulse-text">wait 2 minutes while we check if you completed the mission</span>, then you will receive your Spoofer link.
         </div>
@@ -1233,11 +1202,11 @@ footer {
           <a href="https://www.pgsharp.com/" class="offer-card demo-offer" target="_blank">
             <span class="rec-tag"><i class="fas fa-thumbs-up" style="font-size:0.6rem;"></i> RECOMMENDED</span>
             <div style="display:flex; align-items:center; gap:12px;">
-              <div class="offer-icon-img"><img src="https://i.postimg.cc/Gppp5f2Y/pokemon-icon-025-16-shiny.png" alt="Icon"></div>
+              <div class="offer-icon-img"><img src="https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg" alt="Icon" onerror="this.src='https://placehold.co/42x42/10b981/ffffff?text=App';"></div>
               <div>
-                <div style="font-weight: 800; font-size: 0.92rem; color: #fff;">Complete Quick Survey</div>
-                <div style="font-size: 0.76rem; color: #94a3b8; margin-top: 2px;">Takes ~2 mins to unlock download</div>
-                <div style="font-size: 0.7rem; color: #38bdf8; font-weight: 700; display:flex; align-items:center; gap:4px; margin-top:2px;"><i class="fas fa-bolt"></i> ~60 Seconds Verification</div>
+                <div style="font-weight: 800; font-size: 0.92rem; color: #0f172a;">Complete Quick Survey</div>
+                <div style="font-size: 0.76rem; color: #64748b; margin-top: 2px;">Takes ~2 mins to unlock download</div>
+                <div style="font-size: 0.7rem; color: #0284c7; font-weight: 700; display:flex; align-items:center; gap:4px; margin-top:2px;"><i class="fas fa-bolt"></i> ~60 Seconds Verification</div>
               </div>
             </div>
             <span class="offer-action-btn">Start</span>
@@ -1245,7 +1214,7 @@ footer {
         </div>
       </div>
 
-      <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.82rem; color: #94a3b8; padding: 10px; background: rgba(255,255,255,0.03); border-radius: 12px; border: 1px dashed rgba(255, 199, 0, 0.3); margin-top: 12px;">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.82rem; color: var(--text-muted); padding: 10px; background: #f8fafc; border-radius: 12px; border: 1px dashed rgba(16, 185, 129, 0.4); margin-top: 12px;">
         <span class="pulse-dot"></span>
         <span class="lang-status-text">Waiting for offer completion... (Auto checking)</span>
       </div>
@@ -1258,13 +1227,13 @@ footer {
 <!-- Exit Intent Warning Popup -->
 <div id="exit-warning-modal" class="exit-modal-overlay">
   <div class="exit-modal-card">
-    <div style="width: 50px; height: 50px; background: rgba(255, 199, 0, 0.2); color: #ffc700; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 16px auto;">
+    <div style="width: 50px; height: 50px; background: rgba(16, 185, 129, 0.15); color: #059669; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 16px auto;">
       <i class="fas fa-triangle-exclamation"></i>
     </div>
-    <h3 style="font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: 8px;">Hold On, Trainer!</h3>
-    <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.5; margin-bottom: 20px;">Your secure Spoofer installation token is reserved. Complete just 1 quick mission to instantly unlock your download link.</p>
+    <h3 style="font-size: 1.2rem; font-weight: 800; color: #0f172a; margin-bottom: 8px;">Hold On, Trainer!</h3>
+    <p style="font-size: 0.88rem; color: #64748b; line-height: 1.5; margin-bottom: 20px;">Your secure Spoofer installation token is reserved. Complete just 1 quick mission to instantly unlock your download link.</p>
     <div style="display: flex; gap: 10px;">
-      <button onclick="closeExitWarning()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, #ffc700 0%, #ff7a00 100%); color: #0b1c3c; border: none; border-radius: 14px; font-weight: 900; cursor: pointer; text-transform: uppercase;">Continue Verification</button>
+      <button onclick="closeExitWarning()" style="flex: 1; padding: 12px; background: #10b981; color: white; border: none; border-radius: 14px; font-weight: 800; cursor: pointer;">Continue Verification</button>
     </div>
   </div>
 </div>
@@ -1401,27 +1370,20 @@ function fetchAdBlueOffers() {
     if (offers && offers.length > 0) {
       var selectedOffers = offers.slice(0, 4);
       var html = '<div class="offer-list-wrap">';
-      var iconList = [
-        "https://i.postimg.cc/pXNpLk0w/pokemon-icon-025-00-09-shiny.png",
-        "https://i.postimg.cc/Gppp5f2Y/pokemon-icon-025-16-shiny.png",
-        "https://i.postimg.cc/90PVMPM6/18144-Shiny-Galarian-Articuno.webp",
-        "https://i.postimg.cc/25jqf6HZ/aisnhuppr6cc1.jpg"
-      ];
       $.each(selectedOffers, function(key, offer) {
         var anchorText = offer.anchor || offer.name_short || "Complete Quick Offer";
         var subText = offer.conversion || "Takes ~2 mins to unlock download";
         var offerUrl = offer.url;
         var recBadgeHtml = (key === 0) ? '<span class="rec-tag"><i class="fas fa-thumbs-up" style="font-size:0.6rem;"></i> RECOMMENDED</span>' : '';
-        var chosenIcon = iconList[key % iconList.length];
 
         html += '<a href="' + offerUrl + '" class="offer-card spoofer-offer-link" target="_blank">' +
                   recBadgeHtml +
                   '<div style="display:flex; align-items:center; gap:12px;">' +
-                    '<div class="offer-icon-img"><img src="' + chosenIcon + '" alt="Offer Icon"></div>' +
+                    '<div class="offer-icon-img"><img src="https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg" alt="Offer Icon" onerror="this.src=\'https://placehold.co/42x42/10b981/ffffff?text=App\';"></div>' +
                     '<div>' +
-                      '<div style="font-weight: 800; font-size: 0.92rem; color: #fff;">' + anchorText + '</div>' +
-                      '<div style="font-size: 0.76rem; color: #94a3b8; margin-top: 2px;">' + subText + '</div>' +
-                      '<div style="font-size: 0.7rem; color: #38bdf8; font-weight: 700; display:flex; align-items:center; gap:4px; margin-top:2px;"><i class="fas fa-bolt"></i> ~45 Seconds Verification</div>' +
+                      '<div style="font-weight: 800; font-size: 0.92rem; color: #0f172a;">' + anchorText + '</div>' +
+                      '<div style="font-size: 0.76rem; color: #64748b; margin-top: 2px;">' + subText + '</div>' +
+                      '<div style="font-size: 0.7rem; color: #0284c7; font-weight: 700; display:flex; align-items:center; gap:4px; margin-top:2px;"><i class="fas fa-bolt"></i> ~45 Seconds Verification</div>' +
                     '</div>' +
                   '</div>' +
                   '<span class="offer-action-btn">Start</span>' +
@@ -1521,7 +1483,7 @@ $(document).ready(function() {
     pt: {
       stepsTitle: "Siga estes passos simples:",
       stepsText: '<strong><span class="step-number">1</span>Passo 1:</strong> Conclua 1 missão rápida abaixo.<br><strong><span class="step-number">2</span>Passo 2:</strong> Volte aqui och <span class="wait-pulse-text">aguarde 2 minutos pela verificação</span>.',
-      statusText: "Aguardando conclusão... (Verificação automática)",
+      statusText: "Aguardando conclusão... (Verificaçao automática)",
       unlockedTitle: '<i class="fas fa-unlock-alt"></i> Links do Spoofer Desbloqueados!'
     },
     it: {
