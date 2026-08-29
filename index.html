@@ -695,19 +695,6 @@ input[type="range"] {
   margin-bottom: 18px;
   text-align: left;
 }
-.step-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #10b981;
-  color: white;
-  font-size: 0.72rem;
-  font-weight: 800;
-  margin-right: 6px;
-}
 .wait-pulse-text {
   display: inline;
   font-weight: 800;
@@ -1166,37 +1153,13 @@ footer {
       </div>
 
       <!-- Locker Instructions Notice -->
-      <div id="lockerInstructionsBox" class="locker-instructions">
-        <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px dashed rgba(16, 185, 129, 0.4); padding-bottom: 8px; margin-bottom: 8px;">
-          <span class="lang-title-text" style="font-weight: 800; color: #0f172a;">Follow these simple steps:</span>
-          
-          <div style="position: relative;">
-            <button id="lockerHelpBtn" type="button">
-              <i class="fas fa-circle-question" style="color: #059669;"></i> Need Help?
-            </button>
-            <div id="lockerLangMenu" style="display: none; position: absolute; right: 0; top: 34px; background: #ffffff; border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); padding: 10px; z-index: 100; width: 170px; text-align: left;">
-              <div style="font-size: 0.72rem; font-weight: 800; color: #64748b; padding-bottom: 6px; text-transform: uppercase;">Select Language</div>
-              <select id="lockerLangSelect" class="lang-select" style="width: 100%; background: #f8fafc; border: 1px solid rgba(0,0,0,0.12); border-radius: 10px; padding: 6px; font-size: 0.8rem; font-weight: 700; color: #0f172a; outline: none;">
-                <option value="en">English (US)</option>
-                <option value="es">Español</option>
-                <option value="fr">Français</option>
-                <option value="de">Deutsch</option>
-                <option value="pt">Português</option>
-                <option value="it">Italiano</option>
-                <option value="pl">Polski</option>
-                <option value="sv">Svenska</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="lang-steps-text" style="font-size: 0.83rem; line-height: 1.5; color: #334155;">
-          <strong><span class="step-number">1</span>Step 1:</strong> Complete 1 quick mission from the list below.<br>
-          <strong><span class="step-number">2</span>Step 2:</strong> Return here and <span class="wait-pulse-text">wait 2 minutes while we check if you completed the mission</span>, then you will receive your Spoofer link.
-        </div>
+    <div id="lockerInstructionsBox" class="locker-instructions">
+      <div style="text-align: center;">
+        <span class="lang-title-text" style="font-weight: 800; color: #0f172a; font-size: 0.9rem;">Complete 1 mission below and wait 2 minutes to unlock spoofer links</span>
       </div>
+    </div>
 
-      <!-- Offers Feed Area -->
+    <!-- Offers Feed Area -->
       <div id="offerContainer">
         <div class="offer-list-wrap">
           <a href="https://www.pgsharp.com/" class="offer-card demo-offer" target="_blank">
@@ -1447,81 +1410,6 @@ window.onclick = (e) => {
     }
   }
 };
-
-$(document).ready(function() {
-  $('#lockerHelpBtn').on('click', function(e) {
-    e.stopPropagation();
-    $('#lockerLangMenu').fadeToggle(200);
-  });
-
-  $(document).on('click', function() {
-    $('#lockerLangMenu').fadeOut(200);
-  });
-
-  $('#lockerLangMenu').on('click', function(e) {
-    e.stopPropagation();
-  });
-
-  const translations = {
-    en: {
-      stepsTitle: "Follow these simple steps:",
-      stepsText: '<strong><span class="step-number">1</span>Step 1:</strong> Complete 1 quick mission from the list below.<br><strong><span class="step-number">2</span>Step 2:</strong> Return here and <span class="wait-pulse-text">wait 2 minutes while we check if you completed the mission</span>, then you will receive your Spoofer link.',
-      statusText: "Waiting for offer completion... (Auto checking)",
-      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Spoofer Links Unlocked!'
-    },
-    es: {
-      stepsTitle: "Sigue estos sencillos pasos:",
-      stepsText: '<strong><span class="step-number">1</span>Paso 1:</strong> Completa 1 misión rápida de la lista.<br><strong><span class="step-number">2</span>Paso 2:</strong> Vuelve aquí y <span class="wait-pulse-text">espera 2 minutos mientras verificamos</span> para recibir tu enlace.',
-      statusText: "Esperando finalización de la oferta... (Auto verificación)",
-      unlockedTitle: '<i class="fas fa-unlock-alt"></i> ¡Enlaces de Spoofer Desbloqueados!'
-    },
-    fr: {
-      stepsTitle: "Suivez ces étapes simples :",
-      stepsText: '<strong><span class="step-number">1</span>Étape 1 :</strong> Complétez 1 mission rapide ci-dessous.<br><strong><span class="step-number">2</span>Étape 2 :</strong> Revenez ici et <span class="wait-pulse-text">attendez 2 minutes pendant la vérification</span>.',
-      statusText: "En attente de la finalisation... (Vérification auto)",
-      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Liens Spoofer Débloqués !'
-    },
-    de: {
-      stepsTitle: "Befolgen Sie diese einfachen Schritte:",
-      stepsText: '<strong><span class="step-number">1</span>Schritt 1:</strong> Schließen Sie 1 schnelle Aufgabe ab.<br><strong><span class="step-number">2</span>Schritt 2:</strong> Warten Sie <span class="wait-pulse-text">2 Minuten auf die Überprüfung</span>.',
-      statusText: "Warten auf Fertigstellung... (Auto-Prüfung)",
-      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Spoofer-Links Freigeschaltet!'
-    },
-    pt: {
-      stepsTitle: "Siga estes passos simples:",
-      stepsText: '<strong><span class="step-number">1</span>Passo 1:</strong> Conclua 1 missão rápida abaixo.<br><strong><span class="step-number">2</span>Passo 2:</strong> Volte aqui och <span class="wait-pulse-text">aguarde 2 minutos pela verificação</span>.',
-      statusText: "Aguardando conclusão... (Verificação automática)",
-      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Links do Spoofer Desbloqueados!'
-    },
-    it: {
-      stepsTitle: "Segui questi semplici passaggi:",
-      stepsText: '<strong><span class="step-number">1</span>Passaggio 1:</strong> Completa 1 rapida missione qui sotto.<br><strong><span class="step-number">2</span>Passaggio 2:</strong> Torna qui e <span class="wait-pulse-text">attendi 2 minuti per la verifica</span>.',
-      statusText: "In attesa del completamento... (Verifica automatica)",
-      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Link Spoofer Sbloccati!'
-    },
-    pl: {
-      stepsTitle: "Wykonaj te proste kroki:",
-      stepsText: '<strong><span class="step-number">1</span>Krok 1:</strong> Ukończ 1 szybką misję z listy poniżej.<br><strong><span class="step-number">2</span>Krok 2:</strong> Wróć tutaj i <span class="wait-pulse-text">poczekaj 2 minuty na weryfikację</span>.',
-      statusText: "Oczekiwanie na ukończenie... (Automatyczna weryfikacja)",
-      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Linki Spoofer Odblokowane!'
-    },
-    sv: {
-      stepsTitle: "Följ dessa enkla steg:",
-      stepsText: '<strong><span class="step-number">1</span>Steg 1:</strong> Slutför 1 snabbt uppdrag nedan.<br><strong><span class="step-number">2</span>Steg 2:</strong> Återvänd hit och <span class="wait-pulse-text">vänta 2 minuter medan vi verifierar</span>.',
-      statusText: "Väntar på att erbjudandet ska slutföras... (Automatisk kontroll)",
-      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Spoofer-länkar Upplåsta!'
-    }
-  };
-
-  $('#lockerLangSelect').on('change', function() {
-    const lang = $(this).val();
-    const t = translations[lang] || translations.en;
-    $('.lang-title-text').text(t.stepsTitle);
-    $('.lang-steps-text').html(t.stepsText);
-    $('.lang-status-text').text(t.statusText);
-    $('.lang-unlocked-title').html(t.unlockedTitle);
-  });
-});
 
 const userList = ["@Alex_99", "@PogoKing_23", "@TrainerJoe", "@CatchMaster", "@ShinyHunter99", "@VaporWave88"];
 const locList = ["Pier 39, SF", "Zaragoza, Spain", "Akihabara, Tokyo", "Sydney Opera House", "Central Park, NYC"];
