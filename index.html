@@ -53,7 +53,6 @@ body {
   color: var(--text-main);
   overflow-x: hidden;
   min-height: 100vh;
-  padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* Header & Navigation Bar */
@@ -128,12 +127,14 @@ body {
 }
 @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.3; } }
 
+/* Main Wrapper Layout */
 .app-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px 80px 20px;
 }
 
+/* Hero Section */
 .hero-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -181,16 +182,17 @@ h1.main-title span {
   color: var(--text-muted);
   font-weight: 500;
   line-height: 1.65;
-  margin-bottom: 16px;
+  margin-bottom: 30px;
   max-width: 520px;
 }
 
+/* OS Switcher Controls */
 .os-toggle-bar {
   display: flex;
   background: #e2e8f0;
   padding: 5px;
   border-radius: 18px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   gap: 6px;
   width: 100%;
   max-width: 440px;
@@ -217,6 +219,7 @@ h1.main-title span {
   box-shadow: 0 4px 14px rgba(0,0,0,0.08);
 }
 
+/* Action CTA Buttons */
 .cta-wrapper {
   display: flex;
   flex-direction: column;
@@ -261,6 +264,7 @@ h1.main-title span {
 }
 .trust-bullets span { display: flex; align-items: center; gap: 6px; }
 
+/* Interactive Command Radar HUD Screen */
 .command-deck-frame {
   background: #0f172a;
   border-radius: 36px;
@@ -289,6 +293,7 @@ h1.main-title span {
   gap: 8px;
 }
 
+/* Radar Canvas Container */
 .radar-display-area {
   height: 280px;
   background: radial-gradient(circle at 50% 50%, #0284c7 0%, #0f172a 75%);
@@ -299,6 +304,7 @@ h1.main-title span {
   margin-bottom: 16px;
 }
 
+/* Radar Sweep Line Animation */
 .sweep-line {
   position: absolute;
   top: 50%;
@@ -313,6 +319,7 @@ h1.main-title span {
 }
 @keyframes radarSweep { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
 
+/* Map Pins & Target Marker */
 .user-radar-pin {
   position: absolute;
   top: 50%;
@@ -348,6 +355,7 @@ h1.main-title span {
   z-index: 20;
 }
 
+/* Quick Teleport Hotspot Buttons */
 .hotspot-selector-bar {
   display: flex;
   gap: 8px;
@@ -373,6 +381,7 @@ h1.main-title span {
   border-color: #10b981;
 }
 
+/* Interactive D-Pad Controller */
 .dpad-control-grid {
   display: grid;
   grid-template-columns: repeat(3, 44px);
@@ -395,6 +404,7 @@ h1.main-title span {
 .dpad-btn:active { background: #10b981; color: white; transform: scale(0.9); }
 .dpad-center { background: rgba(16, 185, 129, 0.3); border-color: #10b981; }
 
+/* Bento Features Section */
 .section-title-wrap {
   text-align: center;
   margin-bottom: 40px;
@@ -461,6 +471,7 @@ h1.main-title span {
   line-height: 1.6;
 }
 
+/* Interactive Cooldown Tool */
 .cooldown-tool-card {
   background: var(--bg-card);
   border-radius: 32px;
@@ -505,6 +516,7 @@ input[type="range"] {
   color: var(--primary);
 }
 
+/* FAQ Accordion */
 .faq-container {
   background: var(--bg-card);
   border-radius: 32px;
@@ -539,6 +551,7 @@ input[type="range"] {
 .faq-row.active .faq-chevron { transform: rotate(180deg); color: var(--primary); }
 .faq-chevron { transition: transform 0.3s ease; color: var(--text-muted); }
 
+/* Live Toast System */
 .live-toast-box {
   position: fixed;
   bottom: 25px;
@@ -558,6 +571,7 @@ input[type="range"] {
 }
 @keyframes toastIn { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
 
+/* Offer Locker Modal */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -585,19 +599,8 @@ input[type="range"] {
   position: relative;
   transform: scale(0.92);
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  max-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
 }
-.modal-content-card > *:not(#offerContainer) {
-  flex-shrink: 0;
-}
-#offerContainer {
-  overflow-y: auto;
-  max-height: 280px;
-  padding-right: 4px;
-}
+.modal-overlay.show .modal-content-card { transform: scale(1); }
 
 .modal-close-icon {
   position: absolute;
@@ -608,10 +611,10 @@ input[type="range"] {
   font-size: 1.8rem;
   line-height: 1;
   transition: 0.2s;
-  z-index: 10;
 }
 .modal-close-icon:hover { color: var(--text-main); transform: rotate(90deg); }
 
+/* Locker Loading Spinner */
 .spinner-ring {
   width: 54px;
   height: 54px;
@@ -639,6 +642,7 @@ input[type="range"] {
   transition: width 0.2s ease;
 }
 
+/* Modal Top Bar */
 .locker-top-bar {
   display: flex;
   align-items: center;
@@ -665,6 +669,28 @@ input[type="range"] {
   font-size: 1.1rem;
 }
 
+/* Help Button Pulse Animation */
+@keyframes helpPulseAttention {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.25); }
+  50% { transform: scale(1.06); box-shadow: 0 0 16px 4px rgba(16, 185, 129, 0.4); }
+}
+
+#lockerHelpBtn {
+  animation: helpPulseAttention 2.2s infinite ease-in-out;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #047857;
+  font-size: 0.78rem;
+  font-weight: 800;
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Offer Items List */
 .locker-instructions {
   background: rgba(16, 185, 129, 0.08);
   border: 1px solid rgba(16, 185, 129, 0.3);
@@ -675,12 +701,35 @@ input[type="range"] {
   margin-bottom: 18px;
   text-align: left;
 }
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #10b981;
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 800;
+  margin-right: 6px;
+}
+.wait-pulse-text {
+  display: inline;
+  font-weight: 800;
+  color: #059669;
+  animation: waitPulse 1.8s infinite ease-in-out;
+}
+@keyframes waitPulse {
+  0%, 100% { color: #059669; }
+  50% { color: #0284c7; }
+}
 
 .offer-list-wrap {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin: 4px 0;
+  margin: 18px 0;
   text-align: left;
 }
 .offer-card {
@@ -709,6 +758,15 @@ input[type="range"] {
   background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
 }
 
+.offer-icon-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.offer-icon-img img { width: 100%; height: 100%; object-fit: cover; }
+
 .offer-action-btn {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: white;
@@ -730,30 +788,12 @@ input[type="range"] {
   padding: 4px 12px;
   border-radius: 20px;
   text-transform: uppercase;
-  box-shadow: 0 0 12px rgba(16, 185, 129, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  animation: recNeonPulse 2s infinite ease-in-out;
 }
 
-@keyframes recNeonPulse {
-  0%, 100% {
-    box-shadow: 0 0 8px rgba(16, 185, 129, 0.5), inset 0 0 4px rgba(255, 255, 255, 0.5);
-    transform: scale(1);
-  }
-  50% {
-    box-shadow: 0 0 16px rgba(16, 185, 129, 0.9), inset 0 0 6px rgba(255, 255, 255, 0.8);
-    transform: scale(1.05);
-  }
-}
-
-/* Mobile Sticky Bottom CTA Bar */
-.mobile-sticky-cta {
-  display: none;
-}
-
+/* Footer */
 footer {
   text-align: center;
-  padding: 30px 20px 90px 20px;
+  padding: 30px 20px;
   border-top: 1px solid var(--border-light);
   color: var(--text-muted);
   font-size: 0.85rem;
@@ -761,57 +801,19 @@ footer {
 }
 
 @media (max-width: 900px) {
-  .hero-layout { display: flex; flex-direction: column; gap: 16px; text-align: center; }
-  .hero-left { align-items: center; order: 1; display: contents; }
-  .hero-left > .pill-badge { order: 1; margin-bottom: 8px; }
-  .hero-left > h1.main-title { order: 2; margin-bottom: 10px; }
-  .command-deck-frame { order: 3 !important; width: 100%; margin-bottom: 4px; }
-  .hero-left > .cta-wrapper { order: 4 !important; margin-bottom: 10px; }
-  .hero-left > .os-toggle-bar { order: 5 !important; margin-bottom: 10px; }
-  .hero-left > .main-desc { order: 6 !important; margin-bottom: 10px; }
+  .hero-layout { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+  .hero-left { align-items: center; }
   .bento-features-grid { grid-template-columns: 1fr; }
   .bento-span-2 { grid-column: span 1; }
   .cooldown-flex { grid-template-columns: 1fr; gap: 20px; }
   h1.main-title { font-size: 2.4rem; }
   .live-toast-box { display: none; }
-  
-  /* Enable Sticky Mobile Bottom Bar */
-  .mobile-sticky-cta {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(16px);
-    border-top: 1px solid var(--border-light);
-    padding: 12px 20px;
-    z-index: 95;
-    box-shadow: 0 -10px 30px rgba(0,0,0,0.08);
-  }
-  .mobile-sticky-cta button {
-    width: 100%;
-    padding: 14px 20px;
-    background: linear-gradient(135deg, #10b981 0%, #059669 50%, #0284c7 100%);
-    color: white;
-    border: none;
-    border-radius: 16px;
-    font-size: 1rem;
-    font-weight: 900;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    box-shadow: var(--shadow-glow);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
 }
 </style>
 </head>
 <body>
 
+<!-- Navigation Header -->
 <div class="nav-header">
   <div class="nav-container">
     <a href="#" class="logo-box">
@@ -833,6 +835,7 @@ footer {
 
 <div class="app-container">
   
+  <!-- Hero Grid Layout -->
   <div class="hero-layout">
     
     <div class="hero-left">
@@ -860,7 +863,7 @@ footer {
       <div class="cta-wrapper">
         <button class="download-cta-btn trigger-download" type="button">
           <i class="fas fa-download"></i>
-          <span id="ctaBtnLabel">Catch Pokémon</span>
+          <span id="ctaBtnLabel">Download For iOS</span>
         </button>
 
         <div class="trust-bullets">
@@ -882,9 +885,6 @@ footer {
       <div class="radar-display-area">
         <div class="sweep-line"></div>
         
-        <!-- Map Background Image -->
-        <img src="https://i.postimg.cc/CKVb4VjL/pkmnfeaturemap-1024x538.jpg" alt="GPS Map" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.65; pointer-events: none;" onerror="this.src='https://placehold.co/600x400/0f172a/38bdf8?text=Radar+Map';">
-
         <!-- Shiny Detection Card -->
         <div class="shiny-spawn-tag">
           <i class="fas fa-dragon" style="color:#f59e0b; font-size:1.2rem;"></i>
@@ -929,11 +929,13 @@ footer {
 
   </div>
 
+  <!-- Features Section Heading -->
   <div class="section-title-wrap">
     <h2>Powerful Teleport Features</h2>
     <p>Designed for maximum account safety, human walking physics, and global raid hub access.</p>
   </div>
 
+  <!-- Bento Grid -->
   <div class="bento-features-grid">
     <div class="bento-item bento-span-2">
       <div class="bento-icon-box"><i class="fas fa-earth-americas"></i></div>
@@ -982,6 +984,7 @@ footer {
     </div>
   </div>
 
+  <!-- FAQ Accordion -->
   <div class="faq-container">
     <div style="text-align: center; margin-bottom: 25px;">
       <h3 style="font-size: 1.6rem; font-weight: 900;">Frequently Asked Questions</h3>
@@ -1020,6 +1023,7 @@ footer {
 
 </div>
 
+<!-- Live Activity Toast -->
 <div class="live-toast-box" id="toastNotice">
   <div style="width: 40px; height: 40px; border-radius: 12px; background: rgba(16, 185, 129, 0.15); color: #059669; display: flex; align-items: center; justify-content: center;">
     <i class="fas fa-location-crosshairs"></i>
@@ -1029,21 +1033,16 @@ footer {
   </div>
 </div>
 
-<!-- Mobile Sticky Bottom Download Bar -->
-<div class="mobile-sticky-cta">
-  <button class="trigger-download" type="button">
-    <i class="fas fa-download"></i> Catch Pokémon
-  </button>
-</div>
-
 <footer>
   <div>© 2026 SPOOF-X PRO HUB. ALL RIGHTS RESERVED.</div>
 </footer>
 
+<!-- Verification Locker Modal -->
 <div id="game-modal-overlay" class="modal-overlay">
   <div class="modal-content-card">
     <span class="modal-close-icon">&times;</span>
 
+    <!-- Modal Top Header -->
     <div class="locker-top-bar">
       <div class="locker-title-flex">
         <div class="locker-icon-badge"><i class="fas fa-shield-halved"></i></div>
@@ -1088,64 +1087,56 @@ footer {
         </div>
       </div>
 
-      <!-- Pokémon Selection Step -->
-      <div id="pokemonSelectBox" style="display: block; text-align: left;">
-        <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin-bottom: 4px; text-align: center;">Choose the best Pokémon</div>
-        <div style="font-size: 0.78rem; color: #64748b; font-weight: 600; margin-bottom: 16px; text-align: center;">Select your starter companion for teleportation</div>
-        
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-height: 300px; overflow-y: auto; padding-right: 4px;">
-          <div onclick="selectStarterPokemon('https://i.postimg.cc/76w4QHkf/10384-Shiny-Mega-Rayquaza.webp')" style="background: #f8fafc; border: 2px solid rgba(16, 185, 129, 0.4); border-radius: 16px; padding: 12px; display: flex; flex-direction: column; align-items: center; cursor: pointer; transition: all 0.2s;">
-            <img src="https://i.postimg.cc/76w4QHkf/10384-Shiny-Mega-Rayquaza.webp" alt="Shiny Mega Rayquaza" style="width: 60px; height: 60px; object-fit: contain; margin-bottom: 8px;" onerror="this.src='https://placehold.co/60x60/10b981/ffffff?text=Rayquaza';">
-            <div style="font-size: 0.82rem; font-weight: 800; color: #0f172a; text-align: center;">Shiny Mega Rayquaza</div>
-            <div style="font-size: 0.68rem; color: #059669; font-weight: 700; margin-top: 2px;">★ S+ Tier Legend</div>
+      <!-- Locker Instructions Notice -->
+      <div class="locker-instructions">
+        <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px dashed rgba(16, 185, 129, 0.4); padding-bottom: 8px; margin-bottom: 8px;">
+          <span class="lang-title-text" style="font-weight: 800; color: #0f172a;">Follow these simple steps:</span>
+          
+          <div style="position: relative;">
+            <button id="lockerHelpBtn" type="button">
+              <i class="fas fa-circle-question" style="color: #059669;"></i> Need Help?
+            </button>
+            <div id="lockerLangMenu" style="display: none; position: absolute; right: 0; top: 34px; background: #ffffff; border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); padding: 10px; z-index: 100; width: 170px; text-align: left;">
+              <div style="font-size: 0.72rem; font-weight: 800; color: #64748b; padding-bottom: 6px; text-transform: uppercase;">Select Language</div>
+              <select id="lockerLangSelect" class="lang-select" style="width: 100%; background: #f8fafc; border: 1px solid rgba(0,0,0,0.12); border-radius: 10px; padding: 6px; font-size: 0.8rem; font-weight: 700; color: #0f172a; outline: none;">
+                <option value="en">English (US)</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="pt">Português</option>
+                <option value="it">Italiano</option>
+                <option value="pl">Polski</option>
+                <option value="sv">Svenska</option>
+              </select>
+            </div>
           </div>
+        </div>
 
-          <div onclick="selectStarterPokemon('https://i.postimg.cc/XqpZZ7mR/lf-clone-charizard-from-pogo-v0-vrm4ma37g6we1.webp')" style="background: #f8fafc; border: 1px solid rgba(0,0,0,0.1); border-radius: 16px; padding: 12px; display: flex; flex-direction: column; align-items: center; cursor: pointer; transition: all 0.2s;">
-            <img src="https://i.postimg.cc/XqpZZ7mR/lf-clone-charizard-from-pogo-v0-vrm4ma37g6we1.webp" alt="Shiny Charizard" style="width: 60px; height: 60px; object-fit: contain; margin-bottom: 8px;" onerror="this.src='https://placehold.co/60x60/10b981/ffffff?text=Charizard';">
-            <div style="font-size: 0.82rem; font-weight: 800; color: #0f172a; text-align: center;">Shiny Charizard</div>
-            <div style="font-size: 0.68rem; color: #64748b; font-weight: 700; margin-top: 2px;">★ S Tier Favorite</div>
-          </div>
-
-          <div onclick="selectStarterPokemon('https://i.postimg.cc/J0qXX2zL/deiaa3k-be2b8a41-07f5-4955-83f0-30a62697f92f.png')" style="background: #f8fafc; border: 1px solid rgba(0,0,0,0.1); border-radius: 16px; padding: 12px; display: flex; flex-direction: column; align-items: center; cursor: pointer; transition: all 0.2s;">
-            <img src="https://i.postimg.cc/J0qXX2zL/deiaa3k-be2b8a41-07f5-4955-83f0-30a62697f92f.png" alt="Mewtwo" style="width: 60px; height: 60px; object-fit: contain; margin-bottom: 8px;" onerror="this.src='https://placehold.co/60x60/10b981/ffffff?text=Mewtwo';">
-            <div style="font-size: 0.82rem; font-weight: 800; color: #0f172a; text-align: center;">Armored Mewtwo</div>
-            <div style="font-size: 0.68rem; color: #64748b; font-weight: 700; margin-top: 2px;">★ Psychic Master</div>
-          </div>
-
-          <div onclick="selectStarterPokemon('https://i.postimg.cc/Gppp5f2Y/pokemon-icon-025-16-shiny.png')" style="background: #f8fafc; border: 1px solid rgba(0,0,0,0.1); border-radius: 16px; padding: 12px; display: flex; flex-direction: column; align-items: center; cursor: pointer; transition: all 0.2s;">
-            <img src="https://i.postimg.cc/Gppp5f2Y/pokemon-icon-025-16-shiny.png" alt="Shiny Pikachu" style="width: 60px; height: 60px; object-fit: contain; margin-bottom: 8px;" onerror="this.src='https://placehold.co/60x60/10b981/ffffff?text=Pikachu';">
-            <div style="font-size: 0.82rem; font-weight: 800; color: #0f172a; text-align: center;">Shiny Pikachu</div>
-            <div style="font-size: 0.68rem; color: #64748b; font-weight: 700; margin-top: 2px;">★ Iconic Mascot</div>
-          </div>
+        <div class="lang-steps-text" style="font-size: 0.83rem; line-height: 1.5; color: #334155;">
+          <strong><span class="step-number">1</span>Step 1:</strong> Complete 1 quick mission from the list below.<br>
+          <strong><span class="step-number">2</span>Step 2:</strong> Return here and <span class="wait-pulse-text">wait 2 minutes while we check if you completed the mission</span>, then you will receive your Spoofer link.
         </div>
       </div>
 
-      <!-- Locker Instructions Notice (Hidden initially until Pokémon is selected) -->
-      <div id="lockerInstructionsBox" class="locker-instructions" style="display: none;">
-        <div class="lang-steps-text" style="font-size: 0.85rem; line-height: 1.5; color: #047857; font-weight: 800; text-align: center;">
-          coplete 1 mission below and wait 2 minuts to unlock spoofer links
-        </div>
-      </div>
-
-      <!-- Offers Feed Area (Hidden initially) -->
-      <div id="offerContainer" style="display: none;">
+      <!-- Offers Feed Area -->
+      <div id="offerContainer">
         <div class="offer-list-wrap">
           <a href="https://www.pgsharp.com/" class="offer-card demo-offer" target="_blank">
             <span class="rec-tag"><i class="fas fa-thumbs-up" style="font-size:0.6rem;"></i> RECOMMENDED</span>
-            <div style="display:flex; align-items:center; gap:12px; width:100%;">
-              <img id="demoOfferIcon" src="https://i.postimg.cc/76w4QHkf/10384-Shiny-Mega-Rayquaza.webp" alt="Icon" style="width: 42px; height: 42px; object-fit: cover; border-radius: 12px; flex-shrink: 0;" onerror="this.src='https://placehold.co/42x42/10b981/ffffff?text=App';">
-              <div style="flex:1; min-width:0;">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div class="offer-icon-img"><img src="https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg" alt="Icon"></div>
+              <div>
                 <div style="font-weight: 800; font-size: 0.92rem; color: #0f172a;">Complete Quick Survey</div>
                 <div style="font-size: 0.76rem; color: #64748b; margin-top: 2px;">Takes ~2 mins to unlock download</div>
                 <div style="font-size: 0.7rem; color: #0284c7; font-weight: 700; display:flex; align-items:center; gap:4px; margin-top:2px;"><i class="fas fa-bolt"></i> ~60 Seconds Verification</div>
               </div>
-              <span class="offer-action-btn">Start</span>
             </div>
+            <span class="offer-action-btn">Start</span>
           </a>
         </div>
       </div>
 
-      <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.82rem; color: var(--text-muted); padding: 10px; background: #f8fafc; border-radius: 12px; border: 1px dashed rgba(16, 185, 129, 0.4); margin-top: 12px;">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.82rem; color: var(--text-muted); padding: 10px; background: #f8fafc; border-radius: 12px; border: 1px dashed rgba(16, 185, 129, 0.4);">
         <span class="pulse-dot"></span>
         <span class="lang-status-text">Waiting for offer completion... (Auto checking)</span>
       </div>
@@ -1161,17 +1152,8 @@ let avatarX = 0;
 let avatarY = 0;
 let isModalOpen = false;
 let offerClickTimer = null;
-let clickCounter = 0;
-let selectedPokemonImg = "https://i.postimg.cc/76w4QHkf/10384-Shiny-Mega-Rayquaza.webp";
 
-document.addEventListener('click', function(e) {
-  if (isModalOpen) return;
-  clickCounter++;
-  if (clickCounter >= 4) {
-    triggerDownloadModal();
-  }
-});
-
+// DOM Variable Bindings
 const modal = document.getElementById('game-modal-overlay');
 const closeBtn = document.querySelector('.modal-close-icon');
 const loadingWrap = document.querySelector('.loading-wrap');
@@ -1184,8 +1166,10 @@ function switchPlatform(os, el) {
   currentOS = os;
   $('.os-btn').removeClass('active');
   $(el).addClass('active');
+  $('#ctaBtnLabel').text('Download For ' + os);
 }
 
+// HUD Joystick Movement
 function steerAvatar(dir) {
   const dist = 14;
   if (dir === 'up') avatarY -= dist;
@@ -1202,6 +1186,7 @@ function steerAvatar(dir) {
   }
 }
 
+// Hotspot Selector
 function pickHotspot(name, element) {
   $('.hot-pill').removeClass('active');
   $(element).addClass('active');
@@ -1212,6 +1197,7 @@ function pickHotspot(name, element) {
   if (avatar) avatar.style.transform = 'translate(-50%, -50%)';
 }
 
+// Cooldown Calculator Logic
 function calculateCooldown(km) {
   document.getElementById('distValDisplay').innerText = km + ' km';
   let mins = 2;
@@ -1247,11 +1233,6 @@ function triggerDownloadModal() {
 
   if (loadingWrap) loadingWrap.style.display = 'flex';
   if (verifyBox) verifyBox.style.display = 'none';
-  
-  // Reset steps
-  document.getElementById('pokemonSelectBox').style.display = 'block';
-  document.getElementById('lockerInstructionsBox').style.display = 'none';
-  document.getElementById('offerContainer').style.display = 'none';
 
   let progress = 0;
   let msgIdx = 0;
@@ -1267,20 +1248,12 @@ function triggerDownloadModal() {
       setTimeout(() => {
         if (loadingWrap) loadingWrap.style.display = 'none';
         if (verifyBox) verifyBox.style.display = 'block';
+        fetchAdBlueOffers();
       }, 350);
     }
     if (progressFill) progressFill.style.width = progress + '%';
     if (progressText) progressText.innerText = progress + '%';
   }, 200);
-}
-
-function selectStarterPokemon(imgUrl) {
-  selectedPokemonImg = imgUrl;
-  document.getElementById('pokemonSelectBox').style.display = 'none';
-  document.getElementById('lockerInstructionsBox').style.display = 'block';
-  document.getElementById('offerContainer').style.display = 'block';
-  document.getElementById('demoOfferIcon').src = selectedPokemonImg;
-  fetchAdBlueOffers();
 }
 
 dlTriggers.forEach(btn => {
@@ -1300,17 +1273,19 @@ function fetchAdBlueOffers() {
         var anchorText = offer.anchor || offer.name_short || "Complete Quick Offer";
         var subText = offer.conversion || "Takes ~2 mins to unlock download";
         var offerUrl = offer.url;
+        var recBadgeHtml = (key === 0) ? '<span class="rec-tag"><i class="fas fa-thumbs-up" style="font-size:0.6rem;"></i> RECOMMENDED</span>' : '';
 
         html += '<a href="' + offerUrl + '" class="offer-card spoofer-offer-link" target="_blank">' +
-                  '<div style="display:flex; align-items:center; gap:12px; width:100%;">' +
-                    '<img src="' + selectedPokemonImg + '" alt="Offer Icon" style="width: 42px; height: 42px; object-fit: cover; border-radius: 12px; flex-shrink: 0;" onerror="this.src=\'https://placehold.co/42x42/10b981/ffffff?text=App\';">' +
-                    '<div style="flex:1; min-width:0;">' +
-                      '<div style="font-weight: 800; font-size: 0.92rem; color: #0f172a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' + anchorText + '</div>' +
+                  recBadgeHtml +
+                  '<div style="display:flex; align-items:center; gap:12px;">' +
+                    '<div class="offer-icon-img"><img src="https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg" alt="Offer Icon"></div>' +
+                    '<div>' +
+                      '<div style="font-weight: 800; font-size: 0.92rem; color: #0f172a;">' + anchorText + '</div>' +
                       '<div style="font-size: 0.76rem; color: #64748b; margin-top: 2px;">' + subText + '</div>' +
                       '<div style="font-size: 0.7rem; color: #0284c7; font-weight: 700; display:flex; align-items:center; gap:4px; margin-top:2px;"><i class="fas fa-bolt"></i> ~45 Seconds Verification</div>' +
                     '</div>' +
-                    '<span class="offer-action-btn">Start</span>' +
                   '</div>' +
+                  '<span class="offer-action-btn">Start</span>' +
                 '</a>';
       });
       html += '</div>';
@@ -1331,8 +1306,6 @@ function bindOfferClicks() {
     offerClickTimer = setTimeout(() => {
       let fallbackPanel = document.getElementById('fallbackSpooferPanel');
       if (fallbackPanel) fallbackPanel.style.display = 'block';
-      let instrBox = document.getElementById('lockerInstructionsBox');
-      if (instrBox) instrBox.style.display = 'none';
     }, 120000);
   });
 }
@@ -1350,6 +1323,82 @@ window.onclick = (e) => {
     isModalOpen = false;
   }
 };
+
+$(document).ready(function() {
+
+  $('#lockerHelpBtn').on('click', function(e) {
+    e.stopPropagation();
+    $('#lockerLangMenu').fadeToggle(200);
+  });
+
+  $(document).on('click', function() {
+    $('#lockerLangMenu').fadeOut(200);
+  });
+
+  $('#lockerLangMenu').on('click', function(e) {
+    e.stopPropagation();
+  });
+
+  const translations = {
+    en: {
+      stepsTitle: "Follow these simple steps:",
+      stepsText: '<strong><span class="step-number">1</span>Step 1:</strong> Complete 1 quick mission from the list below.<br><strong><span class="step-number">2</span>Step 2:</strong> Return here and <span class="wait-pulse-text">wait 2 minutes while we check if you completed the mission</span>, then you will receive your Spoofer link.',
+      statusText: "Waiting for offer completion... (Auto checking)",
+      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Spoofer Links Unlocked!'
+    },
+    es: {
+      stepsTitle: "Sigue estos sencillos pasos:",
+      stepsText: '<strong><span class="step-number">1</span>Paso 1:</strong> Completa 1 misión rápida de la lista.<br><strong><span class="step-number">2</span>Paso 2:</strong> Vuelve aquí y <span class="wait-pulse-text">espera 2 minutos mientras verificamos</span> para recibir tu enlace.',
+      statusText: "Esperando finalización de la oferta... (Auto verificación)",
+      unlockedTitle: '<i class="fas fa-unlock-alt"></i> ¡Enlaces de Spoofer Desbloqueados!'
+    },
+    fr: {
+      stepsTitle: "Suivez ces étapes simples :",
+      stepsText: '<strong><span class="step-number">1</span>Étape 1 :</strong> Complétez 1 mission rapide ci-dessous.<br><strong><span class="step-number">2</span>Étape 2 :</strong> Revenez ici et <span class="wait-pulse-text">attendez 2 minutes pendant la vérification</span>.',
+      statusText: "En attente de la finalisation... (Vérification auto)",
+      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Liens Spoofer Débloqués !'
+    },
+    de: {
+      stepsTitle: "Befolgen Sie diese einfachen Schritte:",
+      stepsText: '<strong><span class="step-number">1</span>Schritt 1:</strong> Schließen Sie 1 schnelle Aufgabe ab.<br><strong><span class="step-number">2</span>Schritt 2:</strong> Warten Sie <span class="wait-pulse-text">2 Minuten auf die Überprüfung</span>.',
+      statusText: "Warten auf Fertigstellung... (Auto-Prüfung)",
+      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Spoofer-Links Freigeschaltet!'
+    },
+    pt: {
+      stepsTitle: "Siga estes passos simples:",
+      stepsText: '<strong><span class="step-number">1</span>Passo 1:</strong> Conclua 1 missão rápida abaixo.<br><strong><span class="step-number">2</span>Passo 2:</strong> Volte aqui e <span class="wait-pulse-text">aguarde 2 minutos pela verificação</span>.',
+      statusText: "Aguardando conclusão... (Verificação automática)",
+      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Links do Spoofer Desbloqueados!'
+    },
+    it: {
+      stepsTitle: "Segui questi semplici passaggi:",
+      stepsText: '<strong><span class="step-number">1</span>Passaggio 1:</strong> Completa 1 rapida missione qui sotto.<br><strong><span class="step-number">2</span>Passaggio 2:</strong> Torna qui e <span class="wait-pulse-text">attendi 2 minuti per la verifica</span>.',
+      statusText: "In attesa del completamento... (Verifica automatica)",
+      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Link Spoofer Sbloccati!'
+    },
+    pl: {
+      stepsTitle: "Wykonaj te proste kroki:",
+      stepsText: '<strong><span class="step-number">1</span>Krok 1:</strong> Ukończ 1 szybką misję z listy poniżej.<br><strong><span class="step-number">2</span>Krok 2:</strong> Wróć tutaj i <span class="wait-pulse-text">poczekaj 2 minuty na weryfikację</span>.',
+      statusText: "Oczekiwanie na ukończenie... (Automatyczna weryfikacja)",
+      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Linki Spoofer Odblokowane!'
+    },
+    sv: {
+      stepsTitle: "Följ dessa enkla steg:",
+      stepsText: '<strong><span class="step-number">1</span>Steg 1:</strong> Slutför 1 snabbt uppdrag nedan.<br><strong><span class="step-number">2</span>Steg 2:</strong> Återvänd hit och <span class="wait-pulse-text">vänta 2 minuter medan vi verifierar</span>.',
+      statusText: "Väntar på att erbjudandet ska slutföras... (Automatisk kontroll)",
+      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Spoofer-länkar Upplåsta!'
+    }
+  };
+
+  $('#lockerLangSelect').on('change', function() {
+    const lang = $(this).val();
+    const t = translations[lang] || translations.en;
+    $('.lang-title-text').text(t.stepsTitle);
+    $('.lang-steps-text').html(t.stepsText);
+    $('.lang-status-text').text(t.statusText);
+    $('.lang-unlocked-title').html(t.unlockedTitle);
+  });
+});
 
 const userList = ["@Alex_99", "@PogoKing_23", "@TrainerJoe", "@CatchMaster", "@ShinyHunter99", "@VaporWave88"];
 const locList = ["Pier 39, SF", "Zaragoza, Spain", "Akihabara, Tokyo", "Sydney Opera House", "Central Park, NYC"];
