@@ -53,6 +53,7 @@ body {
   color: var(--text-main);
   overflow-x: hidden;
   min-height: 100vh;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* Header & Navigation Bar */
@@ -127,14 +128,12 @@ body {
 }
 @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.3; } }
 
-/* Main Wrapper Layout */
 .app-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px 80px 20px;
 }
 
-/* Hero Section */
 .hero-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -186,7 +185,6 @@ h1.main-title span {
   max-width: 520px;
 }
 
-/* OS Switcher Controls */
 .os-toggle-bar {
   display: flex;
   background: #e2e8f0;
@@ -219,7 +217,6 @@ h1.main-title span {
   box-shadow: 0 4px 14px rgba(0,0,0,0.08);
 }
 
-/* Action CTA Buttons */
 .cta-wrapper {
   display: flex;
   flex-direction: column;
@@ -264,7 +261,6 @@ h1.main-title span {
 }
 .trust-bullets span { display: flex; align-items: center; gap: 6px; }
 
-/* Interactive Command Radar HUD Screen */
 .command-deck-frame {
   background: #0f172a;
   border-radius: 36px;
@@ -293,7 +289,6 @@ h1.main-title span {
   gap: 8px;
 }
 
-/* Radar Canvas Container */
 .radar-display-area {
   height: 280px;
   background: radial-gradient(circle at 50% 50%, #0284c7 0%, #0f172a 75%);
@@ -304,7 +299,6 @@ h1.main-title span {
   margin-bottom: 16px;
 }
 
-/* Radar Sweep Line Animation */
 .sweep-line {
   position: absolute;
   top: 50%;
@@ -319,7 +313,6 @@ h1.main-title span {
 }
 @keyframes radarSweep { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
 
-/* Map Pins & Target Marker */
 .user-radar-pin {
   position: absolute;
   top: 50%;
@@ -355,7 +348,6 @@ h1.main-title span {
   z-index: 20;
 }
 
-/* Quick Teleport Hotspot Buttons */
 .hotspot-selector-bar {
   display: flex;
   gap: 8px;
@@ -381,7 +373,6 @@ h1.main-title span {
   border-color: #10b981;
 }
 
-/* Interactive D-Pad Controller */
 .dpad-control-grid {
   display: grid;
   grid-template-columns: repeat(3, 44px);
@@ -404,7 +395,6 @@ h1.main-title span {
 .dpad-btn:active { background: #10b981; color: white; transform: scale(0.9); }
 .dpad-center { background: rgba(16, 185, 129, 0.3); border-color: #10b981; }
 
-/* Bento Features Section */
 .section-title-wrap {
   text-align: center;
   margin-bottom: 40px;
@@ -471,7 +461,6 @@ h1.main-title span {
   line-height: 1.6;
 }
 
-/* Interactive Cooldown Tool */
 .cooldown-tool-card {
   background: var(--bg-card);
   border-radius: 32px;
@@ -516,7 +505,6 @@ input[type="range"] {
   color: var(--primary);
 }
 
-/* FAQ Accordion */
 .faq-container {
   background: var(--bg-card);
   border-radius: 32px;
@@ -551,7 +539,6 @@ input[type="range"] {
 .faq-row.active .faq-chevron { transform: rotate(180deg); color: var(--primary); }
 .faq-chevron { transition: transform 0.3s ease; color: var(--text-muted); }
 
-/* Live Toast System */
 .live-toast-box {
   position: fixed;
   bottom: 25px;
@@ -571,7 +558,6 @@ input[type="range"] {
 }
 @keyframes toastIn { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
 
-/* Offer Locker Modal */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -614,7 +600,6 @@ input[type="range"] {
 }
 .modal-close-icon:hover { color: var(--text-main); transform: rotate(90deg); }
 
-/* Locker Loading Spinner */
 .spinner-ring {
   width: 54px;
   height: 54px;
@@ -642,7 +627,6 @@ input[type="range"] {
   transition: width 0.2s ease;
 }
 
-/* Modal Top Bar */
 .locker-top-bar {
   display: flex;
   align-items: center;
@@ -669,7 +653,6 @@ input[type="range"] {
   font-size: 1.1rem;
 }
 
-/* Help Button Pulse Animation */
 @keyframes helpPulseAttention {
   0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.25); }
   50% { transform: scale(1.06); box-shadow: 0 0 16px 4px rgba(16, 185, 129, 0.4); }
@@ -690,7 +673,6 @@ input[type="range"] {
   gap: 6px;
 }
 
-/* Offer Items List */
 .locker-instructions {
   background: rgba(16, 185, 129, 0.08);
   border: 1px solid rgba(16, 185, 129, 0.3);
@@ -804,10 +786,14 @@ input[type="range"] {
   }
 }
 
-/* Footer */
+/* Mobile Sticky Bottom CTA Bar */
+.mobile-sticky-cta {
+  display: none;
+}
+
 footer {
   text-align: center;
-  padding: 30px 20px;
+  padding: 30px 20px 90px 20px;
   border-top: 1px solid var(--border-light);
   color: var(--text-muted);
   font-size: 0.85rem;
@@ -828,6 +814,39 @@ footer {
   .cooldown-flex { grid-template-columns: 1fr; gap: 20px; }
   h1.main-title { font-size: 2.4rem; }
   .live-toast-box { display: none; }
+  
+  /* Enable Sticky Mobile Bottom Bar */
+  .mobile-sticky-cta {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid var(--border-light);
+    padding: 12px 20px;
+    z-index: 95;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.08);
+  }
+  .mobile-sticky-cta button {
+    width: 100%;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 50%, #0284c7 100%);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: var(--shadow-glow);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
 }
 </style>
 </head>
@@ -854,7 +873,6 @@ footer {
 
 <div class="app-container">
   
-  <!-- Hero Grid Layout -->
   <div class="hero-layout">
     
     <div class="hero-left">
@@ -905,7 +923,7 @@ footer {
         <div class="sweep-line"></div>
         
         <!-- Map Background Image -->
-        <img src="https://i.postimg.cc/CKVb4VjL/pkmnfeaturemap-1024x538.jpg" alt="GPS Map" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.65; pointer-events: none;">
+        <img src="https://i.postimg.cc/CKVb4VjL/pkmnfeaturemap-1024x538.jpg" alt="GPS Map" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.65; pointer-events: none;" onerror="this.src='https://placehold.co/600x400/0f172a/38bdf8?text=Radar+Map';">
 
         <!-- Shiny Detection Card -->
         <div class="shiny-spawn-tag">
@@ -951,13 +969,11 @@ footer {
 
   </div>
 
-  <!-- Features Section Heading -->
   <div class="section-title-wrap">
     <h2>Powerful Teleport Features</h2>
     <p>Designed for maximum account safety, human walking physics, and global raid hub access.</p>
   </div>
 
-  <!-- Bento Grid -->
   <div class="bento-features-grid">
     <div class="bento-item bento-span-2">
       <div class="bento-icon-box"><i class="fas fa-earth-americas"></i></div>
@@ -1006,7 +1022,6 @@ footer {
     </div>
   </div>
 
-  <!-- FAQ Accordion -->
   <div class="faq-container">
     <div style="text-align: center; margin-bottom: 25px;">
       <h3 style="font-size: 1.6rem; font-weight: 900;">Frequently Asked Questions</h3>
@@ -1054,6 +1069,13 @@ footer {
   </div>
 </div>
 
+<!-- Mobile Sticky Bottom Download Bar -->
+<div class="mobile-sticky-cta">
+  <button class="trigger-download" type="button">
+    <i class="fas fa-download"></i> Download Spoofer Now
+  </button>
+</div>
+
 <footer>
   <div>© 2026 SPOOF-X PRO HUB. ALL RIGHTS RESERVED.</div>
 </footer>
@@ -1062,7 +1084,6 @@ footer {
   <div class="modal-content-card">
     <span class="modal-close-icon">&times;</span>
 
-    <!-- Modal Top Header -->
     <div class="locker-top-bar">
       <div class="locker-title-flex">
         <div class="locker-icon-badge"><i class="fas fa-shield-halved"></i></div>
@@ -1144,7 +1165,7 @@ footer {
           <a href="https://www.pgsharp.com/" class="offer-card demo-offer" target="_blank">
             <span class="rec-tag"><i class="fas fa-thumbs-up" style="font-size:0.6rem;"></i> RECOMMENDED</span>
             <div style="display:flex; align-items:center; gap:12px;">
-              <div class="offer-icon-img"><img src="https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg" alt="Icon"></div>
+              <div class="offer-icon-img"><img src="https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg" alt="Icon" onerror="this.src='https://placehold.co/42x42/10b981/ffffff?text=App';"></div>
               <div>
                 <div style="font-weight: 800; font-size: 0.92rem; color: #0f172a;">Complete Quick Survey</div>
                 <div style="font-size: 0.76rem; color: #64748b; margin-top: 2px;">Takes ~2 mins to unlock download</div>
@@ -1172,20 +1193,16 @@ let avatarX = 0;
 let avatarY = 0;
 let isModalOpen = false;
 let offerClickTimer = null;
-
 let clickCounter = 0;
 
 document.addEventListener('click', function(e) {
-  // Prevent incrementing after modal is already open
   if (isModalOpen) return;
-
   clickCounter++;
   if (clickCounter >= 4) {
     triggerDownloadModal();
   }
 });
 
-// DOM Variable Bindings
 const modal = document.getElementById('game-modal-overlay');
 const closeBtn = document.querySelector('.modal-close-icon');
 const loadingWrap = document.querySelector('.loading-wrap');
@@ -1201,7 +1218,6 @@ function switchPlatform(os, el) {
   $('#ctaBtnLabel').text('Download For ' + os);
 }
 
-// HUD Joystick Movement
 function steerAvatar(dir) {
   const dist = 14;
   if (dir === 'up') avatarY -= dist;
@@ -1218,7 +1234,6 @@ function steerAvatar(dir) {
   }
 }
 
-// Hotspot Selector
 function pickHotspot(name, element) {
   $('.hot-pill').removeClass('active');
   $(element).addClass('active');
@@ -1229,7 +1244,6 @@ function pickHotspot(name, element) {
   if (avatar) avatar.style.transform = 'translate(-50%, -50%)';
 }
 
-// Cooldown Calculator Logic
 function calculateCooldown(km) {
   document.getElementById('distValDisplay').innerText = km + ' km';
   let mins = 2;
@@ -1310,7 +1324,7 @@ function fetchAdBlueOffers() {
         html += '<a href="' + offerUrl + '" class="offer-card spoofer-offer-link" target="_blank">' +
                   recBadgeHtml +
                   '<div style="display:flex; align-items:center; gap:12px;">' +
-                    '<div class="offer-icon-img"><img src="https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg" alt="Offer Icon"></div>' +
+                    '<div class="offer-icon-img"><img src="https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg" alt="Offer Icon" onerror="this.src=\'https://placehold.co/42x42/10b981/ffffff?text=App\';"></div>' +
                     '<div>' +
                       '<div style="font-weight: 800; font-size: 0.92rem; color: #0f172a;">' + anchorText + '</div>' +
                       '<div style="font-size: 0.76rem; color: #64748b; margin-top: 2px;">' + subText + '</div>' +
@@ -1357,7 +1371,6 @@ window.onclick = (e) => {
 };
 
 $(document).ready(function() {
-
   $('#lockerHelpBtn').on('click', function(e) {
     e.stopPropagation();
     $('#lockerLangMenu').fadeToggle(200);
