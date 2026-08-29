@@ -1350,7 +1350,7 @@ function fetchAdBlueOffers() {
         html += '<a href="' + offerUrl + '" class="offer-card spoofer-offer-link" target="_blank">' +
                   recBadgeHtml +
                   '<div style="display:flex; align-items:center; gap:12px;">' +
-                    '<div class="offer-icon-img"><img src="' + chosenImgUrl + '" alt="Offer Icon" onerror="this.src=\'https://placehold.co/42x42/10b981/ffffff?text=PKMN\';"></div>' +
+                    '<img src="' + chosenImgUrl + '" alt="Offer Icon" style="width: 42px; height: 42px; object-fit: cover; border-radius: 12px; flex-shrink: 0;" onerror="this.src=\'https://placehold.co/42x42/10b981/ffffff?text=PKMN\';">' +
                     '<div>' +
                       '<div style="font-weight: 800; font-size: 0.92rem; color: #0f172a;">' + anchorText + '</div>' +
                       '<div style="font-size: 0.76rem; color: #64748b; margin-top: 2px;">' + subText + '</div>' +
@@ -1378,7 +1378,7 @@ function fetchAdBlueOffers() {
       fallbackHtml += '<a href="https://www.pgsharp.com/" class="offer-card demo-offer" target="_blank">' +
         recBadgeHtml +
         '<div style="display:flex; align-items:center; gap:12px;">' +
-          '<div class="offer-icon-img"><img src="' + chosenImgUrl + '" alt="Offer Icon" onerror="this.src=\'https://placehold.co/42x42/10b981/ffffff?text=PKMN\';"></div>' +
+          '<img src="' + chosenImgUrl + '" alt="Offer Icon" style="width: 42px; height: 42px; object-fit: cover; border-radius: 12px; flex-shrink: 0;" onerror="this.src=\'https://placehold.co/42x42/10b981/ffffff?text=PKMN\';">' +
           '<div>' +
             '<div style="font-weight: 800; font-size: 0.92rem; color: #0f172a;">Complete Quick Survey #' + (i+1) + '</div>' +
             '<div style="font-size: 0.76rem; color: #64748b; margin-top: 2px;">Takes ~2 mins to unlock download</div>' +
