@@ -911,8 +911,8 @@ footer {
       <!-- Main Action CTA Group -->
       <div class="cta-wrapper">
         <button class="download-cta-btn trigger-download" type="button">
-          <i class="fas fa-download"></i>
-          <span id="ctaBtnLabel">Download For iOS</span>
+          <i class="fas fa-paw"></i>
+          <span id="ctaBtnLabel">Catch Pokémon</span>
         </button>
 
         <div class="trust-bullets">
@@ -1084,7 +1084,7 @@ footer {
 <!-- Mobile Sticky Bottom Download Bar -->
 <div class="mobile-sticky-cta">
   <button class="trigger-download" type="button">
-    <i class="fas fa-download"></i> Download Spoofer Now
+    <i class="fas fa-paw"></i> Catch Pokémon
   </button>
 </div>
 
@@ -1117,75 +1117,6 @@ footer {
       <p style="font-size: 0.84rem; color: var(--text-muted); margin-top: 8px;">Progress: <span id="progress-text" style="color: #059669; font-weight: 800;">0%</span></p>
       <div class="progress-track">
         <div class="progress-fill-bar" id="progress-fill"></div>
-      </div>
-    </div>
-
-    <!-- Pokémon Picker Phase -->
-    <div class="pokemon-picker-wrap" style="display: none; flex-direction: column; align-items: center; text-align: center;">
-      <div style="width: 48px; height: 48px; border-radius: 16px; background: rgba(16, 185, 129, 0.15); color: #059669; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 12px; border: 1px solid rgba(16, 185, 129, 0.3);">
-        <i class="fas fa-dragon"></i>
-      </div>
-      <h3 style="font-size: 1.2rem; font-weight: 900; color: #0f172a; margin-bottom: 4px;">Choose Your Starter Pokémon</h3>
-      <p style="font-size: 0.82rem; color: #64748b; font-weight: 600; margin-bottom: 16px;">Select your preferred companion to preload into your spoofer profile:</p>
-      
-      <div class="pokemon-grid-list" style="display: grid; grid-template-columns: 1fr; gap: 10px; width: 100%; max-height: 280px; overflow-y: auto; padding-right: 4px; margin-bottom: 4px;">
-        
-        <!-- Pokémon 1: Shiny Mega Rayquaza -->
-        <div class="pkmn-card" onclick="selectPokemon('Shiny Mega Rayquaza')" style="display: flex; align-items: center; justify-content: space-between; background: #f8fafc; border: 2px solid rgba(16, 185, 129, 0.35); padding: 12px 16px; border-radius: 20px; cursor: pointer; transition: all 0.2s;">
-          <div style="display: flex; align-items: center; gap: 14px;">
-            <div style="width: 46px; height: 46px; border-radius: 14px; background: rgba(16, 185, 129, 0.1); overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-              <img src="https://i.postimg.cc/76w4QHkf/10384-Shiny-Mega-Rayquaza.webp" alt="Shiny Mega Rayquaza" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src='https://placehold.co/46x46/10b981/ffffff?text=Ray';">
-            </div>
-            <div style="text-align: left;">
-              <div style="font-weight: 800; font-size: 0.92rem; color: #0f172a;">✨ Shiny Mega Rayquaza</div>
-              <div style="font-size: 0.74rem; color: #059669; font-weight: 700;">IV 100% • Dragon / Flying</div>
-            </div>
-          </div>
-          <span style="background: #10b981; color: white; padding: 6px 14px; border-radius: 30px; font-size: 0.76rem; font-weight: 800;">Select</span>
-        </div>
-
-        <!-- Pokémon 2: Shiny Galarian Articuno -->
-        <div class="pkmn-card" onclick="selectPokemon('Shiny Galarian Articuno')" style="display: flex; align-items: center; justify-content: space-between; background: #f8fafc; border: 1px solid rgba(16, 185, 129, 0.2); padding: 12px 16px; border-radius: 20px; cursor: pointer; transition: all 0.2s;">
-          <div style="display: flex; align-items: center; gap: 14px;">
-            <div style="width: 46px; height: 46px; border-radius: 14px; background: rgba(2, 132, 199, 0.1); overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-              <img src="https://i.postimg.cc/kXbn4hft/de78nn8-947dd787-395e-47ee-8d2a-4a1fa9a3b3c7.png" alt="Shiny Galarian Articuno" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src='https://placehold.co/46x46/0284c7/ffffff?text=Articuno';">
-            </div>
-            <div style="text-align: left;">
-              <div style="font-weight: 800; font-size: 0.92rem; color: #0f172a;">✨ Shiny Galarian Articuno</div>
-              <div style="font-size: 0.74rem; color: #0284c7; font-weight: 700;">IV 100% • Psychic / Flying</div>
-            </div>
-          </div>
-          <span style="background: #e2e8f0; color: #0f172a; padding: 6px 14px; border-radius: 30px; font-size: 0.76rem; font-weight: 800;">Select</span>
-        </div>
-
-        <!-- Pokémon 3: Shiny Mega Charizard Y -->
-        <div class="pkmn-card" onclick="selectPokemon('Shiny Mega Charizard Y')" style="display: flex; align-items: center; justify-content: space-between; background: #f8fafc; border: 1px solid rgba(16, 185, 129, 0.2); padding: 12px 16px; border-radius: 20px; cursor: pointer; transition: all 0.2s;">
-          <div style="display: flex; align-items: center; gap: 14px;">
-            <div style="width: 46px; height: 46px; border-radius: 14px; background: rgba(245, 158, 11, 0.1); overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-              <img src="https://i.postimg.cc/sfbSpf5M/pokemon-icon-006-52.png" alt="Shiny Mega Charizard Y" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src='https://placehold.co/46x46/f59e0b/ffffff?text=Char';">
-            </div>
-            <div style="text-align: left;">
-              <div style="font-weight: 800; font-size: 0.92rem; color: #0f172a;">✨ Shiny Mega Charizard Y</div>
-              <div style="font-size: 0.74rem; color: #f59e0b; font-weight: 700;">IV 100% • Fire / Dragon</div>
-            </div>
-          </div>
-          <span style="background: #e2e8f0; color: #0f172a; padding: 6px 14px; border-radius: 30px; font-size: 0.76rem; font-weight: 800;">Select</span>
-        </div>
-
-        <!-- Pokémon 4: Armored Mewtwo -->
-        <div class="pkmn-card" onclick="selectPokemon('Armored Mewtwo')" style="display: flex; align-items: center; justify-content: space-between; background: #f8fafc; border: 1px solid rgba(16, 185, 129, 0.2); padding: 12px 16px; border-radius: 20px; cursor: pointer; transition: all 0.2s;">
-          <div style="display: flex; align-items: center; gap: 14px;">
-            <div style="width: 46px; height: 46px; border-radius: 14px; background: rgba(139, 92, 246, 0.1); overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
-              <img src="https://i.postimg.cc/J0qXX2zL/deiaa3k-be2b8a41-07f5-4955-83f0-30a62697f92f.png" alt="Armored Mewtwo" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.src='https://placehold.co/46x46/8b5cf6/ffffff?text=Mewtwo';">
-            </div>
-            <div style="text-align: left;">
-              <div style="font-weight: 800; font-size: 0.92rem; color: #0f172a;">🛡️ Armored Mewtwo</div>
-              <div style="font-size: 0.74rem; color: #8b5cf6; font-weight: 700;">IV 100% • Psychic / Armor</div>
-            </div>
-          </div>
-          <span style="background: #e2e8f0; color: #0f172a; padding: 6px 14px; border-radius: 30px; font-size: 0.76rem; font-weight: 800;">Select</span>
-        </div>
-
       </div>
     </div>
 
@@ -1287,7 +1218,6 @@ document.addEventListener('click', function(e) {
 const modal = document.getElementById('game-modal-overlay');
 const closeBtn = document.querySelector('.modal-close-icon');
 const loadingWrap = document.querySelector('.loading-wrap');
-const pokemonPickerWrap = document.querySelector('.pokemon-picker-wrap');
 const verifyBox = document.querySelector('.verify-box');
 const progressFill = document.getElementById('progress-fill');
 const progressText = document.getElementById('progress-text');
@@ -1297,7 +1227,7 @@ function switchPlatform(os, el) {
   currentOS = os;
   $('.os-btn').removeClass('active');
   $(el).addClass('active');
-  $('#ctaBtnLabel').text('Download For ' + os);
+  $('#ctaBtnLabel').text('Catch Pokémon');
 }
 
 function steerAvatar(dir) {
@@ -1360,7 +1290,6 @@ function triggerDownloadModal() {
   }
 
   if (loadingWrap) loadingWrap.style.display = 'flex';
-  if (pokemonPickerWrap) pokemonPickerWrap.style.display = 'none';
   if (verifyBox) verifyBox.style.display = 'none';
   let instrBox = document.getElementById('lockerInstructionsBox');
   if (instrBox) instrBox.style.display = 'block';
@@ -1378,19 +1307,13 @@ function triggerDownloadModal() {
       clearInterval(interval);
       setTimeout(() => {
         if (loadingWrap) loadingWrap.style.display = 'none';
-        // Show Pokémon selector after loading finishes
-        if (pokemonPickerWrap) pokemonPickerWrap.style.display = 'flex';
+        if (verifyBox) verifyBox.style.display = 'block';
+        fetchAdBlueOffers();
       }, 350);
     }
     if (progressFill) progressFill.style.width = progress + '%';
     if (progressText) progressText.innerText = progress + '%';
   }, 200);
-}
-
-function selectPokemon(pkmnName) {
-  if (pokemonPickerWrap) pokemonPickerWrap.style.display = 'none';
-  if (verifyBox) verifyBox.style.display = 'block';
-  fetchAdBlueOffers();
 }
 
 dlTriggers.forEach(btn => {
