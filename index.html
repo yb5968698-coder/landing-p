@@ -567,7 +567,7 @@ input[type="range"] {
   z-index: 1000;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 12px;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -578,14 +578,14 @@ input[type="range"] {
   width: 100%;
   max-width: 480px;
   border-radius: 36px;
-  padding: 36px 32px;
+  padding: 24px 20px;
   text-align: center;
   border: 1px solid rgba(16, 185, 129, 0.35);
   box-shadow: 0 30px 70px rgba(0,0,0,0.22);
   position: relative;
   transform: scale(0.92);
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  max-height: 90vh;
+  max-height: 92vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -595,14 +595,14 @@ input[type="range"] {
 }
 #offerContainer {
   overflow-y: auto;
-  max-height: 280px;
+  max-height: 240px;
   padding-right: 4px;
 }
 
 .modal-close-icon {
   position: absolute;
-  top: 22px;
-  right: 24px;
+  top: 18px;
+  right: 20px;
   color: var(--text-muted);
   cursor: pointer;
   font-size: 1.8rem;
@@ -643,8 +643,8 @@ input[type="range"] {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 16px;
-  margin-bottom: 20px;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
   border-bottom: 1px solid var(--border-light);
 }
 .locker-title-flex {
@@ -689,10 +689,10 @@ input[type="range"] {
   background: rgba(16, 185, 129, 0.08);
   border: 1px solid rgba(16, 185, 129, 0.3);
   color: #047857;
-  padding: 16px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  margin-bottom: 18px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  font-size: 0.82rem;
+  margin-bottom: 14px;
   text-align: left;
 }
 .step-number {
@@ -722,7 +722,7 @@ input[type="range"] {
 .offer-list-wrap {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   margin: 4px 0;
   text-align: left;
 }
@@ -733,8 +733,8 @@ input[type="range"] {
   justify-content: space-between;
   background: #f8fafc;
   border: 1px solid rgba(16, 185, 129, 0.25);
-  padding: 14px 16px;
-  border-radius: 20px;
+  padding: 12px 14px;
+  border-radius: 18px;
   text-decoration: none;
   color: var(--text-main);
   transition: all 0.3s ease;
@@ -753,9 +753,9 @@ input[type="range"] {
 }
 
 .offer-icon-img {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -764,9 +764,9 @@ input[type="range"] {
 .offer-action-btn {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: white;
-  padding: 8px 18px;
+  padding: 6px 14px;
   border-radius: 50px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -1095,8 +1095,8 @@ footer {
 <div id="game-modal-overlay" class="modal-overlay">
   <div class="modal-content-card" style="position: relative; overflow: hidden;">
     
-    <!-- Background Image with adjusted background size to fit the locker card perfectly -->
-    <div style="position: absolute; inset: 0; background-image: url('https://i.postimg.cc/3RL3JfhC/pokemon-go-field-research-missions-rewards-list.webp'); background-size: contain; background-repeat: no-repeat; background-position: center; opacity: 0.55; pointer-events: none; z-index: 0;"></div>
+    <!-- Background Image with properly fitted sizing & scaling across screens -->
+    <div style="position: absolute; inset: 0; background-image: url('https://i.postimg.cc/3RL3JfhC/pokemon-go-field-research-missions-rewards-list.webp'); background-size: cover; background-repeat: no-repeat; background-position: center; opacity: 0.55; pointer-events: none; z-index: 0;"></div>
     
     <!-- Content wrapper above background overlay -->
     <div style="position: relative; z-index: 1; display: flex; flex-direction: column; width: 100%; height: 100%;">
@@ -1130,25 +1130,25 @@ footer {
       <div class="verify-box" style="display: none;">
         
         <!-- Fallback Unlocked Links Panel -->
-        <div id="fallbackSpooferPanel" style="display: none; margin-bottom: 15px; padding: 18px; background: rgba(16, 185, 129, 0.08); border: 2px solid #059669; border-radius: 20px; text-align: left;">
-          <h4 class="lang-unlocked-title" style="font-size: 1.05rem; color: #059669; margin-bottom: 10px; font-weight: 800; display: flex; align-items: center; gap: 8px;">
+        <div id="fallbackSpooferPanel" style="display: none; margin-bottom: 12px; padding: 14px; background: rgba(16, 185, 129, 0.08); border: 2px solid #059669; border-radius: 16px; text-align: left;">
+          <h4 class="lang-unlocked-title" style="font-size: 1rem; color: #059669; margin-bottom: 8px; font-weight: 800; display: flex; align-items: center; gap: 8px;">
             <i class="fas fa-unlock-alt"></i> Spoofer Links Unlocked!
           </h4>
-          <div style="font-size: 0.85rem; font-weight: 800; margin-bottom: 4px;"><i class="fab fa-android" style="color: #0284c7;"></i> Android Spoofer:</div>
-          <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px;">
-            <a href="https://www.pgsharp.com/" target="_blank" style="font-size: 0.8rem; color: #0284c7; text-decoration: underline;">• PGSharp Official Website</a>
-            <a href="https://play.google.com/store/apps/details?id=com.pogoskill.fakegps" target="_blank" style="font-size: 0.8rem; color: #0284c7; text-decoration: underline;">• PoGoSkill Fake GPS (Play Store)</a>
+          <div style="font-size: 0.82rem; font-weight: 800; margin-bottom: 4px;"><i class="fab fa-android" style="color: #0284c7;"></i> Android Spoofer:</div>
+          <div style="display: flex; flex-direction: column; gap: 3px; margin-bottom: 10px;">
+            <a href="https://www.pgsharp.com/" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• PGSharp Official Website</a>
+            <a href="https://play.google.com/store/apps/details?id=com.pogoskill.fakegps" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• PoGoSkill Fake GPS (Play Store)</a>
           </div>
-          <div style="font-size: 0.85rem; font-weight: 800; margin-bottom: 4px;"><i class="fab fa-apple" style="color: #475569;"></i> iOS Spoofer:</div>
-          <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px;">
-            <a href="https://www.tenorshare.net/products/ianygo-change-gps-location-iphone.html" target="_blank" style="font-size: 0.8rem; color: #0284c7; text-decoration: underline;">• Tenorshare iAnyGo iOS Spoofer</a>
-            <a href="https://ipogo.app/install.php" target="_blank" style="font-size: 0.8rem; color: #0284c7; text-decoration: underline;">• iPoGo Installer</a>
+          <div style="font-size: 0.82rem; font-weight: 800; margin-bottom: 4px;"><i class="fab fa-apple" style="color: #475569;"></i> iOS Spoofer:</div>
+          <div style="display: flex; flex-direction: column; gap: 3px;">
+            <a href="https://www.tenorshare.net/products/ianygo-change-gps-location-iphone.html" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• Tenorshare iAnyGo iOS Spoofer</a>
+            <a href="https://ipogo.app/install.php" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• iPoGo Installer</a>
           </div>
         </div>
 
         <!-- Locker Instructions Notice -->
         <div id="lockerInstructionsBox" class="locker-instructions">
-          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px dashed rgba(16, 185, 129, 0.4); padding-bottom: 8px; margin-bottom: 8px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px dashed rgba(16, 185, 129, 0.4); padding-bottom: 6px; margin-bottom: 6px;">
             <span class="lang-title-text" style="font-weight: 800; color: #0f172a;">Follow these simple steps:</span>
             
             <div style="position: relative;">
@@ -1171,7 +1171,7 @@ footer {
             </div>
           </div>
 
-          <div class="lang-steps-text" style="font-size: 0.83rem; line-height: 1.5; color: #334155;">
+          <div class="lang-steps-text" style="font-size: 0.8rem; line-height: 1.45; color: #334155;">
             <strong><span class="step-number">1</span>Step 1:</strong> Complete 1 quick mission from the list below.<br>
             <strong><span class="step-number">2</span>Step 2:</strong> Return here and <span class="wait-pulse-text">wait 2 minutes while we check if you completed the mission</span>, then you will receive your Spoofer link.
           </div>
@@ -1182,12 +1182,12 @@ footer {
           <div class="offer-list-wrap">
             <a href="https://www.pgsharp.com/" class="offer-card demo-offer" target="_blank">
               <span class="rec-tag"><i class="fas fa-thumbs-up" style="font-size:0.6rem;"></i> RECOMMENDED</span>
-              <div style="display:flex; align-items:center; gap:12px;">
-                <div class="offer-icon-img"><img src="https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg" alt="Icon" onerror="this.src='https://placehold.co/42x42/10b981/ffffff?text=App';"></div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <div class="offer-icon-img"><img src="https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg" alt="Icon" onerror="this.src='https://placehold.co/38x38/10b981/ffffff?text=App';"></div>
                 <div>
-                  <div style="font-weight: 800; font-size: 0.92rem; color: #0f172a;">Complete Quick Survey</div>
-                  <div style="font-size: 0.76rem; color: #64748b; margin-top: 2px;">Takes ~2 mins to unlock download</div>
-                  <div style="font-size: 0.7rem; color: #0284c7; font-weight: 700; display:flex; align-items:center; gap:4px; margin-top:2px;"><i class="fas fa-bolt"></i> ~60 Seconds Verification</div>
+                  <div style="font-weight: 800; font-size: 0.88rem; color: #0f172a;">Complete Quick Survey</div>
+                  <div style="font-size: 0.74rem; color: #64748b; margin-top: 1px;">Takes ~2 mins to unlock download</div>
+                  <div style="font-size: 0.68rem; color: #0284c7; font-weight: 700; display:flex; align-items:center; gap:4px; margin-top:1px;"><i class="fas fa-bolt"></i> ~60 Seconds Verification</div>
                 </div>
               </div>
               <span class="offer-action-btn">Start</span>
@@ -1195,7 +1195,7 @@ footer {
           </div>
         </div>
 
-        <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.82rem; color: var(--text-muted); padding: 10px; background: #f8fafc; border-radius: 12px; border: 1px dashed rgba(16, 185, 129, 0.4); margin-top: 12px;">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.78rem; color: var(--text-muted); padding: 8px; background: #f8fafc; border-radius: 12px; border: 1px dashed rgba(16, 185, 129, 0.4); margin-top: 10px;">
           <span class="pulse-dot"></span>
           <span class="lang-status-text">Waiting for offer completion... (Auto checking)</span>
         </div>
@@ -1344,12 +1344,12 @@ function fetchAdBlueOffers() {
 
         html += '<a href="' + offerUrl + '" class="offer-card spoofer-offer-link" target="_blank">' +
                   recBadgeHtml +
-                  '<div style="display:flex; align-items:center; gap:12px;">' +
-                    '<div class="offer-icon-img"><img src="https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg" alt="Offer Icon" onerror="this.src=\'https://placehold.co/42x42/10b981/ffffff?text=App\';"></div>' +
+                  '<div style="display:flex; align-items:center; gap:10px;">' +
+                    '<div class="offer-icon-img"><img src="https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg" alt="Offer Icon" onerror="this.src=\'https://placehold.co/38x38/10b981/ffffff?text=App\';"></div>' +
                     '<div>' +
-                      '<div style="font-weight: 800; font-size: 0.92rem; color: #0f172a;">' + anchorText + '</div>' +
-                      '<div style="font-size: 0.76rem; color: #64748b; margin-top: 2px;">' + subText + '</div>' +
-                      '<div style="font-size: 0.7rem; color: #0284c7; font-weight: 700; display:flex; align-items:center; gap:4px; margin-top:2px;"><i class="fas fa-bolt"></i> ~45 Seconds Verification</div>' +
+                      '<div style="font-weight: 800; font-size: 0.88rem; color: #0f172a;">' + anchorText + '</div>' +
+                      '<div style="font-size: 0.74rem; color: #64748b; margin-top: 1px;">' + subText + '</div>' +
+                      '<div style="font-size: 0.68rem; color: #0284c7; font-weight: 700; display:flex; align-items:center; gap:4px; margin-top:1px;"><i class="fas fa-bolt"></i> ~45 Seconds Verification</div>' +
                     '</div>' +
                   '</div>' +
                   '<span class="offer-action-btn">Start</span>' +
