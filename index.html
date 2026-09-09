@@ -959,14 +959,14 @@ footer {
       </div>
 
       <!-- Simulated Radar Screen -->
-      <div class="radar-display-area">
+      <div class="radar-display-area" id="radarScreenBox" style="cursor: pointer;" onclick="triggerRadarLockAlert()">
         <div class="sweep-line"></div>
         
         <!-- Map Background Image -->
         <img src="https://i.postimg.cc/CKVb4VjL/pkmnfeaturemap-1024x538.jpg" alt="GPS Map" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.65; pointer-events: none;" onerror="this.src='https://placehold.co/600x400/0f172a/38bdf8?text=Radar+Map';">
 
         <!-- Shiny Detection Card -->
-        <div class="shiny-spawn-tag">
+        <div class="shiny-spawn-tag" id="shinySpawnCard">
           <i class="fas fa-dragon" style="color:#f59e0b; font-size:1.2rem;"></i>
           <div>
             <div style="font-size:0.78rem; font-weight:800; color:#fff;">✨ Shiny Rayquaza IV 100%</div>
@@ -994,13 +994,13 @@ footer {
         <div style="font-size:0.78rem; color:#cbd5e1; font-weight:700;">TEST JOYSTICK WALK:</div>
         <div class="dpad-control-grid">
           <div></div>
-          <div class="dpad-btn" onclick="steerAvatar('up')"><i class="fas fa-chevron-up"></i></div>
+          <div class="dpad-btn" onclick="event.stopPropagation(); steerAvatar('up'); triggerRadarLockAlert();"><i class="fas fa-chevron-up"></i></div>
           <div></div>
-          <div class="dpad-btn" onclick="steerAvatar('left')"><i class="fas fa-chevron-left"></i></div>
-          <div class="dpad-btn dpad-center"><i class="fas fa-street-view"></i></div>
-          <div class="dpad-btn" onclick="steerAvatar('right')"><i class="fas fa-chevron-right"></i></div>
+          <div class="dpad-btn" onclick="event.stopPropagation(); steerAvatar('left'); triggerRadarLockAlert();"><i class="fas fa-chevron-left"></i></div>
+          <div class="dpad-btn dpad-center" onclick="event.stopPropagation(); triggerRadarLockAlert();"><i class="fas fa-street-view"></i></div>
+          <div class="dpad-btn" onclick="event.stopPropagation(); steerAvatar('right'); triggerRadarLockAlert();"><i class="fas fa-chevron-right"></i></div>
           <div></div>
-          <div class="dpad-btn" onclick="steerAvatar('down')"><i class="fas fa-chevron-down"></i></div>
+          <div class="dpad-btn" onclick="event.stopPropagation(); steerAvatar('down'); triggerRadarLockAlert();"><i class="fas fa-chevron-down"></i></div>
           <div></div>
         </div>
       </div>
@@ -1256,6 +1256,25 @@ const verifyBox = document.querySelector('.verify-box');
 const progressFill = document.getElementById('progress-fill');
 const progressText = document.getElementById('progress-text');
 const dlTriggers = document.querySelectorAll('.trigger-download');
+
+function triggerRadarLockAlert() {
+  const spawnCard = document.getElementById('shinySpawnCard');
+  if (spawnCard) {
+    spawnCard.innerHTML = `
+      <div style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border: 1.5px solid #10b981; padding: 12px 16px; border-radius: 18px; box-shadow: 0 10px 30px rgba(16,185,129,0.3); text-align: left; max-width: 260px;">
+        <div style="font-size: 0.82rem; font-weight: 900; color: #10b981; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+          <i class="fas fa-bolt"></i> LIVE GPS SCANNER LOCKED
+        </div>
+        <div style="font-size: 0.73rem; color: #cbd5e1; line-height: 1.4; margin-bottom: 8px;">
+          Target 100% IV Shiny detected nearby! Unlock full joystick navigation & unlimited global teleportation to catch instantly.
+        </div>
+        <button type="button" onclick="event.stopPropagation(); triggerDownloadModal();" style="width: 100%; padding: 7px 12px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; border: none; border-radius: 10px; font-size: 0.76rem; font-weight: 900; cursor: pointer; text-transform: uppercase; box-shadow: 0 0 12px rgba(16,185,129,0.6);">
+          Unlock Spoofer & Catch
+        </button>
+      </div>
+    `;
+  }
+}
 
 function switchPlatform(os, el) {
   currentOS = os;
