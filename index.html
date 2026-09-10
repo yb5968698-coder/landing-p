@@ -887,9 +887,23 @@ footer {
     letter-spacing: 0.5px;
   }
 }
+
+/* Hide Google Translate top toolbar banner to keep header clean */
+.goog-te-banner-frame.skiptranslate, .goog-te-banner-frame {
+  display: none !important;
+}
+body {
+  top: 0px !important;
+}
+.goog-te-gadget, #google_translate_element {
+  display: none !important;
+}
 </style>
 </head>
 <body>
+
+<!-- Hidden Google Translate Element -->
+<div id="google_translate_element"></div>
 
 <div class="nav-header">
   <div class="nav-container">
@@ -1512,18 +1526,3 @@ $(document).ready(function() {
     $('.lang-unlocked-title').html(t.unlockedTitle);
   });
 });
-
-const userList = ["@Alex_99", "@PogoKing_23", "@TrainerJoe", "@CatchMaster", "@ShinyHunter99", "@VaporWave88"];
-const locList = ["Pier 39, SF", "Zaragoza, Spain", "Akihabara, Tokyo", "Sydney Opera House", "Central Park, NYC"];
-
-setInterval(() => {
-  const u = userList[Math.floor(Math.random() * userList.length)];
-  const l = locList[Math.floor(Math.random() * locList.length)];
-  const t = Math.floor(Math.random() * 18 + 2) + "s ago";
-  $('#toastUser').text('Trainer ' + u);
-  $('#toastLoc').text(l);
-  $('#toastTime').text(t);
-}, 6000);
-</script>
-</body>
-</html>
