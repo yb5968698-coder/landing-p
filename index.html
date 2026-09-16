@@ -131,12 +131,498 @@ body {
 .app-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px 20px 80px 20px;
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--primary);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  margin-bottom: 24px;
+}
+
+h1.main-title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+  color: var(--text-main);
+}
+h1.main-title span {
+  background: linear-gradient(135deg, #059669 0%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.main-desc {
+  font-size: 1.08rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  line-height: 1.65;
+  margin-bottom: 16px;
+  max-width: 520px;
+}
+
+.os-toggle-bar {
+  display: flex;
+  background: #e2e8f0;
+  padding: 5px;
+  border-radius: 18px;
+  margin-bottom: 16px;
+  gap: 6px;
+  width: 100%;
+  max-width: 440px;
+}
+.os-btn {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 100px);
+  gap: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  transition: all 0.25s ease;
 }
+.os-btn.active {
+  background: #ffffff;
+  color: var(--text-main);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.cta-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 440px;
+}
+.download-cta-btn {
+  width: 100%;
+  padding: 20px 32px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 50%, #0284c7 100%);
+  background-size: 200% 100%;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 1.12rem;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.6), 0 0 50px rgba(2, 132, 199, 0.3);
+  animation: neonButtonPulse 2.5s infinite ease-in-out;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.download-cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 35px rgba(16, 185, 129, 0.9), 0 0 70px rgba(2, 132, 199, 0.5);
+  background-position: 100% 0;
+}
+
+@keyframes neonButtonPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.5), 0 0 40px rgba(2, 132, 199, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(16, 185, 129, 0.8), 0 0 65px rgba(2, 132, 199, 0.4);
+    transform: scale(1.02);
+  }
+}
+
+.trust-bullets {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  padding: 0 6px;
+}
+.trust-bullets span { display: flex; align-items: center; gap: 6px; }
+
+.command-deck-frame {
+  background: #0f172a;
+  border-radius: 36px;
+  padding: 20px;
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.3), 0 0 0 8px #cbd5e1;
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+}
+
+.deck-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+}
+.deck-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.radar-display-area {
+  height: 280px;
+  background: radial-gradient(circle at 50% 50%, #0284c7 0%, #0f172a 75%);
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  margin-bottom: 16px;
+}
+
+.sweep-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px dashed rgba(56, 189, 248, 0.4);
+  background: conic-gradient(from 0deg, rgba(16, 185, 129, 0.3) 0deg, transparent 60deg, transparent 360deg);
+  animation: radarSweep 6s linear infinite;
+}
+@keyframes radarSweep { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+
+.user-radar-pin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #10b981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #059669;
+  font-size: 1.1rem;
+  box-shadow: 0 0 20px #10b981;
+  z-index: 10;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.shiny-spawn-tag {
+  position: absolute;
+  top: 25px;
+  left: 20px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  padding: 8px 14px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 20;
+}
+
+.hotspot-selector-bar {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  margin-bottom: 16px;
+}
+.hot-pill {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #e2e8f0;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.hot-pill:hover, .hot-pill.active {
+  background: #10b981;
+  color: #fff;
+  border-color: #10b981;
+}
+
+.dpad-control-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 44px);
+  grid-template-rows: repeat(3, 44px);
+  gap: 6px;
+  justify-content: center;
+}
+.dpad-btn {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s;
+}
+.dpad-btn:active { background: #10b981; color: white; transform: scale(0.9); }
+.dpad-center { background: rgba(16, 185, 129, 0.3); border-color: #10b981; }
+
+.section-title-wrap {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.section-title-wrap h2 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--text-main);
+  letter-spacing: -0.8px;
+}
+.section-title-wrap p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.bento-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+.bento-item {
+  background: var(--bg-card);
+  border-radius: 28px;
+  padding: 32px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-lg);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.bento-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-active);
+  box-shadow: 0 24px 48px -12px rgba(16, 185, 129, 0.14);
+}
+.bento-span-2 { grid-column: span 2; }
+
+.bento-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.bento-item h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 10px;
+}
+.bento-item p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.cooldown-tool-card {
+  background: var(--bg-card);
+  border-radius: 32px;
+  padding: 36px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 60px;
+}
+.cooldown-flex {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+.slider-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.slider-label-row {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+.cooldown-result-box {
+  background: rgba(16, 185, 129, 0.08);
+  border: 2px dashed rgba(16, 185, 129, 0.35);
+  border-radius: 24px;
+  padding: 28px;
+  text-align: center;
+}
+.cooldown-val {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.faq-container {
+  background: var(--bg-card);
+  border-radius: 32px;
+  padding: 40px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 60px;
+}
+.faq-row {
+  border-bottom: 1px solid var(--border-light);
+  padding: 20px 0;
+}
+.faq-row:last-child { border-bottom: none; }
+.faq-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--text-main);
+  cursor: pointer;
+}
+.faq-header:hover { color: var(--primary); }
+.faq-body {
+  display: none;
+  margin-top: 12px;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+.faq-row.active .faq-body { display: block; }
+.faq-row.active .faq-chevron { transform: rotate(180deg); color: var(--primary); }
+.faq-chevron { transition: transform 0.3s ease; color: var(--text-muted); }
+
+.live-toast-box {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  padding: 14px 20px;
+  border-radius: 22px;
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 90;
+  max-width: 360px;
+  animation: toastIn 0.5s ease;
+}
+@keyframes toastIn { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.modal-overlay.show { opacity: 1; display: flex; }
+
+.modal-content-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 36px;
+  padding: 24px 20px;
+  text-align: center;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.22);
+  position: relative;
+  transform: scale(0.92);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.modal-content-card > *:not(#offerContainer) {
+  flex-shrink: 0;
+}
+#offerContainer {
+  overflow-y: auto;
+  max-height: 240px;
+  padding-right: 4px;
+}
+
+.modal-close-icon {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1.8rem;
+  line-height: 1;
+  transition: 0.2s;
+  z-index: 10;
+}
+.modal-close-icon:hover { color: var(--text-main); transform: rotate(90deg); }
 
 .spinner-ring {
   width: 54px;
@@ -339,34 +825,13 @@ body {
   }
 }
 
-.modal-content-card {
-  background: #ffffff;
-  width: 100%;
-  max-width: 480px;
-  border-radius: 36px;
-  padding: 24px 20px;
-  text-align: center;
-  border: 1px solid rgba(16, 185, 129, 0.35);
-  box-shadow: 0 30px 70px rgba(0,0,0,0.22);
-  position: relative;
-  max-height: 92vh;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  margin: 0 auto;
-}
-.modal-content-card > *:not(#offerContainer) {
-  flex-shrink: 0;
-}
-#offerContainer {
-  overflow-y: auto;
-  max-height: 240px;
-  padding-right: 4px;
+.mobile-sticky-cta {
+  display: none;
 }
 
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 30px 20px 90px 20px;
   border-top: 1px solid var(--border-light);
   color: var(--text-muted);
   font-size: 0.85rem;
@@ -374,8 +839,53 @@ footer {
 }
 
 @media (max-width: 900px) {
-  .status-badge-group { font-size: 0.75rem; gap: 8px; }
-  .pulse-pill { padding: 4px 10px; }
+  .hero-layout { display: flex; flex-direction: column; gap: 16px; text-align: center; }
+  .hero-left { align-items: center; order: 1; display: contents; }
+  .hero-left > .pill-badge { order: 1; margin-bottom: 8px; }
+  .hero-left > h1.main-title { order: 2; margin-bottom: 10px; }
+  .command-deck-frame { order: 3 !important; width: 100%; margin-bottom: 4px; }
+  .hero-left > .cta-wrapper { order: 4 !important; margin-bottom: 10px; }
+  .hero-left > .os-toggle-bar { order: 5 !important; margin-bottom: 10px; }
+  .hero-left > .main-desc { order: 6 !important; margin-bottom: 10px; }
+  .bento-features-grid { grid-template-columns: 1fr; }
+  .bento-span-2 { grid-column: span 1; }
+  .cooldown-flex { grid-template-columns: 1fr; gap: 20px; }
+  h1.main-title { font-size: 2.4rem; }
+  .live-toast-box { display: none; }
+  
+  /* Enable Sticky Mobile Bottom Bar */
+  .mobile-sticky-cta {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid var(--border-light);
+    padding: 12px 20px;
+    z-index: 95;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.08);
+  }
+  .mobile-sticky-cta button {
+    width: 100%;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 50%, #0284c7 100%);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
+    animation: neonButtonPulse 2.5s infinite ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
 }
 </style>
 </head>
@@ -402,6 +912,214 @@ footer {
 
 <div class="app-container">
   
+  <div class="hero-layout">
+    
+    <div class="hero-left">
+      <div class="pill-badge"><i class="fas fa-bolt" style="color:#10b981;"></i> Teleport Anywhere Worldwide Instantly</div>
+      
+      <h1 class="main-title">
+        Next-Gen GPS Spoofer <span>& Cooldown Engine.</span>
+      </h1>
+      
+      <p class="main-desc">
+        Access instant global teleportation, virtual 360° joystick navigation, human GPX walking routes, and built-in Niantic anti-ban protection for iOS & Android.
+      </p>
+
+      <!-- OS Switcher Pills -->
+      <div class="os-toggle-bar">
+        <button class="os-btn active" data-os="iOS" onclick="switchPlatform('iOS', this)">
+          <i class="fab fa-apple"></i> iOS 18+ Direct IPA
+        </button>
+        <button class="os-btn" data-os="Android" onclick="switchPlatform('Android', this)">
+          <i class="fab fa-android"></i> Android APK
+        </button>
+      </div>
+
+      <!-- Main Action CTA Group -->
+      <div class="cta-wrapper">
+        <button class="download-cta-btn trigger-download" type="button">
+          <i class="fas fa-paw"></i>
+          <span id="ctaBtnLabel">Catch Pokémon</span>
+        </button>
+
+        <div class="trust-bullets">
+          <span><i class="fas fa-check-circle" style="color:#10b981;"></i> No Root / Jailbreak</span>
+          <span><i class="fas fa-check-circle" style="color:#10b981;"></i> 100% Free Access</span>
+          <span><i class="fas fa-check-circle" style="color:#10b981;"></i> Safe Cooldown</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side: Interactive Command HUD Console -->
+    <div class="command-deck-frame">
+      <div class="deck-header">
+        <div class="deck-title"><i class="fas fa-crosshairs"></i> LIVE GPS SCANNER & TELEPORT HUD</div>
+        <div style="font-size:0.75rem; color:#10b981; font-weight:700;"><i class="fas fa-circle-dot"></i> RADAR ONLINE</div>
+      </div>
+
+      <!-- Simulated Radar Screen -->
+      <div class="radar-display-area" id="radarScreenBox" style="cursor: pointer;" onclick="triggerRadarLockAlert()">
+        <div class="sweep-line"></div>
+        
+        <!-- Map Background Image -->
+        <img src="https://i.postimg.cc/CKVb4VjL/pkmnfeaturemap-1024x538.jpg" alt="GPS Map" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.65; pointer-events: none;" onerror="this.src='https://placehold.co/600x400/0f172a/38bdf8?text=Radar+Map';">
+
+        <!-- Shiny Detection Card -->
+        <div class="shiny-spawn-tag" id="shinySpawnCard">
+          <i class="fas fa-dragon" style="color:#f59e0b; font-size:1.2rem;"></i>
+          <div>
+            <div style="font-size:0.78rem; font-weight:800; color:#fff;">✨ Shiny Rayquaza IV 100%</div>
+            <div style="font-size:0.68rem; color:#38bdf8; font-weight:700;" id="hudLocationText">Pier 39, San Francisco</div>
+          </div>
+        </div>
+
+        <!-- Center Player Pin -->
+        <div class="user-radar-pin" id="radarAvatar">
+          <i class="fas fa-location-dot"></i>
+        </div>
+      </div>
+
+      <!-- Hotspot Selector Bar -->
+      <div style="font-size:0.78rem; font-weight:800; color:#94a3b8; margin-bottom:8px;">SELECT TELEPORT HOTSPOT:</div>
+      <div class="hotspot-selector-bar">
+        <div class="hot-pill active" onclick="pickHotspot('Pier 39, SF', this)"><i class="fas fa-map-pin"></i> Pier 39, SF</div>
+        <div class="hot-pill" onclick="pickHotspot('Zaragoza, Spain', this)"><i class="fas fa-map-pin"></i> Zaragoza, Spain</div>
+        <div class="hot-pill" onclick="pickHotspot('Akihabara, Tokyo', this)"><i class="fas fa-map-pin"></i> Tokyo, Japan</div>
+        <div class="hot-pill" onclick="pickHotspot('Sydney Opera, AU', this)"><i class="fas fa-map-pin"></i> Sydney Opera</div>
+      </div>
+
+      <!-- D-Pad Joystick -->
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-top:12px; background:rgba(255,255,255,0.05); padding:10px 16px; border-radius:18px;">
+        <div style="font-size:0.78rem; color:#cbd5e1; font-weight:700;">TEST JOYSTICK WALK:</div>
+        <div class="dpad-control-grid">
+          <div></div>
+          <div class="dpad-btn" onclick="event.stopPropagation(); steerAvatar('up'); triggerRadarLockAlert();"><i class="fas fa-chevron-up"></i></div>
+          <div></div>
+          <div class="dpad-btn" onclick="event.stopPropagation(); steerAvatar('left'); triggerRadarLockAlert();"><i class="fas fa-chevron-left"></i></div>
+          <div class="dpad-btn dpad-center" onclick="event.stopPropagation(); triggerRadarLockAlert();"><i class="fas fa-street-view"></i></div>
+          <div class="dpad-btn" onclick="event.stopPropagation(); steerAvatar('right'); triggerRadarLockAlert();"><i class="fas fa-chevron-right"></i></div>
+          <div></div>
+          <div class="dpad-btn" onclick="event.stopPropagation(); steerAvatar('down'); triggerRadarLockAlert();"><i class="fas fa-chevron-down"></i></div>
+          <div></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="section-title-wrap">
+    <h2>Powerful Teleport Features</h2>
+    <p>Designed for maximum account safety, human walking physics, and global raid hub access.</p>
+  </div>
+
+  <div class="bento-features-grid">
+    <div class="bento-item bento-span-2">
+      <div class="bento-icon-box"><i class="fas fa-earth-americas"></i></div>
+      <h3>Instant Global Teleportation</h3>
+      <p>Jump coordinates anywhere in the world in under a second. Access exclusive regional Pokémons and worldwide mega raids without leaving home.</p>
+    </div>
+
+    <div class="bento-item">
+      <div class="bento-icon-box"><i class="fas fa-gamepad"></i></div>
+      <h3>360° On-Screen Joystick</h3>
+      <p>Customize walking speeds from 4 km/h up to 60 km/h with human-like randomized movement steps.</p>
+    </div>
+
+    <div class="bento-item">
+      <div class="bento-icon-box"><i class="fas fa-shield-cat"></i></div>
+      <h3>Anti-Ban Engine v5.2</h3>
+      <p>Automatic cooldown timer alerts ensure zero soft-bans when traveling between distant coordinates.</p>
+    </div>
+
+    <div class="bento-item bento-span-2">
+      <div class="bento-icon-box"><i class="fas fa-route"></i></div>
+      <h3>Auto GPX Route Egg Hatching</h3>
+      <p>Automate continuous loop routes between high-density PokéStops to hatch 2km, 5km, 10km, and 12km eggs overnight.</p>
+    </div>
+  </div>
+
+  <!-- Interactive Cooldown Calculator Tool -->
+  <div class="cooldown-tool-card">
+    <div class="cooldown-flex">
+      <div class="slider-wrap">
+        <h3 style="font-size:1.3rem; font-weight:900;"><i class="fas fa-stopwatch" style="color:#059669; margin-right:8px;"></i> Anti-Ban Cooldown Calculator</h3>
+        <p style="font-size:0.9rem; color:var(--text-muted); font-weight:500;">Drag the distance slider below to check the exact required Niantic softban cooldown wait time:</p>
+        
+        <div class="slider-label-row">
+          <span>Teleport Distance:</span>
+          <span id="distValDisplay" style="color:#059669;">250 km</span>
+        </div>
+        <input type="range" id="cooldownRange" min="1" max="1500" value="250" oninput="calculateCooldown(this.value)">
+      </div>
+
+      <div class="cooldown-result-box">
+        <div style="font-size:0.82rem; font-weight:800; color:var(--text-muted); text-transform:uppercase;">Required Wait Time:</div>
+        <div class="cooldown-val" id="cooldownTimeDisplay">45 Mins</div>
+        <div style="font-size:0.78rem; font-weight:700; color:#059669; margin-top:4px;"><i class="fas fa-shield-check"></i> 100% Anti-Ban Safe</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-container">
+    <div style="text-align: center; margin-bottom: 25px;">
+      <h3 style="font-size: 1.6rem; font-weight: 900;">Frequently Asked Questions</h3>
+    </div>
+
+    <div class="faq-row">
+      <div class="faq-header" onclick="toggleFaq(this)">
+        <span><i class="fas fa-question-circle" style="color: #059669; margin-right: 8px;"></i> Is Root or Jailbreak required?</span>
+        <i class="fas fa-chevron-down faq-chevron"></i>
+      </div>
+      <div class="faq-body">
+        No! SPOOF-X PRO runs natively on standard stock iOS and Android devices without modifying core operating system files.
+      </div>
+    </div>
+
+    <div class="faq-row">
+      <div class="faq-header" onclick="toggleFaq(this)">
+        <span><i class="fas fa-user-shield" style="color: #059669; margin-right: 8px;"></i> How does the Anti-Ban engine protect my account?</span>
+        <i class="fas fa-chevron-down faq-chevron"></i>
+      </div>
+      <div class="faq-body">
+        Our Anti-Ban engine simulates realistic human travel speeds, injects randomized walking paths, and automatically enforces cooldown timers based on travel distance.
+      </div>
+    </div>
+
+    <div class="faq-row">
+      <div class="faq-header" onclick="toggleFaq(this)">
+        <span><i class="fas fa-clock" style="color: #059669; margin-right: 8px;"></i> How fast is the installation process?</span>
+        <i class="fas fa-chevron-down faq-chevron"></i>
+      </div>
+      <div class="faq-body">
+        Setup takes under 2 minutes. Once you complete 1 quick mission, your installation package will unlock immediately.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="live-toast-box" id="toastNotice">
+  <div style="width: 40px; height: 40px; border-radius: 12px; background: rgba(16, 185, 129, 0.15); color: #059669; display: flex; align-items: center; justify-content: center;">
+    <i class="fas fa-location-crosshairs"></i>
+  </div>
+  <div style="font-size: 0.82rem; font-weight: 600;">
+    <span id="toastUser">Trainer @Alex_99</span> teleported to <strong id="toastLoc" style="color:#059669;">Tokyo Pier</strong> <span id="toastTime">12s ago</span>
+  </div>
+</div>
+
+<!-- Mobile Sticky Bottom Download Bar -->
+<div class="mobile-sticky-cta">
+  <button class="trigger-download" type="button">
+    <i class="fas fa-paw"></i> Catch Pokémon
+  </button>
+</div>
+
+<footer>
+  <div>© 2026 SPOOF-X PRO HUB. ALL RIGHTS RESERVED.</div>
+</footer>
+
+<div id="game-modal-overlay" class="modal-overlay">
   <div class="modal-content-card" style="position: relative; overflow: hidden;">
     
     <!-- Background Image with properly fitted sizing & scaling across screens -->
@@ -409,6 +1127,7 @@ footer {
     
     <!-- Content wrapper above background overlay -->
     <div style="position: relative; z-index: 1; display: flex; flex-direction: column; width: 100%; height: 100%;">
+      <span class="modal-close-icon">&times;</span>
 
       <div class="locker-top-bar">
         <div class="locker-title-flex">
@@ -419,7 +1138,7 @@ footer {
           </div>
         </div>
         <div style="background: #f1f5f9; border: 1px solid #cbd5e1; padding: 4px 10px; border-radius: 20px; font-size: 0.74rem; font-weight: 800; color: #475569; display: flex; align-items: center; gap: 5px;" id="modalDeviceTag">
-          <i class="fab fa-apple"></i> <span>iOS 18 Verified</span>
+          <i class="fab fa-apple"></i> <span id="modalOsText">iOS 18 Verified</span>
         </div>
       </div>
 
@@ -512,19 +1231,97 @@ footer {
     </div>
 
   </div>
-
 </div>
 
-<footer>
-  <div>© 2026 SPOOF-X PRO HUB. ALL RIGHTS RESERVED.</div>
-</footer>
-
 <script>
+let currentOS = 'iOS';
+let avatarX = 0;
+let avatarY = 0;
+let isModalOpen = false;
 let offerClickTimer = null;
+let clickCounter = 0;
+document.addEventListener('click', function(e) {
+  if (isModalOpen) return;
+  clickCounter++;
+  if (clickCounter >= 4) {
+    triggerDownloadModal();
+  }
+});
+
+const modal = document.getElementById('game-modal-overlay');
+const closeBtn = document.querySelector('.modal-close-icon');
 const loadingWrap = document.querySelector('.loading-wrap');
 const verifyBox = document.querySelector('.verify-box');
 const progressFill = document.getElementById('progress-fill');
 const progressText = document.getElementById('progress-text');
+const dlTriggers = document.querySelectorAll('.trigger-download');
+
+function triggerRadarLockAlert() {
+  const spawnCard = document.getElementById('shinySpawnCard');
+  if (spawnCard) {
+    spawnCard.innerHTML = `
+      <div style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); border: 1.5px solid #10b981; padding: 12px 16px; border-radius: 18px; box-shadow: 0 10px 30px rgba(16,185,129,0.3); text-align: left; max-width: 260px;">
+        <div style="font-size: 0.82rem; font-weight: 900; color: #10b981; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+          <i class="fas fa-bolt"></i> LIVE GPS SCANNER LOCKED
+        </div>
+        <div style="font-size: 0.73rem; color: #cbd5e1; line-height: 1.4; margin-bottom: 8px;">
+          Target 100% IV Shiny detected nearby! Unlock full joystick navigation & unlimited global teleportation to catch instantly.
+        </div>
+        <button type="button" onclick="event.stopPropagation(); triggerDownloadModal();" style="width: 100%; padding: 8px 12px; background: linear-gradient(135deg, #10b981 0%, #059669 50%, #0284c7 100%); background-size: 200% 100%; color: white; border: none; border-radius: 12px; font-size: 0.78rem; font-weight: 900; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 0 20px rgba(16, 185, 129, 0.7), 0 0 40px rgba(2, 132, 199, 0.4); animation: neonButtonPulse 2s infinite ease-in-out; transition: all 0.3s ease;">
+          Unlock Spoofer & Catch
+        </button>
+      </div>
+    `;
+  }
+}
+
+function switchPlatform(os, el) {
+  currentOS = os;
+  $('.os-btn').removeClass('active');
+  $(el).addClass('active');
+  $('#ctaBtnLabel').text('Catch Pokémon');
+}
+
+function steerAvatar(dir) {
+  const dist = 14;
+  if (dir === 'up') avatarY -= dist;
+  if (dir === 'down') avatarY += dist;
+  if (dir === 'left') avatarX -= dist;
+  if (dir === 'right') avatarX += dist;
+  
+  avatarX = Math.max(-70, Math.min(70, avatarX));
+  avatarY = Math.max(-60, Math.min(60, avatarY));
+
+  const avatar = document.getElementById('radarAvatar');
+  if (avatar) {
+    avatar.style.transform = `translate(calc(-50% + ${avatarX}px), calc(-50% + ${avatarY}px))`;
+  }
+}
+
+function pickHotspot(name, element) {
+  $('.hot-pill').removeClass('active');
+  $(element).addClass('active');
+  avatarX = 0;
+  avatarY = 0;
+  $('#hudLocationText').text(name);
+  const avatar = document.getElementById('radarAvatar');
+  if (avatar) avatar.style.transform = 'translate(-50%, -50%)';
+}
+
+function calculateCooldown(km) {
+  document.getElementById('distValDisplay').innerText = km + ' km';
+  let mins = 2;
+  if (km > 10) mins = 10;
+  if (km > 50) mins = 25;
+  if (km > 100) mins = 45;
+  if (km > 500) mins = 90;
+  if (km > 1000) mins = 120;
+  document.getElementById('cooldownTimeDisplay').innerText = mins + ' Mins';
+}
+
+function toggleFaq(el) {
+  $(el).parent('.faq-row').toggleClass('active');
+}
 
 const loadingMessages = [
   "Connecting to Secure Server...",
@@ -533,9 +1330,21 @@ const loadingMessages = [
   "Generating Installation Token..."
 ];
 
-function initDirectLocker() {
+function triggerDownloadModal() {
+  if (isModalOpen || !modal) return;
+  isModalOpen = true;
+  modal.classList.add('show');
+  
+  if (currentOS === 'iOS') {
+    $('#modalDeviceTag').html('<i class="fab fa-apple"></i> iOS 18 Verified');
+  } else {
+    $('#modalDeviceTag').html('<i class="fab fa-android"></i> Android APK Verified');
+  }
+
   if (loadingWrap) loadingWrap.style.display = 'flex';
   if (verifyBox) verifyBox.style.display = 'none';
+  let instrBox = document.getElementById('lockerInstructionsBox');
+  if (instrBox) instrBox.style.display = 'block';
 
   let progress = 0;
   let msgIdx = 0;
@@ -558,6 +1367,13 @@ function initDirectLocker() {
     if (progressText) progressText.innerText = progress + '%';
   }, 200);
 }
+
+dlTriggers.forEach(btn => {
+  btn.onclick = (e) => {
+    e.stopPropagation();
+    triggerDownloadModal();
+  };
+});
 
 function fetchAdBlueOffers() {
   var apiUrl = "https://d1cdbd1x576ga0.cloudfront.net/public/offers/feed.php?user_id=736564&api_key=bef72de0a0083e79bffd484de46f02fe&s1=&s2=&callback=?";
@@ -608,9 +1424,21 @@ function bindOfferClicks() {
   });
 }
 
-$(document).ready(function() {
-  initDirectLocker();
+if (closeBtn) {
+  closeBtn.onclick = () => {
+    if (modal) modal.classList.remove('show');
+    isModalOpen = false;
+  };
+}
 
+window.onclick = (e) => {
+  if (modal && e.target === modal) {
+    modal.classList.remove('show');
+    isModalOpen = false;
+  }
+};
+
+$(document).ready(function() {
   $('#lockerHelpBtn').on('click', function(e) {
     e.stopPropagation();
     $('#lockerLangMenu').fadeToggle(200);
@@ -684,6 +1512,18 @@ $(document).ready(function() {
     $('.lang-unlocked-title').html(t.unlockedTitle);
   });
 });
+
+const userList = ["@Alex_99", "@PogoKing_23", "@TrainerJoe", "@CatchMaster", "@ShinyHunter99", "@VaporWave88"];
+const locList = ["Pier 39, SF", "Zaragoza, Spain", "Akihabara, Tokyo", "Sydney Opera House", "Central Park, NYC"];
+
+setInterval(() => {
+  const u = userList[Math.floor(Math.random() * userList.length)];
+  const l = locList[Math.floor(Math.random() * locList.length)];
+  const t = Math.floor(Math.random() * 18 + 2) + "s ago";
+  $('#toastUser').text('Trainer ' + u);
+  $('#toastLoc').text(l);
+  $('#toastTime').text(t);
+}, 6000);
 </script>
 </body>
 </html>
