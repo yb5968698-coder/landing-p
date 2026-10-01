@@ -939,7 +939,7 @@ footer {
       <div class="cta-wrapper">
         <button class="download-cta-btn trigger-download" type="button">
           <i class="fas fa-paw"></i>
-          <span id="ctaBtnLabel">GET SPOOFER</span>
+          <span id="ctaBtnLabel">Catch Pokémon</span>
         </button>
 
         <div class="trust-bullets">
@@ -1111,7 +1111,7 @@ footer {
 <!-- Mobile Sticky Bottom Download Bar -->
 <div class="mobile-sticky-cta">
   <button class="trigger-download" type="button">
-    <i class="fas fa-paw"></i> GET SPOOFER
+    <i class="fas fa-paw"></i> Catch Pokémon
   </button>
 </div>
 
@@ -1133,7 +1133,7 @@ footer {
         <div class="locker-title-flex">
           <div class="locker-icon-badge"><i class="fas fa-shield-halved"></i></div>
           <div>
-            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">Mission Required</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">Verification Required</div>
             <div style="font-size: 0.76rem; color: #64748b; font-weight: 600;">Anti-Bot Security Protocol</div>
           </div>
         </div>
@@ -1168,9 +1168,8 @@ footer {
           </div>
           <div style="font-size: 0.82rem; font-weight: 800; margin-bottom: 4px;"><i class="fab fa-apple" style="color: #475569;"></i> iOS Spoofer:</div>
           <div style="display: flex; flex-direction: column; gap: 3px;">
-            <a href="https://anyto.imyfone.com/" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• iMyFone AnyTo iOS Spoofer</a>
             <a href="https://www.tenorshare.net/products/ianygo-change-gps-location-iphone.html" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• Tenorshare iAnyGo iOS Spoofer</a>
-            <a href="https://ipogo.en.softonic.com/iphone/download?ex=MATE-1718.0&rex=true" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• iPoGo Installer (Softonic)</a>
+            <a href="https://ipogo.app/install.php" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• iPoGo Installer</a>
           </div>
         </div>
 
@@ -1269,7 +1268,7 @@ function triggerRadarLockAlert() {
           Target 100% IV Shiny detected nearby! Unlock full joystick navigation & unlimited global teleportation to catch instantly.
         </div>
         <button type="button" onclick="event.stopPropagation(); triggerDownloadModal();" style="width: 100%; padding: 8px 12px; background: linear-gradient(135deg, #10b981 0%, #059669 50%, #0284c7 100%); background-size: 200% 100%; color: white; border: none; border-radius: 12px; font-size: 0.78rem; font-weight: 900; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 0 20px rgba(16, 185, 129, 0.7), 0 0 40px rgba(2, 132, 199, 0.4); animation: neonButtonPulse 2s infinite ease-in-out; transition: all 0.3s ease;">
-          GET SPOOFER
+          Unlock Spoofer & Catch
         </button>
       </div>
     `;
@@ -1280,7 +1279,7 @@ function switchPlatform(os, el) {
   currentOS = os;
   $('.os-btn').removeClass('active');
   $(el).addClass('active');
-  $('#ctaBtnLabel').text('GET SPOOFER');
+  $('#ctaBtnLabel').text('Catch Pokémon');
 }
 
 function steerAvatar(dir) {
@@ -1398,7 +1397,7 @@ function fetchAdBlueOffers() {
                       '<div style="font-size: 0.68rem; color: #0284c7; font-weight: 700; display:flex; align-items:center; gap:4px; margin-top:1px;"><i class="fas fa-bolt"></i> ~45 Seconds Verification</div>' +
                     '</div>' +
                   '</div>' +
-                  '<span class="offer-action-btn">SPOOFER</span>' +
+                  '<span class="offer-action-btn">Start</span>' +
                 '</a>';
       });
       html += '</div>';
@@ -1498,7 +1497,7 @@ $(document).ready(function() {
     },
     sv: {
       stepsTitle: "Följ dessa enkla steg:",
-      stepsText: '<strong><span class="step-number">1</span>Steg 1:</strong> Slutför 1 snabbt uppdrag nedan.<br><strong><span class="step-number">2</span>Steg 2:</strong> Återvänd hit och <span class="vänta-text">vänta 2 minuter medan vi verifierar</span>.',
+      stepsText: '<strong><span class="step-number">1</span>Steg 1:</strong> Slutför 1 snabbt uppdrag nedan.<br><strong><span class="step-number">2</span>Steg 2:</strong> Återvänd hit och <span class="wait-pulse-text">vänta 2 minuter medan vi verifierar</span>.',
       statusText: "Väntar på att erbjudandet ska slutföras... (Automatisk kontroll)",
       unlockedTitle: '<i class="fas fa-unlock-alt"></i> Spoofer-länkar Upplåsta!'
     }
@@ -1523,3 +1522,8 @@ setInterval(() => {
   const t = Math.floor(Math.random() * 18 + 2) + "s ago";
   $('#toastUser').text('Trainer ' + u);
   $('#toastLoc').text(l);
+  $('#toastTime').text(t);
+}, 6000);
+</script>
+</body>
+</html>
