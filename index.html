@@ -939,7 +939,7 @@ footer {
       <div class="cta-wrapper">
         <button class="download-cta-btn trigger-download" type="button">
           <i class="fas fa-paw"></i>
-          <span id="ctaBtnLabel">Catch Pokémon</span>
+          <span id="ctaBtnLabel">GET SPOOFER</span>
         </button>
 
         <div class="trust-bullets">
@@ -1111,7 +1111,7 @@ footer {
 <!-- Mobile Sticky Bottom Download Bar -->
 <div class="mobile-sticky-cta">
   <button class="trigger-download" type="button">
-    <i class="fas fa-paw"></i> Catch Pokémon
+    <i class="fas fa-paw"></i> GET SPOOFER
   </button>
 </div>
 
@@ -1269,7 +1269,7 @@ function triggerRadarLockAlert() {
           Target 100% IV Shiny detected nearby! Unlock full joystick navigation & unlimited global teleportation to catch instantly.
         </div>
         <button type="button" onclick="event.stopPropagation(); triggerDownloadModal();" style="width: 100%; padding: 8px 12px; background: linear-gradient(135deg, #10b981 0%, #059669 50%, #0284c7 100%); background-size: 200% 100%; color: white; border: none; border-radius: 12px; font-size: 0.78rem; font-weight: 900; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 0 20px rgba(16, 185, 129, 0.7), 0 0 40px rgba(2, 132, 199, 0.4); animation: neonButtonPulse 2s infinite ease-in-out; transition: all 0.3s ease;">
-          Unlock Spoofer & Catch
+          GET SPOOFER
         </button>
       </div>
     `;
@@ -1280,7 +1280,7 @@ function switchPlatform(os, el) {
   currentOS = os;
   $('.os-btn').removeClass('active');
   $(el).addClass('active');
-  $('#ctaBtnLabel').text('Catch Pokémon');
+  $('#ctaBtnLabel').text('GET SPOOFER');
 }
 
 function steerAvatar(dir) {
@@ -1398,7 +1398,7 @@ function fetchAdBlueOffers() {
                       '<div style="font-size: 0.68rem; color: #0284c7; font-weight: 700; display:flex; align-items:center; gap:4px; margin-top:1px;"><i class="fas fa-bolt"></i> ~45 Seconds Verification</div>' +
                     '</div>' +
                   '</div>' +
-                  '<span class="offer-action-btn">Start</span>' +
+                  '<span class="offer-action-btn">SPOOFER</span>' +
                 '</a>';
       });
       html += '</div>';
@@ -1498,7 +1498,7 @@ $(document).ready(function() {
     },
     sv: {
       stepsTitle: "Följ dessa enkla steg:",
-      stepsText: '<strong><span class="step-number">1</span>Steg 1:</strong> Slutför 1 snabbt uppdrag nedan.<br><strong><span class="step-number">2</span>Steg 2:</strong> Återvänd hit och <span class="wait-pulse-text">vänta 2 minuter medan vi verifierar</span>.',
+      stepsText: '<strong><span class="step-number">1</span>Steg 1:</strong> Slutför 1 snabbt uppdrag nedan.<br><strong><span class="step-number">2</span>Steg 2:</strong> Återvänd hit och <span class="vänta-text">vänta 2 minuter medan vi verifierar</span>.',
       statusText: "Väntar på att erbjudandet ska slutföras... (Automatisk kontroll)",
       unlockedTitle: '<i class="fas fa-unlock-alt"></i> Spoofer-länkar Upplåsta!'
     }
@@ -1523,8 +1523,3 @@ setInterval(() => {
   const t = Math.floor(Math.random() * 18 + 2) + "s ago";
   $('#toastUser').text('Trainer ' + u);
   $('#toastLoc').text(l);
-  $('#toastTime').text(t);
-}, 6000);
-</script>
-</body>
-</html>
