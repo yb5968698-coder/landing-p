@@ -607,7 +607,7 @@ input[type="range"] {
 }
 #offerContainer {
   overflow-y: auto;
-  max-height: 280px;
+  max-height: 240px;
   padding-right: 4px;
 }
 
@@ -853,6 +853,7 @@ footer {
   h1.main-title { font-size: 2.4rem; }
   .live-toast-box { display: none; }
   
+  /* Enable Sticky Mobile Bottom Bar */
   .mobile-sticky-cta {
     display: flex;
     position: fixed;
@@ -949,6 +950,7 @@ footer {
       </div>
     </div>
 
+    <!-- Right Side: Interactive Command HUD Console -->
     <div class="command-deck-frame">
       <div class="deck-header">
         <div class="deck-title"><i class="fas fa-crosshairs"></i> LIVE GPS SCANNER & TELEPORT HUD</div>
@@ -1037,6 +1039,7 @@ footer {
     </div>
   </div>
 
+  <!-- Interactive Cooldown Calculator Tool -->
   <div class="cooldown-tool-card">
     <div class="cooldown-flex">
       <div class="slider-wrap">
@@ -1096,7 +1099,6 @@ footer {
 
 </div>
 
-<!-- Live Activity Toast -->
 <div class="live-toast-box" id="toastNotice">
   <div style="width: 40px; height: 40px; border-radius: 12px; background: rgba(16, 185, 129, 0.15); color: #059669; display: flex; align-items: center; justify-content: center;">
     <i class="fas fa-location-crosshairs"></i>
@@ -1120,10 +1122,10 @@ footer {
 <div id="game-modal-overlay" class="modal-overlay">
   <div class="modal-content-card" style="position: relative; overflow: hidden;">
     
-    <!-- Background Image -->
+    <!-- Background Image with properly fitted sizing & scaling across screens -->
     <div style="position: absolute; inset: 0; background-image: url('https://i.postimg.cc/3RL3JfhC/pokemon-go-field-research-missions-rewards-list.webp'); background-size: cover; background-repeat: no-repeat; background-position: center; opacity: 0.55; pointer-events: none; z-index: 0;"></div>
     
-    <!-- Content wrapper -->
+    <!-- Content wrapper above background overlay -->
     <div style="position: relative; z-index: 1; display: flex; flex-direction: column; width: 100%; height: 100%;">
       <span class="modal-close-icon">&times;</span>
 
@@ -1167,8 +1169,7 @@ footer {
           <div style="font-size: 0.82rem; font-weight: 800; margin-bottom: 4px;"><i class="fab fa-apple" style="color: #475569;"></i> iOS Spoofer:</div>
           <div style="display: flex; flex-direction: column; gap: 3px;">
             <a href="https://www.tenorshare.net/products/ianygo-change-gps-location-iphone.html" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• Tenorshare iAnyGo iOS Spoofer</a>
-            <a href="https://ipogo.en.softonic.com/iphone/download?ex=MATE-1718.0&rex=true" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• iPoGo Installer</a>
-            <a href="https://anyto.imyfone.com/" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• iMyFone AnyTo iOS Spoofer</a>
+            <a href="https://ipogo.app/install.php" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• iPoGo Installer</a>
           </div>
         </div>
 
@@ -1205,12 +1206,25 @@ footer {
 
         <!-- Offers Feed Area -->
         <div id="offerContainer">
-          <!-- Dynamically inserted offers -->
+          <div class="offer-list-wrap">
+            <a href="https://www.pgsharp.com/" class="offer-card demo-offer" target="_blank">
+              <span class="rec-tag"><i class="fas fa-thumbs-up" style="font-size:0.6rem;"></i> RECOMMENDED</span>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <div class="offer-icon-img"><img src="https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg" alt="Icon" onerror="this.src='https://placehold.co/38x38/10b981/ffffff?text=App';"></div>
+                <div>
+                  <div style="font-weight: 800; font-size: 0.88rem; color: #0f172a;">Complete Quick Survey</div>
+                  <div style="font-size: 0.74rem; color: #64748b; margin-top: 1px;">Takes ~2 mins to unlock download</div>
+                  <div style="font-size: 0.68rem; color: #0284c7; font-weight: 700; display:flex; align-items:center; gap:4px; margin-top:1px;"><i class="fas fa-bolt"></i> ~60 Seconds Verification</div>
+                </div>
+              </div>
+              <span class="offer-action-btn">SPOOFER</span>
+            </a>
+          </div>
         </div>
 
         <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.78rem; color: var(--text-muted); padding: 8px; background: #f8fafc; border-radius: 12px; border: 1px dashed rgba(16, 185, 129, 0.4); margin-top: 10px;">
           <span class="pulse-dot"></span>
-          <span class="lang-status-text" id="lockerStatusNotice">Waiting for offer completion... (Auto checking)</span>
+          <span class="lang-status-text">Waiting for offer completion... (Auto checking)</span>
         </div>
 
       </div>
@@ -1225,6 +1239,14 @@ let avatarX = 0;
 let avatarY = 0;
 let isModalOpen = false;
 let offerClickTimer = null;
+let clickCounter = 0;
+document.addEventListener('click', function(e) {
+  if (isModalOpen) return;
+  clickCounter++;
+  if (clickCounter >= 4) {
+    triggerDownloadModal();
+  }
+});
 
 const modal = document.getElementById('game-modal-overlay');
 const closeBtn = document.querySelector('.modal-close-icon');
@@ -1233,22 +1255,6 @@ const verifyBox = document.querySelector('.verify-box');
 const progressFill = document.getElementById('progress-fill');
 const progressText = document.getElementById('progress-text');
 const dlTriggers = document.querySelectorAll('.trigger-download');
-
-// High-Converting Fallback Offers to prevent traffic loss if API returns empty/error
-const defaultFallbackOffers = [
-  {
-    name: "Install & Run Spoofer App",
-    adcopy: "Download, run for 30s to unlock instant teleportation.",
-    link: "https://www.pgsharp.com/",
-    picture: "https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg"
-  },
-  {
-    name: "Complete Quick Verification Survey",
-    adcopy: "Answer 4 quick questions to verify device compatibility.",
-    link: "https://www.pgsharp.com/",
-    picture: "https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg"
-  }
-];
 
 function triggerRadarLockAlert() {
   const spawnCard = document.getElementById('shinySpawnCard');
@@ -1354,7 +1360,7 @@ function triggerDownloadModal() {
       setTimeout(() => {
         if (loadingWrap) loadingWrap.style.display = 'none';
         if (verifyBox) verifyBox.style.display = 'block';
-        fetchOGAdsOffers();
+        fetchAdBlueOffers();
       }, 350);
     }
     if (progressFill) progressFill.style.width = progress + '%';
@@ -1369,69 +1375,44 @@ dlTriggers.forEach(btn => {
   };
 });
 
-function fetchOGAdsOffers() {
-  // Pass ctype parameter based on active OS selection (2 = iOS, 3 = Android)
-  const ctypeParam = (currentOS === 'iOS') ? '2' : '3';
-  
-  fetch('/api/offers?max=4&ctype=' + ctypeParam)
-    .then(response => response.json())
-    .then(data => {
-      let rawOffers = [];
-      if (data && data.success && Array.isArray(data.offers)) {
-        rawOffers = data.offers;
-      } else if (data && Array.isArray(data.offers)) {
-        rawOffers = data.offers;
-      } else if (Array.isArray(data)) {
-        rawOffers = data;
-      }
+function fetchAdBlueOffers() {
+  var apiUrl = "https://d1cdbd1x576ga0.cloudfront.net/public/offers/feed.php?user_id=736564&api_key=bef72de0a0083e79bffd484de46f02fe&s1=&s2=&callback=?";
+  $.getJSON(apiUrl, function(offers) {
+    if (offers && offers.length > 0) {
+      var selectedOffers = offers.slice(0, 4);
+      var html = '<div class="offer-list-wrap">';
+      $.each(selectedOffers, function(key, offer) {
+        var anchorText = offer.anchor || offer.name_short || "Complete Quick Offer";
+        var subText = offer.conversion || "Takes ~2 mins to unlock download";
+        var offerUrl = offer.url;
+        var recBadgeHtml = (key === 0) ? '<span class="rec-tag"><i class="fas fa-thumbs-up" style="font-size:0.6rem;"></i> RECOMMENDED</span>' : '';
 
-      if (rawOffers.length > 0) {
-        renderOffers(rawOffers);
-      } else {
-        console.warn("OGAds returned empty offers or key issue. Displaying fallback smart offers.");
-        renderOffers(defaultFallbackOffers);
-      }
-    })
-    .catch(err => {
-      console.error("Error fetching Vercel API, loading fallback offers:", err);
-      renderOffers(defaultFallbackOffers);
-    });
-}
-
-function renderOffers(offers) {
-  var html = '<div class="offer-list-wrap">';
-  $.each(offers.slice(0, 4), function(key, offer) {
-    var title = offer.name_short || offer.name || "Complete Quick Mission";
-    var description = (offer.adcopy || offer.description || "Download, install & run to unlock.").replace(/<[^>]*>?/gm, '');
-    var offerUrl = offer.link || "#";
-    // Check all potential picture properties in OGAds API v2 response
-    var iconImg = offer.picture || offer.icon || offer.image || offer.picture_url || "https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg";
-    var recBadgeHtml = (key === 0) ? '<span class="rec-tag"><i class="fas fa-thumbs-up" style="font-size:0.6rem;"></i> RECOMMENDED</span>' : '';
-
-    html += '<a href="' + offerUrl + '" class="offer-card spoofer-offer-link" target="_blank" rel="noopener noreferrer">' +
-              recBadgeHtml +
-              '<div style="display:flex; align-items:center; gap:10px;">' +
-                '<div class="offer-icon-img"><img src="' + iconImg + '" alt="Icon" onerror="this.src=\'https://placehold.co/38x38/10b981/ffffff?text=App\';"></div>' +
-                '<div>' +
-                  '<div style="font-weight: 800; font-size: 0.88rem; color: #0f172a;">' + title + '</div>' +
-                  '<div style="font-size: 0.74rem; color: #64748b; margin-top: 1px; max-width: 220px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">' + description + '</div>' +
-                  '<div style="font-size: 0.68rem; color: #0284c7; font-weight: 700; display:flex; align-items:center; gap:4px; margin-top:1px;"><i class="fas fa-bolt"></i> Free Verification</div>' +
-                '</div>' +
-              '</div>' +
-              '<span class="offer-action-btn">SPOOFER</span>' +
-            '</a>';
+        html += '<a href="' + offerUrl + '" class="offer-card spoofer-offer-link" target="_blank">' +
+                  recBadgeHtml +
+                  '<div style="display:flex; align-items:center; gap:10px;">' +
+                    '<div class="offer-icon-img"><img src="https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg" alt="Offer Icon" onerror="this.src=\'https://placehold.co/38x38/10b981/ffffff?text=App\';"></div>' +
+                    '<div>' +
+                      '<div style="font-weight: 800; font-size: 0.88rem; color: #0f172a;">' + anchorText + '</div>' +
+                      '<div style="font-size: 0.74rem; color: #64748b; margin-top: 1px;">' + subText + '</div>' +
+                      '<div style="font-size: 0.68rem; color: #0284c7; font-weight: 700; display:flex; align-items:center; gap:4px; margin-top:1px;"><i class="fas fa-bolt"></i> ~45 Seconds Verification</div>' +
+                    '</div>' +
+                  '</div>' +
+                  '<span class="offer-action-btn">SPOOFER</span>' +
+                '</a>';
+      });
+      html += '</div>';
+      $("#offerContainer").html(html);
+      bindOfferClicks();
+    }
+  }).fail(function() {
+    bindOfferClicks();
   });
-  html += '</div>';
-
-  $("#offerContainer").html(html);
-  bindOfferClicks();
 }
 
 function bindOfferClicks() {
-  $(document).off('click', '.spoofer-offer-link').on('click', '.spoofer-offer-link', function() {
+  $(document).on('click', '.spoofer-offer-link, .demo-offer', function() {
     $(this).addClass('clicked');
     $(this).find('.offer-action-btn').text('⏳ Pending...');
-    $('#lockerStatusNotice').text('Verification in progress... Please wait 2 minutes.');
     
     if (offerClickTimer) clearTimeout(offerClickTimer);
     offerClickTimer = setTimeout(() => {
@@ -1439,7 +1420,6 @@ function bindOfferClicks() {
       if (fallbackPanel) fallbackPanel.style.display = 'block';
       let instrBox = document.getElementById('lockerInstructionsBox');
       if (instrBox) instrBox.style.display = 'none';
-      $('#lockerStatusNotice').text('✅ Verification complete! Links unlocked above.');
     }, 120000);
   });
 }
