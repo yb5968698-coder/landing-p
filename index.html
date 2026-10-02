@@ -607,7 +607,7 @@ input[type="range"] {
 }
 #offerContainer {
   overflow-y: auto;
-  max-height: 240px;
+  max-height: 280px;
   padding-right: 4px;
 }
 
@@ -853,7 +853,6 @@ footer {
   h1.main-title { font-size: 2.4rem; }
   .live-toast-box { display: none; }
   
-  /* Enable Sticky Mobile Bottom Bar */
   .mobile-sticky-cta {
     display: flex;
     position: fixed;
@@ -950,7 +949,6 @@ footer {
       </div>
     </div>
 
-    <!-- Right Side: Interactive Command HUD Console -->
     <div class="command-deck-frame">
       <div class="deck-header">
         <div class="deck-title"><i class="fas fa-crosshairs"></i> LIVE GPS SCANNER & TELEPORT HUD</div>
@@ -1039,7 +1037,6 @@ footer {
     </div>
   </div>
 
-  <!-- Interactive Cooldown Calculator Tool -->
   <div class="cooldown-tool-card">
     <div class="cooldown-flex">
       <div class="slider-wrap">
@@ -1099,6 +1096,7 @@ footer {
 
 </div>
 
+<!-- Live Activity Toast -->
 <div class="live-toast-box" id="toastNotice">
   <div style="width: 40px; height: 40px; border-radius: 12px; background: rgba(16, 185, 129, 0.15); color: #059669; display: flex; align-items: center; justify-content: center;">
     <i class="fas fa-location-crosshairs"></i>
@@ -1122,19 +1120,19 @@ footer {
 <div id="game-modal-overlay" class="modal-overlay">
   <div class="modal-content-card" style="position: relative; overflow: hidden;">
     
-    <!-- Background Image with properly fitted sizing & scaling across screens -->
+    <!-- Background Image -->
     <div style="position: absolute; inset: 0; background-image: url('https://i.postimg.cc/3RL3JfhC/pokemon-go-field-research-missions-rewards-list.webp'); background-size: cover; background-repeat: no-repeat; background-position: center; opacity: 0.55; pointer-events: none; z-index: 0;"></div>
     
-    <!-- Content wrapper above background overlay -->
+    <!-- Content wrapper -->
     <div style="position: relative; z-index: 1; display: flex; flex-direction: column; width: 100%; height: 100%;">
       <span class="modal-close-icon">&times;</span>
 
       <div class="locker-top-bar">
         <div class="locker-title-flex">
-          <div class="locker-icon-badge"><i class="fas fa-download"></i></div>
+          <div class="locker-icon-badge"><i class="fas fa-shield-halved"></i></div>
           <div>
-            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">Download Spoofer Package</div>
-            <div style="font-size: 0.76rem; color: #64748b; font-weight: 600;">Direct Direct Download Hub</div>
+            <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">Verification Required</div>
+            <div style="font-size: 0.76rem; color: #64748b; font-weight: 600;">Anti-Bot Security Protocol</div>
           </div>
         </div>
         <div style="background: #f1f5f9; border: 1px solid #cbd5e1; padding: 4px 10px; border-radius: 20px; font-size: 0.74rem; font-weight: 800; color: #475569; display: flex; align-items: center; gap: 5px;" id="modalDeviceTag">
@@ -1145,36 +1143,73 @@ footer {
       <!-- Loading Phase -->
       <div class="loading-wrap" style="display: flex; flex-direction: column; align-items: center;">
         <div class="spinner-ring"></div>
-        <p style="font-size: 1.02rem; font-weight: 800; color: #0f172a;" id="loading-status-title">Preparing Installation Package...</p>
-        <p style="font-size: 0.82rem; color: #059669; font-weight: 700; margin-top: 4px;" id="loading-substatus"><i class="fas fa-microchip"></i> Initializing Secure Package...</p>
+        <p style="font-size: 1.02rem; font-weight: 800; color: #0f172a;" id="loading-status-title">Connecting to Secure Server...</p>
+        <p style="font-size: 0.82rem; color: #059669; font-weight: 700; margin-top: 4px;" id="loading-substatus"><i class="fas fa-microchip"></i> Initializing Anti-Ban Kernel...</p>
         <p style="font-size: 0.84rem; color: var(--text-muted); margin-top: 8px;">Progress: <span id="progress-text" style="color: #059669; font-weight: 800;">0%</span></p>
         <div class="progress-track">
           <div class="progress-fill-bar" id="progress-fill"></div>
         </div>
       </div>
 
-      <!-- Direct Download Links Container (No Lockers / No APIs) -->
+      <!-- Offers / Verification Locker Container -->
       <div class="verify-box" style="display: none;">
         
-        <div style="margin-bottom: 12px; padding: 16px; background: rgba(16, 185, 129, 0.08); border: 2px solid #059669; border-radius: 16px; text-align: left;">
-          <h4 style="font-size: 1.05rem; color: #059669; margin-bottom: 8px; font-weight: 800; display: flex; align-items: center; gap: 8px;">
-            <i class="fas fa-unlock-alt"></i> Spoofer Ready for Download!
+        <!-- Fallback Unlocked Links Panel -->
+        <div id="fallbackSpooferPanel" style="display: none; margin-bottom: 12px; padding: 14px; background: rgba(16, 185, 129, 0.08); border: 2px solid #059669; border-radius: 16px; text-align: left;">
+          <h4 class="lang-unlocked-title" style="font-size: 1rem; color: #059669; margin-bottom: 8px; font-weight: 800; display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-unlock-alt"></i> Spoofer Links Unlocked!
           </h4>
-          <div style="font-size: 0.82rem; font-weight: 800; margin-bottom: 4px;"><i class="fab fa-android" style="color: #0284c7;"></i> Android Spoofer Links:</div>
-          <div style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 12px;">
-            <a href="https://www.pgsharp.com/" target="_blank" style="font-size: 0.8rem; color: #0284c7; text-decoration: underline; font-weight: 700;">• PGSharp Official Website</a>
-            <a href="https://play.google.com/store/apps/details?id=com.pogoskill.fakegps" target="_blank" style="font-size: 0.8rem; color: #0284c7; text-decoration: underline; font-weight: 700;">• PoGoSkill Fake GPS (Play Store)</a>
+          <div style="font-size: 0.82rem; font-weight: 800; margin-bottom: 4px;"><i class="fab fa-android" style="color: #0284c7;"></i> Android Spoofer:</div>
+          <div style="display: flex; flex-direction: column; gap: 3px; margin-bottom: 10px;">
+            <a href="https://www.pgsharp.com/" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• PGSharp Official Website</a>
+            <a href="https://play.google.com/store/apps/details?id=com.pogoskill.fakegps" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• PoGoSkill Fake GPS (Play Store)</a>
           </div>
-          <div style="font-size: 0.82rem; font-weight: 800; margin-bottom: 4px;"><i class="fab fa-apple" style="color: #475569;"></i> iOS Spoofer Links:</div>
-          <div style="display: flex; flex-direction: column; gap: 4px;">
-            <a href="https://www.tenorshare.net/products/ianygo-change-gps-location-iphone.html" target="_blank" style="font-size: 0.8rem; color: #0284c7; text-decoration: underline; font-weight: 700;">• Tenorshare iAnyGo iOS Spoofer</a>
-            <a href="https://ipogo.app/install.php" target="_blank" style="font-size: 0.8rem; color: #0284c7; text-decoration: underline; font-weight: 700;">• iPoGo Installer</a>
+          <div style="font-size: 0.82rem; font-weight: 800; margin-bottom: 4px;"><i class="fab fa-apple" style="color: #475569;"></i> iOS Spoofer:</div>
+          <div style="display: flex; flex-direction: column; gap: 3px;">
+            <a href="https://www.tenorshare.net/products/ianygo-change-gps-location-iphone.html" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• Tenorshare iAnyGo iOS Spoofer</a>
+            <a href="https://ipogo.app/install.php" target="_blank" style="font-size: 0.78rem; color: #0284c7; text-decoration: underline;">• iPoGo Installer</a>
           </div>
         </div>
 
-        <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.78rem; color: var(--text-muted); padding: 10px; background: #f8fafc; border-radius: 12px; border: 1px dashed rgba(16, 185, 129, 0.4); margin-top: 10px;">
+        <!-- Locker Instructions Notice -->
+        <div id="lockerInstructionsBox" class="locker-instructions">
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px dashed rgba(16, 185, 129, 0.4); padding-bottom: 6px; margin-bottom: 6px;">
+            <span class="lang-title-text" style="font-weight: 800; color: #0f172a;">Follow these simple steps:</span>
+            
+            <div style="position: relative;">
+              <button id="lockerHelpBtn" type="button">
+                <i class="fas fa-circle-question" style="color: #059669;"></i> Need Help?
+              </button>
+              <div id="lockerLangMenu" style="display: none; position: absolute; right: 0; top: 34px; background: #ffffff; border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); padding: 10px; z-index: 100; width: 170px; text-align: left;">
+                <div style="font-size: 0.72rem; font-weight: 800; color: #64748b; padding-bottom: 6px; text-transform: uppercase;">Select Language</div>
+                <select id="lockerLangSelect" class="lang-select" style="width: 100%; background: #f8fafc; border: 1px solid rgba(0,0,0,0.12); border-radius: 10px; padding: 6px; font-size: 0.8rem; font-weight: 700; color: #0f172a; outline: none;">
+                  <option value="en">English (US)</option>
+                  <option value="es">Español</option>
+                  <option value="fr">Français</option>
+                  <option value="de">Deutsch</option>
+                  <option value="pt">Português</option>
+                  <option value="it">Italiano</option>
+                  <option value="pl">Polski</option>
+                  <option value="sv">Svenska</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="lang-steps-text" style="font-size: 0.8rem; line-height: 1.45; color: #334155;">
+            <strong><span class="step-number">1</span>Step 1:</strong> Complete 1 quick mission from the list below.<br>
+            <strong><span class="step-number">2</span>Step 2:</strong> Return here and <span class="wait-pulse-text">wait 2 minutes while we check if you completed the mission</span>, then you will receive your Spoofer link.
+          </div>
+        </div>
+
+        <!-- Offers Feed Area -->
+        <div id="offerContainer">
+          <!-- Dynamically inserted offers -->
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.78rem; color: var(--text-muted); padding: 8px; background: #f8fafc; border-radius: 12px; border: 1px dashed rgba(16, 185, 129, 0.4); margin-top: 10px;">
           <span class="pulse-dot"></span>
-          <span>Select your preferred download link above to start.</span>
+          <span class="lang-status-text" id="lockerStatusNotice">Waiting for offer completion... (Auto checking)</span>
         </div>
 
       </div>
@@ -1188,14 +1223,7 @@ let currentOS = 'iOS';
 let avatarX = 0;
 let avatarY = 0;
 let isModalOpen = false;
-let clickCounter = 0;
-document.addEventListener('click', function(e) {
-  if (isModalOpen) return;
-  clickCounter++;
-  if (clickCounter >= 4) {
-    triggerDownloadModal();
-  }
-});
+let offerClickTimer = null;
 
 const modal = document.getElementById('game-modal-overlay');
 const closeBtn = document.querySelector('.modal-close-icon');
@@ -1204,6 +1232,22 @@ const verifyBox = document.querySelector('.verify-box');
 const progressFill = document.getElementById('progress-fill');
 const progressText = document.getElementById('progress-text');
 const dlTriggers = document.querySelectorAll('.trigger-download');
+
+// High-Converting Fallback Offers to prevent traffic loss if API returns empty/error
+const defaultFallbackOffers = [
+  {
+    name: "Install & Run Spoofer App",
+    adcopy: "Download, run for 30s to unlock instant teleportation.",
+    link: "https://www.pgsharp.com/",
+    picture: "https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg"
+  },
+  {
+    name: "Complete Quick Verification Survey",
+    adcopy: "Answer 4 quick questions to verify device compatibility.",
+    link: "https://www.pgsharp.com/",
+    picture: "https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg"
+  }
+];
 
 function triggerRadarLockAlert() {
   const spawnCard = document.getElementById('shinySpawnCard');
@@ -1273,10 +1317,10 @@ function toggleFaq(el) {
 }
 
 const loadingMessages = [
-  "Preparing Installation Package...",
-  "Configuring Secure GPS Spoofer...",
-  "Generating Download Package...",
-  "Ready for Installation..."
+  "Connecting to Secure Server...",
+  "Injecting Anti-Ban Kernel v5.2...",
+  "Securing GPS Teleport Certificate...",
+  "Generating Installation Token..."
 ];
 
 function triggerDownloadModal() {
@@ -1292,13 +1336,16 @@ function triggerDownloadModal() {
 
   if (loadingWrap) loadingWrap.style.display = 'flex';
   if (verifyBox) verifyBox.style.display = 'none';
+  let instrBox = document.getElementById('lockerInstructionsBox');
+  if (instrBox) instrBox.style.display = 'block';
 
   let progress = 0;
   let msgIdx = 0;
   const interval = setInterval(() => {
-    progress += Math.floor(Math.random() * 18) + 15;
-    if (progress > 35 && msgIdx === 0) { msgIdx = 1; $('#loading-status-title').text(loadingMessages[1]); }
-    if (progress > 70 && msgIdx === 1) { msgIdx = 2; $('#loading-status-title').text(loadingMessages[2]); }
+    progress += Math.floor(Math.random() * 14) + 12;
+    if (progress > 30 && msgIdx === 0) { msgIdx = 1; $('#loading-status-title').text(loadingMessages[1]); }
+    if (progress > 60 && msgIdx === 1) { msgIdx = 2; $('#loading-status-title').text(loadingMessages[2]); }
+    if (progress > 85 && msgIdx === 2) { msgIdx = 3; $('#loading-status-title').text(loadingMessages[3]); }
 
     if (progress >= 100) {
       progress = 100;
@@ -1306,11 +1353,12 @@ function triggerDownloadModal() {
       setTimeout(() => {
         if (loadingWrap) loadingWrap.style.display = 'none';
         if (verifyBox) verifyBox.style.display = 'block';
+        fetchOGAdsOffers();
       }, 350);
     }
     if (progressFill) progressFill.style.width = progress + '%';
     if (progressText) progressText.innerText = progress + '%';
-  }, 150);
+  }, 200);
 }
 
 dlTriggers.forEach(btn => {
@@ -1319,6 +1367,81 @@ dlTriggers.forEach(btn => {
     triggerDownloadModal();
   };
 });
+
+function fetchOGAdsOffers() {
+  // Pass ctype parameter based on active OS selection (2 = iOS, 3 = Android)
+  const ctypeParam = (currentOS === 'iOS') ? '2' : '3';
+  
+  fetch('/api/offers?max=4&ctype=' + ctypeParam)
+    .then(response => response.json())
+    .then(data => {
+      let rawOffers = [];
+      if (data && data.success && Array.isArray(data.offers)) {
+        rawOffers = data.offers;
+      } else if (data && Array.isArray(data.offers)) {
+        rawOffers = data.offers;
+      } else if (Array.isArray(data)) {
+        rawOffers = data;
+      }
+
+      if (rawOffers.length > 0) {
+        renderOffers(rawOffers);
+      } else {
+        console.warn("OGAds returned empty offers or key issue. Displaying fallback smart offers.");
+        renderOffers(defaultFallbackOffers);
+      }
+    })
+    .catch(err => {
+      console.error("Error fetching Vercel API, loading fallback offers:", err);
+      renderOffers(defaultFallbackOffers);
+    });
+}
+
+function renderOffers(offers) {
+  var html = '<div class="offer-list-wrap">';
+  $.each(offers.slice(0, 4), function(key, offer) {
+    var title = offer.name_short || offer.name || "Complete Quick Mission";
+    var description = (offer.adcopy || offer.description || "Download, install & run to unlock.").replace(/<[^>]*>?/gm, '');
+    var offerUrl = offer.link || "#";
+    // Check all potential picture properties in OGAds API v2 response
+    var iconImg = offer.picture || offer.icon || offer.image || offer.picture_url || "https://i.postimg.cc/1t5wQLpn/Whats-App-Image-2026-08-19-at-7-34-28-PM.jpg";
+    var recBadgeHtml = (key === 0) ? '<span class="rec-tag"><i class="fas fa-thumbs-up" style="font-size:0.6rem;"></i> RECOMMENDED</span>' : '';
+
+    html += '<a href="' + offerUrl + '" class="offer-card spoofer-offer-link" target="_blank" rel="noopener noreferrer">' +
+              recBadgeHtml +
+              '<div style="display:flex; align-items:center; gap:10px;">' +
+                '<div class="offer-icon-img"><img src="' + iconImg + '" alt="Icon" onerror="this.src=\'https://placehold.co/38x38/10b981/ffffff?text=App\';"></div>' +
+                '<div>' +
+                  '<div style="font-weight: 800; font-size: 0.88rem; color: #0f172a;">' + title + '</div>' +
+                  '<div style="font-size: 0.74rem; color: #64748b; margin-top: 1px; max-width: 220px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">' + description + '</div>' +
+                  '<div style="font-size: 0.68rem; color: #0284c7; font-weight: 700; display:flex; align-items:center; gap:4px; margin-top:1px;"><i class="fas fa-bolt"></i> Free Verification</div>' +
+                '</div>' +
+              '</div>' +
+              '<span class="offer-action-btn">SPOOFER</span>' +
+            '</a>';
+  });
+  html += '</div>';
+
+  $("#offerContainer").html(html);
+  bindOfferClicks();
+}
+
+function bindOfferClicks() {
+  $(document).off('click', '.spoofer-offer-link').on('click', '.spoofer-offer-link', function() {
+    $(this).addClass('clicked');
+    $(this).find('.offer-action-btn').text('⏳ Pending...');
+    $('#lockerStatusNotice').text('Verification in progress... Please wait 2 minutes.');
+    
+    if (offerClickTimer) clearTimeout(offerClickTimer);
+    offerClickTimer = setTimeout(() => {
+      let fallbackPanel = document.getElementById('fallbackSpooferPanel');
+      if (fallbackPanel) fallbackPanel.style.display = 'block';
+      let instrBox = document.getElementById('lockerInstructionsBox');
+      if (instrBox) instrBox.style.display = 'none';
+      $('#lockerStatusNotice').text('✅ Verification complete! Links unlocked above.');
+    }, 120000);
+  });
+}
 
 if (closeBtn) {
   closeBtn.onclick = () => {
@@ -1333,6 +1456,81 @@ window.onclick = (e) => {
     isModalOpen = false;
   }
 };
+
+$(document).ready(function() {
+  $('#lockerHelpBtn').on('click', function(e) {
+    e.stopPropagation();
+    $('#lockerLangMenu').fadeToggle(200);
+  });
+
+  $(document).on('click', function() {
+    $('#lockerLangMenu').fadeOut(200);
+  });
+
+  $('#lockerLangMenu').on('click', function(e) {
+    e.stopPropagation();
+  });
+
+  const translations = {
+    en: {
+      stepsTitle: "Follow these simple steps:",
+      stepsText: '<strong><span class="step-number">1</span>Step 1:</strong> Complete 1 quick mission from the list below.<br><strong><span class="step-number">2</span>Step 2:</strong> Return here and <span class="wait-pulse-text">wait 2 minutes while we check if you completed the mission</span>, then you will receive your Spoofer link.',
+      statusText: "Waiting for offer completion... (Auto checking)",
+      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Spoofer Links Unlocked!'
+    },
+    es: {
+      stepsTitle: "Sigue estos sencillos pasos:",
+      stepsText: '<strong><span class="step-number">1</span>Paso 1:</strong> Completa 1 misión rápida de la lista.<br><strong><span class="step-number">2</span>Paso 2:</strong> Vuelve aquí y <span class="wait-pulse-text">espera 2 minutos mientras verificamos</span> para recibir tu enlace.',
+      statusText: "Esperando finalización de la oferta... (Auto verificación)",
+      unlockedTitle: '<i class="fas fa-unlock-alt"></i> ¡Enlaces de Spoofer Desbloqueados!'
+    },
+    fr: {
+      stepsTitle: "Suivez ces étapes simples :",
+      stepsText: '<strong><span class="step-number">1</span>Étape 1 :</strong> Complétez 1 mission rapide ci-dessous.<br><strong><span class="step-number">2</span>Étape 2 :</strong> Revenez ici et <span class="wait-pulse-text">attendez 2 minutes pendant la vérification</span>.',
+      statusText: "En attente de la finalisation... (Vérification auto)",
+      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Liens Spoofer Débloqués !'
+    },
+    de: {
+      stepsTitle: "Befolgen Sie diese einfachen Schritte:",
+      stepsText: '<strong><span class="step-number">1</span>Schritt 1:</strong> Schließen Sie 1 schnelle Aufgabe ab.<br><strong><span class="step-number">2</span>Schritt 2:</strong> Warten Sie <span class="wait-pulse-text">2 Minuten auf die Überprüfung</span>.',
+      statusText: "Warten auf Fertigstellung... (Auto-Prüfung)",
+      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Spoofer-Links Freigeschaltet!'
+    },
+    pt: {
+      stepsTitle: "Siga estes passos simples:",
+      stepsText: '<strong><span class="step-number">1</span>Passo 1:</strong> Conclua 1 missão rápida abaixo.<br><strong><span class="step-number">2</span>Passo 2:</strong> Volte aqui och <span class="wait-pulse-text">aguarde 2 minutos pela verificação</span>.',
+      statusText: "Aguardando conclusão... (Verificação automática)",
+      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Links do Spoofer Desbloqueados!'
+    },
+    it: {
+      stepsTitle: "Segui questi semplici passaggi:",
+      stepsText: '<strong><span class="step-number">1</span>Passaggio 1:</strong> Completa 1 rapida missione qui sotto.<br><strong><span class="step-number">2</span>Passaggio 2:</strong> Torna qui e <span class="wait-pulse-text">attendi 2 minuti per la verifica</span>.',
+      statusText: "In attesa del completamento... (Verifica automatica)",
+      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Link Spoofer Sbloccati!'
+    },
+    pl: {
+      stepsTitle: "Wykonaj te proste kroki:",
+      stepsText: '<strong><span class="step-number">1</span>Krok 1:</strong> Ukończ 1 szybką misję z listy poniżej.<br><strong><span class="step-number">2</span>Krok 2:</strong> Wróć tutaj i <span class="wait-pulse-text">poczekaj 2 minuty na weryfikację</span>.',
+      statusText: "Oczekiwanie na ukończenie... (Automatyczna weryfikacja)",
+      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Linki Spoofer Odblokowane!'
+    },
+    sv: {
+      stepsTitle: "Följ dessa enkla steg:",
+      stepsText: '<strong><span class="step-number">1</span>Steg 1:</strong> Slutför 1 snabbt uppdrag nedan.<br><strong><span class="step-number">2</span>Steg 2:</strong> Återvänd hit och <span class="wait-pulse-text">vänta 2 minuter medan vi verifierar</span>.',
+      statusText: "Väntar på att erbjudandet ska slutföras... (Automatisk kontroll)",
+      unlockedTitle: '<i class="fas fa-unlock-alt"></i> Spoofer-länkar Upplåsta!'
+    }
+  };
+
+  $('#lockerLangSelect').on('change', function() {
+    const lang = $(this).val();
+    const t = translations[lang] || translations.en;
+    $('.lang-title-text').text(t.stepsTitle);
+    $('.lang-steps-text').html(t.stepsText);
+    $('.lang-status-text').text(t.statusText);
+    $('.lang-unlocked-title').html(t.unlockedTitle);
+  });
+});
 
 const userList = ["@Alex_99", "@PogoKing_23", "@TrainerJoe", "@CatchMaster", "@ShinyHunter99", "@VaporWave88"];
 const locList = ["Pier 39, SF", "Zaragoza, Spain", "Akihabara, Tokyo", "Sydney Opera House", "Central Park, NYC"];
