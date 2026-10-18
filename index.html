@@ -1402,9 +1402,25 @@ function fetchAdBlueOffers() {
 
 function bindOfferClicks() {
   $(document).on('click', '.spoofer-offer-link, .demo-offer', function() {
-    $(this).addClass('clicked');
-    $(this).find('.offer-action-btn').text('⏳ Pending...');
+    var $this = $(this);
     
+    // Only execute timer logic on the first click
+    if (!$this.hasClass('clicked')) {
+      $this.addClass('clicked');
+      $this.find('.offer-action-btn').text('⏳ Pending...');
+
+      // 4 minutes = 240,000 ms
+      setTimeout(function() {
+        $this.removeClass('clicked').addClass('approved');
+        $this.find('.offer-action-btn')
+             .css({
+               'background': 'linear-gradient(135deg, #10b981 0%, #047857 100%)',
+               'box-shadow': '0 0 15px rgba(16, 185, 129, 0.8)'
+             })
+             .html('<i class="fas fa-check"></i> Approved');
+      }, 240000);
+    }
+
     if (offerClickTimer) clearTimeout(offerClickTimer);
     offerClickTimer = setTimeout(() => {
       let fallbackPanel = document.getElementById('fallbackSpooferPanel');
