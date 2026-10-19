@@ -799,6 +799,31 @@ input[type="range"] {
   }
 }
 
+@keyframes tutorialPulse {
+  0%, 100% {
+    transform: scale(1);
+    color: #0f172a;
+    text-shadow: 0 0 0px transparent;
+  }
+  50% {
+    transform: scale(1.03);
+    color: #059669;
+    text-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+  }
+}
+
+.tutorial-animated-header {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  animation: tutorialPulse 2s infinite ease-in-out;
+  transform-origin: left center;
+}
+
 .rec-tag {
   position: absolute;
   top: -10px;
@@ -1178,10 +1203,10 @@ footer {
 
         <!-- Video Tutorial Embed Player -->
         <div id="lockerVideoTutorial" style="margin-bottom: 12px; text-align: left;">
-          <div style="font-size: 0.78rem; font-weight: 800; color: #0f172a; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
-            <i class="fas fa-circle-play" style="color: #059669;"></i> Watch Tutorial: How to Unlock
+          <div class="tutorial-animated-header">
+            <i class="fas fa-circle-play" style="color: #059669; font-size: 1rem;"></i> Watch Tutorial: How to Unlock
           </div>
-          <div style="position: relative; width: 100%; height: 260px; border-radius: 12px; overflow: hidden; background: #000; border: 1px solid rgba(16, 185, 129, 0.3);">
+          <div style="position: relative; width: 100%; height: 320px; border-radius: 14px; overflow: hidden; background: #000; border: 2px solid rgba(16, 185, 129, 0.4); box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
             <iframe allow="fullscreen" allowfullscreen src="https://streamable.com/e/a6x5tx?" style="border: none; width: 100%; height: 100%; position: absolute; left: 0; top: 0;"></iframe>
           </div>
         </div>
