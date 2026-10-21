@@ -787,36 +787,49 @@ input[type="range"] {
 }
 
 .tutorial-animated-header {
-  font-size: 0.98rem;
-  font-weight: 800;
-  color: #059669;
-  background: rgba(16, 185, 129, 0.12);
-  border: 2px solid rgba(16, 185, 129, 0.5);
-  border-radius: 14px;
-  padding: 12px 16px;
-  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 900;
+  color: #ffffff;
+  background: linear-gradient(135deg, #059669 0%, #10b981 50%, #0284c7 100%);
+  background-size: 200% 200%;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  padding: 14px 20px;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
-  animation: explosiveBoxPulse 1.6s infinite ease-in-out, glowPulse 2s infinite ease-in-out;
+  gap: 10px;
+  animation: watchTutorialGlow 2s infinite ease-in-out, gradientShift 4s ease infinite;
   cursor: pointer;
   user-select: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5), 0 8px 20px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
 }
 
 .tutorial-animated-header:hover {
-  background: rgba(16, 185, 129, 0.22);
-  transform: translateY(-2px) scale(1.02);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 0 35px rgba(16, 185, 129, 0.9), 0 0 50px rgba(2, 132, 199, 0.6);
+  border-color: #ffffff;
 }
 
-@keyframes glowPulse {
+@keyframes watchTutorialGlow {
   0%, 100% {
-    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3), inset 0 0 8px rgba(16, 185, 129, 0.15);
+    box-shadow: 0 0 18px rgba(16, 185, 129, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.4);
+    transform: scale(1);
   }
   50% {
-    box-shadow: 0 0 25px rgba(16, 185, 129, 0.85), 0 0 40px rgba(2, 132, 199, 0.4), inset 0 0 14px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 0 32px rgba(16, 185, 129, 0.95), 0 0 45px rgba(2, 132, 199, 0.7), inset 0 0 16px rgba(255, 255, 255, 0.7);
+    transform: scale(1.02);
   }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .rec-tag {
@@ -1199,7 +1212,13 @@ footer {
         <!-- Video Tutorial Embed Player -->
         <div id="lockerVideoTutorial" style="margin-bottom: 12px; text-align: left;">
           <div class="tutorial-animated-header" onclick="$('#tutorialIframeWrap').slideToggle(300);">
-            <i class="fas fa-circle-play" style="color: #059669; font-size: 1rem;"></i> Watch Tutorial: How to Unlock <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px; color: #059669;"></i>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="background: rgba(255,255,255,0.25); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(255,255,255,0.5);">
+                <i class="fas fa-play" style="color: #ffffff; font-size: 0.85rem; margin-left: 2px;"></i>
+              </span>
+              <span>Watch Tutorial: How to Unlock</span>
+            </div>
+            <i class="fas fa-chevron-down" style="font-size: 0.85rem; color: #ffffff;"></i>
           </div>
           <div id="tutorialIframeWrap" style="display: none; position: relative; width: 100%; height: 380px; border-radius: 14px; overflow: hidden; background: #000; border: 2px solid rgba(16, 185, 129, 0.4); box-shadow: 0 4px 15px rgba(0,0,0,0.15); margin-top: 6px;">
             <iframe allow="fullscreen" allowfullscreen src="https://streamable.com/e/a6x5tx?" style="border: none; width: 100%; height: 100%; position: absolute; left: 0; top: 0;"></iframe>
